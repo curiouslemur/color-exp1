@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { addDoc, collection, doc, getFirestore, setDoc } from 'firebase/firestore'
+import { doc, getFirestore, setDoc } from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_APIKEY,
