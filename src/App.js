@@ -1,17 +1,20 @@
 import './App.css';
 import Button from '@mui/material/Button';
-
+import * as dao from './_utils/firebase-config'
 
 const onClick = () => {
-  alert("hello " + process.env.REACT_APP_APIKEY)
+  let doc = {
+    key1: "aaa",
+    key2: "bbb"
+  }
+  dao.logFs("userId1", doc, "en", "exp1")
+  // alert(JSON.stringify(doc))
 }
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Here starts the app. The secret is: <br />
-        <b>{process.env.REACT_APP_TEST_SECRET}</b>
         <Button onClick={onClick}>Click me</Button>
       </header>
     </div>
