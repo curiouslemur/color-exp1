@@ -12,8 +12,8 @@ import { loadPages_inLang } from './_utils/page-loader'
 
 
 function App() {
-
-  // const [searchParams, setSearchParams] = useSearchParams();
+  // Uncomment the two lines below to collect experiment language from the experiment link ?lang=en
+  // const [searchParams, setSearchParams] = useSearchParams(); 
   // const expLang = searchParams.get("lang")
   const expLang = "en"
   const expPages = loadPages_inLang(expLang) // these are the pages to be used depending on the language of the exp
