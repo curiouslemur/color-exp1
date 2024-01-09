@@ -18,24 +18,26 @@ function App() {
   const expLang = "en"
   const expPages = loadPages_inLang(expLang) // these are the pages to be used depending on the language of the exp
 
-  const meta = { language: expLang, expName: expLang + 'exp1' }
+  console.log(expPages.ConsentLabels)
+
+  const meta = { language: expLang, expName: expLang + 'exp1', title: "color-exp1" }
   const navigate = useNavigate()
   const subdom = "/color-exp1"
-  console.log(expLang)
 
   return (
     <StudyContext.Provider value={{ expLang }}>
       <PageMeta meta={meta} />
       <Routes>
         <Route path={subdom} element={<navigator.Consent config={meta} navigate={navigate}
-          nextUrl={subdom + "/disp"} pages={expPages} />} />
+          nextUrl={subdom + "/disp"} expPages={expPages} />} />
         <Route path={subdom + '/disp'} element={<navigator.Display config={meta} navigate={navigate}
-          nextUrl={subdom + "/intro"} pages={expPages} />} />
+          nextUrl={subdom + "/intro"} expPages={expPages} />} />
         <Route path={subdom + "/intro"} element={<navigator.Intro config={meta} navigate={navigate}
-          nextUrl={subdom + "/trial"} pages={expPages} />} />
+          nextUrl={subdom + "/trial"} expPages={expPages} />} />
         <Route path={subdom + "/trial"} element={<navigator.Trial config={meta} navigate={navigate}
-          nextUrl={subdom + "/outro"} pages={expPages} />} />
-        <Route path={subdom + "/outro"} element={<navigator.Trial config={meta} navigate={navigate} pages={expPages} />} />
+          nextUrl={subdom + "/outro"} expPages={expPages} />} />
+        <Route path={subdom + "/outro"} element={<navigator.Trial config={meta} navigate={navigate}
+          expPages={expPages} />} />
       </Routes>
     </StudyContext.Provider>
   );
