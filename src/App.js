@@ -17,12 +17,9 @@ function App() {
 
   const meta = { language: expLang, expName: expLang + 'exp1' }
 
-  const testContext1 = 1234
-  const testContext2 = "Hello context"
-
 
   return (
-    <StudyContext.Provider value={{ testContext1, testContext2, expLang }}>
+    <StudyContext.Provider value={{ expLang }}>
       <PageMeta meta={meta} />
       <Routes>
         <Route path="/color-exp1" element={<navigator.Consent config={meta}
