@@ -1,14 +1,15 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Routes, Route } from 'react-router-dom';
 
-import { ConsentEn } from "./locals/english/consentEn"
+// import ConsentEn from './locals/english/consentEn';
+import * as navigator from './_components/_route'
 
 import './App.css';
 
 import { StudyContext } from './_utils/contexts';
 import { loadPages_inLang } from './_utils/page-loader'
 
-import Button from '@mui/material/Button';
 
 function App() {
   const expLang = "en"
@@ -19,15 +20,14 @@ function App() {
   const testContext1 = 1234
   const testContext2 = "Hello context"
 
+
   return (
     <StudyContext.Provider value={{ testContext1, testContext2, expLang }}>
       <PageMeta meta={meta} />
-      <ConsentEn />
-      <div className="App">
-        <header className="App-header">
-          <Button>Click me</Button>
-        </header>
-      </div>
+      <Routes>
+        <Route path="/color-exp1" element={<navigator.Consent config={meta}
+          pages={expPages} />} />
+      </Routes>
     </StudyContext.Provider>
   );
 }
