@@ -1,11 +1,13 @@
 import Consent from "./consent";
-// import Intro from "./intro";
+import Display from "./display"
+import Intro from "./intro";
 // import Trial from './trial';
 // import Outro from "./outro";
 
 export {
     Consent,
-    // Intro,
+    Display,
+    Intro,
     // Trial,
     // Outro
 }
