@@ -5,7 +5,7 @@ import React from "react";
 export const Outro = (props) => {
     return (
         <>
-            This is the main Outro page
+            This is the main Outro page!!!
         </>
     )
 }

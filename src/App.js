@@ -36,7 +36,7 @@ function App() {
           nextUrl={subdom + "/trial"} expPages={expPages} />} />
         <Route path={subdom + "/trial"} element={<navigator.Trial config={meta} navigate={navigate}
           nextUrl={subdom + "/outro"} expPages={expPages} />} />
-        <Route path={subdom + "/outro"} element={<navigator.Trial config={meta} navigate={navigate}
+        <Route path={subdom + "/outro"} element={<navigator.Outro config={meta} navigate={navigate}
           expPages={expPages} />} />
       </Routes>
     </StudyContext.Provider>
