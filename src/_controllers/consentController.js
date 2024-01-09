@@ -6,6 +6,6 @@ export const generateSessionID = () => {
     return "2024" + m + d.getDate() + "-" + d.getHours() + d.getMinutes() + "-" + d.getSeconds() + d.getMilliseconds()
 }
 
-export const onClickStart = (navigate) => {
-    navigate('/disp')
+export const onClickStart = (navigate, nextUrl) => {
+    navigate(nextUrl)
 }

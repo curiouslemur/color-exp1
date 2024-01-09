@@ -11,7 +11,7 @@ export const Consent = (props) => {
         <>
             This is the main consent. And again, Language is <b>{expLang}</b>
             <br />
-            <Button onClick={(nav) => cc.onClickStart(props.navigate)}> Start </Button>
+            <Button onClick={(nav, nu) => cc.onClickStart(props.navigate, props.nextUrl)}> Start </Button>
         </>
     )
 }

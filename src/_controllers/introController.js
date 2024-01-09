@@ -1,3 +1,3 @@
-export const onClickStart = (navigate) => {
-    navigate('/trial')
+export const onClickStart = (navigate, nextUrl) => {
+    navigate(nextUrl)
 }

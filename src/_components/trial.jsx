@@ -6,7 +6,7 @@ export const Trial = (props) => {
     return (
         <>
             This is the main trial page
-            <Button onClick={(nav) => tc.onClickNext(props.navigate)}>Next</Button>
+            <Button onClick={(nav, nu) => tc.onClickNext(props.navigate, props.nextUrl)}>Next</Button>
         </>
     )
 }

@@ -8,7 +8,7 @@ export const Intro = (props) => {
         <>
             This is the main Intro Page
             <br />
-            <Button onClick={(nav) => ic.onClickStart(props.navigate)}> Next </Button>
+            <Button onClick={(nav, nu) => ic.onClickStart(props.navigate, props.nextUrl)}> Next </Button>
         </>
     )
 }

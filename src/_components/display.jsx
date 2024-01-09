@@ -8,7 +8,7 @@ export const Display = (props) => {
     return (
         <>
             This is the main Display Page
-            <Button onClick={(nav) => dc.onClickNext(props.navigate)}> Next </Button>
+            <Button onClick={(nav, nu) => dc.onClickNext(props.navigate, props.nextUrl)}> Next </Button>
         </>
     )
 }
