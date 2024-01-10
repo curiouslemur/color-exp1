@@ -9,7 +9,7 @@ export const Intro = (props) => {
         document.body.classList.add('intro-body');
     }, []);
 
-    const labels = props.expPages.IntroLabels
+    // const labels = props.expPages.IntroLabels
     return (
         <>
             This is the main Intro Page
