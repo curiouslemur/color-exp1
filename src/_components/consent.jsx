@@ -25,9 +25,9 @@ const styles = {
 //     { title: 'Pulp Fiction', year: 1994 }]
 
 export const Consent = (props) => {
-    const [disabledButton, setDisabledButton] = React.useState(false);
+    const [disabledButton, setDisabledButton] = React.useState(true);
     const [countryRes, setCountryRes] = useState("")
-    const [countryResLeng, setCountryResLen] = useState("")
+    const [countryResLen, setCountryResLen] = useState("")
     const [countryResLongest, setCountryResLongest] = useState("")
 
     useEffect(() => { document.body.classList.add('consent-body'); }, []);
@@ -53,42 +53,35 @@ export const Consent = (props) => {
                             // value={countryRes}
                             options={countryNames}
                             getOptionLabel={(option) => option.name || ""}
-                            onChange={(e, key, setter, scs) => cc.onChangeField(e, "countryRes", setCountryRes, setDisabledButton)}
+                            onChange={(e, val, key, scs) => {
+                                if (val !== null) { cc.onChangeField(val.name, "countryRes", setDisabledButton) }
+                                else { cc.onChangeField({ name: "" }, "countryRes", setDisabledButton) }
+                            }}
+                            // onChange={(e, newVal) => { console.log(countryRes); setCountryRes(newVal.name) }}
                             renderInput={(params) => (
-                                <TextField
-                                    {...params}
-                                    variant="standard"
+                                <TextField  {...params} variant="standard"
                                     // label={labels.countryResLabel}
-                                    placeholder={labels.countryResLabel}
-                                />
-                            )}
+                                    placeholder={labels.countryResLabel} />)}
                         />
                     </Box>
-                    <Box component="form" autoComplete="off" // noValidate
-                    >
+                    <Box component="form" autoComplete="off" >
                         <InputLabel>{labels.countryResLenQ}</InputLabel>
                         <TextField required id="country-res-duration-field"
-                            variant="standard"
-                            placeholder=""
-                            onChange={(e) => { setCountryResLen(e.target.val) }}
+                            variant="standard" placeholder=""
+                            onChange={(e) => { console.log(countryResLen); setCountryResLen(e.target.val) }}
                         />
                     </Box>
                     <Box>
                         <InputLabel>{labels.countryResLongestQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '50ch' }}
-                            id="country-res-longest-select"
+                        <Autocomplete style={{ maxWidth: '50ch' }} id="country-res-longest-select"
                             options={countryNames}
                             getOptionLabel={(option) => option.name}
-                            onChange={(newVal) => { setCountryResLongest(newVal.name) }}
+                            onChange={(newVal) => { console.log(countryResLen); setCountryResLongest(newVal.name) }}
                             renderInput={(params) => (
                                 <TextField {...params} variant="standard"
-                                    placeholder={labels.countryResLongestLabel}
-                                />
-                            )}
+                                    placeholder={labels.countryResLongestLabel} />)}
                         />
                     </Box>
-
-                    <br />
                 </Stack>
                 <Button style={{ marginTop: '10px' }}
                     variant="contained"

@@ -43,12 +43,25 @@ export const onClickStart = (navigate, nextUrl) => {
     navigate(nextUrl)
 }
 
-export const onChangeField = (e, key, setter, setCannotStart) => {
-    setCannotStart(false)
-    if (setter != null) {
-        setter(e.target.value)
-    }
-    demography[key] = e.target.value
+// export const onChangeField = (e, key, setter, setCannotStart) => {
+//     setCannotStart(false)
+//     if (setter != null) {
+//         setter(e.target.value)
+//     }
+//     demography[key] = e.target.value
+//     sessionStorage.setItem("demography", JSON.stringify(demography))
+//     // checkStart(demography, setCannotStart)
+// }
+
+
+const checkStart = (test, sdb) => {
+    if (test.countryRes.length > 0) { sdb(false) } else { sdb(true) }
+}
+
+
+export const onChangeField = (value, key, setDisabledButton) => {
+    setDisabledButton(false)
+    demography[key] = value
     sessionStorage.setItem("demography", JSON.stringify(demography))
-    // checkStart(demography, setCannotStart)
+    checkStart(demography, setDisabledButton)
 }
