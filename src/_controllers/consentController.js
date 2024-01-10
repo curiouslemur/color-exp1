@@ -29,8 +29,8 @@ var demography = {
     countryRes: "",
     countryResLen: "",
     countryResLongest: "",
-    firstLanguage: "",
-    secondLanguage: "",
+    languageNative: "",
+    languageOther: "",
     age: "",
     gender: "",
     visFamiliarity: "",
@@ -61,9 +61,9 @@ const checkStart = (dem, sdb) => {
     if (dem.countryRes.length > 0
         & dem.countryResLen.length > 0
         & dem.countryResLongest.length > 0
+        & dem.langNative.length > 0
     ) { sdb(false) } else { sdb(true) }
 }
-
 
 export const onChangeField = (value, key, setDisabledButton) => {
     setDisabledButton(false)

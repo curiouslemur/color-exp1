@@ -18,6 +18,11 @@ export const ConsentLabelsEn = {
     countryResLenLabel: "",
     countryResLongestQ: "In which country have you lived the longest period of time?",
     countryResLongestLabel: "Longest country of residence",
+
+    langNativeQ: "What is your native language?",
+    langNativeLabel: "Mother tongue",
+    langOtherQ: "What other languages do you know fluently?",
+    langOtherLabel: "List all that apply",
     sign: "Sign"
 }
 

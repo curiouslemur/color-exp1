@@ -1,7 +1,7 @@
 // Routines to load the corresponding pages depending on the language on the experiment
 import * as pages_inEn from "../locals/english/_pagesEn"
 import * as pages_inFr from "../locals/french/_pagesFr"
-import * as countries from "./countries"
+import * as options from "./selectOptions"
 
 export const loadPages_inLang = (lang) => {
     switch (lang) {
@@ -15,12 +15,23 @@ export const loadPages_inLang = (lang) => {
 }
 
 export const loadCountries_inLang = (lang) => {
-    switch (lang) {
-        case "en":
-            return countries.countryNames["en"]
-        case "fr":
-            return countries.countryNames["fr"]
-        default:
-            return "Language unknown -- country names not found"
-    }
+    // switch (lang) {
+    //     case "en":
+    return options.countryNames[lang]
+    // case "fr":
+    //     return options.countryNames["fr"]
+    // default:
+    //     return "Language unknown -- country names not found"
+    // }
+}
+
+export const loadLanguages_inLang = (lang) => {
+    // switch (lang) {
+    //     case "en":
+    return options.languageNames.map(obj => ({ lang: obj[lang], "alpha3": obj.alpha3 }))
+    //     return
+    // default:
+    //     return "Language unknown -- language names not found"
+    // }
+    // return options.languageNames
 }
