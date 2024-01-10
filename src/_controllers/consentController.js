@@ -61,12 +61,14 @@ const checkStart = (dem, sdb) => {
     if (dem.countryRes.length > 0
         & dem.countryResLen.length > 0
         & dem.countryResLongest.length > 0
-        & dem.langNative.length > 0
+        & dem.languageNative.length > 0
+        & dem.languageOther.length > 0
     ) { sdb(false) } else { sdb(true) }
 }
 
 export const onChangeField = (value, key, setDisabledButton) => {
     setDisabledButton(false)
+    console.log(value)
     demography[key] = value
     sessionStorage.setItem("demography", JSON.stringify(demography))
     checkStart(demography, setDisabledButton)

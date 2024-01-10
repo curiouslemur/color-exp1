@@ -774,13 +774,6 @@ export const languageNames = [
         "arabic": "لغة إستونية"
     },
     {
-        "alpha3": "eus",
-        "en": "Basque",
-        "fr": "Basque",
-        "de": "Baskisch",
-        "arabic": "لغة بشكنشية"
-    },
-    {
         "alpha3": "fas",
         "en": "Farsi",
         "fr": "Persan",
@@ -828,13 +821,6 @@ export const languageNames = [
         "fr": "Peul",
         "de": "Ful",
         "arabic": "لغة فولانية"
-    },
-    {
-        "alpha3": "kat",
-        "en": "Georgian",
-        "fr": "Géorgien",
-        "de": "Georgisch",
-        "arabic": "لغة جورجية"
     },
     {
         "alpha3": "ger",
@@ -940,13 +926,6 @@ export const languageNames = [
         "fr": "Hongrois",
         "de": "Ungarisch",
         "arabic": "لغة مجرية"
-    },
-    {
-        "alpha3": "hye",
-        "en": "Armenian",
-        "fr": "Arménien",
-        "de": "Armenisch",
-        "arabic": "لغة أرمنية"
     },
     {
         "alpha3": "ibo",
