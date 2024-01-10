@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Autocomplete, Button, Grid, FormControl, InputLabel, TextField, Typography } from "@mui/material"
+import { Autocomplete, Button, Grid, InputLabel, Stack, TextField, Typography } from "@mui/material"
 
 // import { StudyContext } from "../_utils/contexts";
 import * as cc from "../_controllers/consentController"
@@ -25,7 +25,7 @@ const top100Films = [
 
 export const Consent = (props) => {
 
-    const [value, setValue] = React.useState(null);
+    // const [value, setValue] = React.useState(null);
 
     useEffect(() => { document.body.classList.add('consent-body'); }, []);
 
@@ -41,25 +41,47 @@ export const Consent = (props) => {
                     <hr style={{ color: "#ea3433", backgroundColor: "#ea3433", height: 1.5 }} />
                     <props.expPages.Consent keywordColor="#3e3a53" /> <br />
                 </Grid>
+                <br />
+                <Stack spacing={3} id="consent-questionnaire" >
+                    <Grid item>
+                        <InputLabel id="demo-simple-select-label">{labels.countryResidenceQ}</InputLabel>
+                        <Autocomplete
+                            // multiple
+                            id="country-residence-select"
+                            options={top100Films}
+                            getOptionLabel={(option) => option.title}
+                            // defaultValue={[top100Films[0]]}
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    variant="standard"
+                                    // label={labels.countryResidenceLabel}
+                                    placeholder={labels.countryResidenceLabel}
+                                />
+                            )}
+                        />
+                    </Grid>
+                    <Grid>
 
-                <Grid item id="consent-questionnaire" xs={12}>
-                    <InputLabel id="demo-simple-select-label">{labels.countryResidenceQ}</InputLabel>
-                    <Autocomplete
-                        // multiple
-                        id="country-residence-select"
-                        options={top100Films}
-                        getOptionLabel={(option) => option.title}
-                        // defaultValue={[top100Films[0]]}
-                        renderInput={(params) => (
-                            <TextField
-                                {...params}
-                                variant="standard"
-                                // label={labels.countryResidenceLabel}
-                                placeholder={labels.countryResidenceLabel}
-                            />
-                        )}
-                    />
-                </Grid>
+                        <InputLabel id="demo-simple-select-label">{labels.countryResidenceQ}</InputLabel>
+                        <Autocomplete
+                            // multiple
+                            id="country-residence-select"
+                            options={top100Films}
+                            getOptionLabel={(option) => option.title}
+                            // defaultValue={[top100Films[0]]}
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    variant="standard"
+                                    // label={labels.countryResidenceLabel}
+                                    placeholder={labels.countryResidenceLabel}
+                                />
+                            )}
+                        />
+                    </Grid>
+                </Stack>
+
                 <br />
                 <Button onClick={(nav, nu) => cc.onClickStart(props.navigate, props.nextUrl)}> Start </Button>
             </Grid>

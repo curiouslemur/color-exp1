@@ -1,6 +1,6 @@
-export const colornames = ["SR", "LR", "MR", "DR", "SO", "LO", "MO", "DO", "SY", "LY", "MY", "DY", "SH", "LH", "MH", "DH", "SG", "LG", "MG", "DG", "SC", "LC", "MC", "DC", "SB", "LB", "MB", "DB", "SP", "LP", "MP", "DP", "BK", "A1", "A2", "A3", "WH"]
+export const colorNames = ["SR", "LR", "MR", "DR", "SO", "LO", "MO", "DO", "SY", "LY", "MY", "DY", "SH", "LH", "MH", "DH", "SG", "LG", "MG", "DG", "SC", "LC", "MC", "DC", "SB", "LB", "MB", "DB", "SP", "LP", "MP", "DP", "BK", "A1", "A2", "A3", "WH"]
 
-export const colorValues = {
+export const colorCoord = {
     "SR": {
         "colorName": "red saturated",
         "code": "SR",
