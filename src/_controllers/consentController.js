@@ -26,7 +26,9 @@ export const getProlificId = () => {
 }
 
 var demography = {
-    country: "",
+    countryRes: "",
+    countryResLen: "",
+    countryResLongest: "",
     firstLanguage: "",
     secondLanguage: "",
     age: "",
@@ -54,8 +56,12 @@ export const onClickStart = (navigate, nextUrl) => {
 // }
 
 
-const checkStart = (test, sdb) => {
-    if (test.countryRes.length > 0) { sdb(false) } else { sdb(true) }
+const checkStart = (dem, sdb) => {
+    console.log(dem)
+    if (dem.countryRes.length > 0
+        & dem.countryResLen.length > 0
+        & dem.countryResLongest.length > 0
+    ) { sdb(false) } else { sdb(true) }
 }
 
 

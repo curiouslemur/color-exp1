@@ -26,8 +26,8 @@ const styles = {
 
 export const Consent = (props) => {
     const [disabledButton, setDisabledButton] = React.useState(true);
-    const [countryRes, setCountryRes] = useState("")
-    const [countryResLen, setCountryResLen] = useState("")
+    // const [countryRes, setCountryRes] = useState("")
+    // const [countryResLen, setCountryResLen] = useState("")
     const [countryResLongest, setCountryResLongest] = useState("")
 
     useEffect(() => { document.body.classList.add('consent-body'); }, []);
@@ -49,7 +49,7 @@ export const Consent = (props) => {
                 <Stack spacing={3} id="consent-questionnaire" >
                     <Box >
                         <InputLabel>{labels.countryResQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '50ch' }} id="country-res-select"
+                        <Autocomplete style={{ maxWidth: '30ch' }} id="country-res-select"
                             // value={countryRes}
                             options={countryNames}
                             getOptionLabel={(option) => option.name || ""}
@@ -68,15 +68,19 @@ export const Consent = (props) => {
                         <InputLabel>{labels.countryResLenQ}</InputLabel>
                         <TextField required id="country-res-duration-field"
                             variant="standard" placeholder=""
-                            onChange={(e) => { console.log(countryResLen); setCountryResLen(e.target.val) }}
+                            // onChange={(e) => { console.log(countryResLen); setCountryResLen(e.target.val) }}
+                            onChange={(e) => cc.onChangeField(e.target.value, "countryResLen", setDisabledButton)}
                         />
                     </Box>
                     <Box>
                         <InputLabel>{labels.countryResLongestQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '50ch' }} id="country-res-longest-select"
+                        <Autocomplete style={{ maxWidth: '30ch' }} id="country-res-longest-select"
                             options={countryNames}
                             getOptionLabel={(option) => option.name}
-                            onChange={(newVal) => { console.log(countryResLen); setCountryResLongest(newVal.name) }}
+                            onChange={(e, val, key) => {
+                                if (val !== null) { cc.onChangeField(val.name, "countryResLongest", setDisabledButton) }
+                                else { cc.onChangeField({ name: "" }, "countryResLongest", setDisabledButton) }
+                            }}
                             renderInput={(params) => (
                                 <TextField {...params} variant="standard"
                                     placeholder={labels.countryResLongestLabel} />)}
