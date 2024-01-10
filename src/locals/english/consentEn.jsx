@@ -12,6 +12,7 @@ export const ConsentEn = (props) => {
 
 export const ConsentLabelsEn = {
     consentTitle: "Welcome",
-    countryResidence: "From which country are you taking this survey?"
+    countryResidenceQ: "From which country are you taking this survey?",
+    countryResidenceLabel: "Country of residence"
 }
 export default ConsentEn;

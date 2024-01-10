@@ -14,14 +14,17 @@ const styles = {
     , label: { margin: 0 }
 }
 
+const top100Films = [
+    { title: 'The Shawshank Redemption', year: 1994 },
+    { title: 'The Godfather', year: 1972 },
+    { title: 'The Godfather: Part II', year: 1974 },
+    { title: 'The Dark Knight', year: 2008 },
+    { title: '12 Angry Men', year: 1957 },
+    { title: "Schindler's List", year: 1993 },
+    { title: 'Pulp Fiction', year: 1994 }]
+
 export const Consent = (props) => {
-    const defaultProps = {
-        options: top100Films,
-        getOptionLabel: (option) => option.title,
-    };
-    const flatProps = {
-        options: top100Films.map((option) => option.title),
-    };
+
     const [value, setValue] = React.useState(null);
 
     useEffect(() => { document.body.classList.add('consent-body'); }, []);
@@ -40,20 +43,22 @@ export const Consent = (props) => {
                 </Grid>
 
                 <Grid item id="consent-questionnaire" xs={12}>
-                    <FormControl id="country-select-form" style={{ minWidth: "80%", maxWidth: 200, marginRight: 20 }}>
-                        <InputLabel id="demo-simple-select-label">{labels.country}</InputLabel>
-                        <Autocomplete
-                            {...defaultProps}
-                            id="controlled-demo"
-                            value={value}
-                            onChange={(event, newValue) => {
-                                setValue(newValue);
-                            }}
-                            renderInput={(params) => (
-                                <TextField {...params} label="controlled" variant="standard" />
-                            )}
-                        />
-                    </FormControl>
+                    <InputLabel id="demo-simple-select-label">{labels.countryResidenceQ}</InputLabel>
+                    <Autocomplete
+                        // multiple
+                        id="country-residence-select"
+                        options={top100Films}
+                        getOptionLabel={(option) => option.title}
+                        // defaultValue={[top100Films[0]]}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                variant="standard"
+                                // label={labels.countryResidenceLabel}
+                                placeholder={labels.countryResidenceLabel}
+                            />
+                        )}
+                    />
                 </Grid>
                 <br />
                 <Button onClick={(nav, nu) => cc.onClickStart(props.navigate, props.nextUrl)}> Start </Button>
@@ -63,14 +68,6 @@ export const Consent = (props) => {
     )
 }
 
-const top100Films = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 },
-    { title: 'The Dark Knight', year: 2008 },
-    { title: '12 Angry Men', year: 1957 },
-    { title: "Schindler's List", year: 1993 },
-    { title: 'Pulp Fiction', year: 1994 }]
 
 
 export default Consent
