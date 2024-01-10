@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import { StudyContext } from "../../_utils/contexts";
+import React from "react";
+// import { StudyContext } from "../../_utils/contexts";
 
 export const ConsentEn = (props) => {
     return (
         <>
-            <h1>This is the consent page in <b>English</b></h1>
+            Here comes the consent page in English
         </>
     )
 }
 
-export const ConsentLabels = {
+export const ConsentLabelsEn = {
     consentTitle: "Welcome",
 }
 export default ConsentEn;
