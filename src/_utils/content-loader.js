@@ -1,7 +1,7 @@
 // Routines to load the corresponding pages depending on the language on the experiment
 import * as pages_inEn from "../locals/english/_pagesEn"
 import * as pages_inFr from "../locals/french/_pagesFr"
-import * as countries from "../_utils/countries"
+import * as countries from "./countries"
 
 export const loadPages_inLang = (lang) => {
     switch (lang) {

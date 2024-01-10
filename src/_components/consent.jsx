@@ -3,6 +3,7 @@ import { Autocomplete, Button, Grid, InputLabel, Stack, TextField, Typography } 
 
 // import { StudyContext } from "../_utils/contexts";
 import * as cc from "../_controllers/consentController"
+import { loadCountries_inLang } from "../_utils/content-loader";
 
 import '../App.css'
 
@@ -30,6 +31,7 @@ export const Consent = (props) => {
     useEffect(() => { document.body.classList.add('consent-body'); }, []);
 
     const labels = props.expPages.ConsentLabels
+    const countryNames = loadCountries_inLang(props.expLang)
 
     return (
         <Grid container style={styles.container} justifyContent='center'>
@@ -48,8 +50,8 @@ export const Consent = (props) => {
                         <Autocomplete
                             // multiple
                             id="country-residence-select"
-                            options={top100Films}
-                            getOptionLabel={(option) => option.title}
+                            options={countryNames}
+                            getOptionLabel={(option) => option.name}
                             // defaultValue={[top100Films[0]]}
                             renderInput={(params) => (
                                 <TextField

@@ -8,8 +8,7 @@ import * as navigator from './_components/_route'
 import './App.css';
 
 import { StudyContext } from './_utils/contexts';
-import { loadPages_inLang } from './_utils/page-loader'
-
+import { loadPages_inLang } from './_utils/content-loader'
 
 function App() {
   // Uncomment the two lines below to collect experiment language from the experiment link ?lang=en
@@ -27,7 +26,7 @@ function App() {
       <PageMeta meta={meta} />
       <Routes>
         <Route path={subdom} element={<navigator.Consent config={meta} navigate={navigate}
-          nextUrl={subdom + "/disp"} expPages={expPages} />} />
+          nextUrl={subdom + "/disp"} expPages={expPages} expLang={expLang} />} />
         <Route path={subdom + '/disp'} element={<navigator.Display config={meta} navigate={navigate}
           nextUrl={subdom + "/intro"} expPages={expPages} />} />
         <Route path={subdom + "/intro"} element={<navigator.Intro config={meta} navigate={navigate}

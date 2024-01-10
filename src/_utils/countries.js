@@ -473,7 +473,7 @@ export const countryNames =
     { "id": 748, "name": "Eswatini", "alpha2": "sz", "alpha3": "swz" },
     { "id": 760, "name": "Syrie", "alpha2": "sy", "alpha3": "syr" },
     { "id": 762, "name": "Tadjikistan", "alpha2": "tj", "alpha3": "tjk" },
-    { "id": 158, "name": "Taïwan \/ (République de Chine (Taïwan))", "alpha2": "tw", "alpha3": "twn" },
+    { "id": 158, "name": "Taïwan (République de Chine (Taïwan))", "alpha2": "tw", "alpha3": "twn" },
     { "id": 834, "name": "Tanzanie", "alpha2": "tz", "alpha3": "tza" },
     { "id": 148, "name": "Tchad", "alpha2": "td", "alpha3": "tcd" },
     { "id": 203, "name": "Tchéquie", "alpha2": "cz", "alpha3": "cze" },
