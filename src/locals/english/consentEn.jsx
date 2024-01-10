@@ -14,10 +14,11 @@ export const ConsentLabelsEn = {
     consentTitle: "Welcome",
     countryResQ: "From which country are you taking this survey?",
     countryResLabel: "Country of residence",
-    countryResDurationQ: "Since how many years have you lived there?",
-    countryResDurationLabel: "",
+    countryResLenQ: "Since how many years are you living there?",
+    countryResLenLabel: "",
     countryResLongestQ: "In which country have you lived the longest period of time?",
-    countryResLongestLabel: "Longest country of residence"
+    countryResLongestLabel: "Longest country of residence",
+    sign: "Sign"
 }
 
 export default ConsentEn;

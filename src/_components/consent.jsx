@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Autocomplete, Button, Grid, InputLabel, Stack, TextField, Typography } from "@mui/material"
+import { Autocomplete, Box, Button, Grid, InputLabel, Stack, TextField, Typography } from "@mui/material"
 
 // import { StudyContext } from "../_utils/contexts";
 import * as cc from "../_controllers/consentController"
@@ -25,7 +25,9 @@ const styles = {
 //     { title: 'Pulp Fiction', year: 1994 }]
 
 export const Consent = (props) => {
+    const [disabledButton, setDisabledButton] = React.useState(false);
     const [countryRes, setCountryRes] = useState("")
+    const [countryResLeng, setCountryResLen] = useState("")
     const [countryResLongest, setCountryResLongest] = useState("")
 
     useEffect(() => { document.body.classList.add('consent-body'); }, []);
@@ -45,14 +47,13 @@ export const Consent = (props) => {
                 </Grid>
                 <br />
                 <Stack spacing={3} id="consent-questionnaire" >
-                    <Grid item>
+                    <Box >
                         <InputLabel>{labels.countryResQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '75%' }}
-                            id="country-residence-select"
+                        <Autocomplete style={{ maxWidth: '50ch' }} id="country-res-select"
                             // value={countryRes}
                             options={countryNames}
                             getOptionLabel={(option) => option.name || ""}
-                            onChange={(newVal) => { setCountryRes(newVal.name) }}
+                            onChange={(e, key, setter, scs) => cc.onChangeField(e, "countryRes", setCountryRes, setDisabledButton)}
                             renderInput={(params) => (
                                 <TextField
                                     {...params}
@@ -62,30 +63,39 @@ export const Consent = (props) => {
                                 />
                             )}
                         />
-                    </Grid>
-                    <Grid>
+                    </Box>
+                    <Box component="form" autoComplete="off" // noValidate
+                    >
+                        <InputLabel>{labels.countryResLenQ}</InputLabel>
+                        <TextField required id="country-res-duration-field"
+                            variant="standard"
+                            placeholder=""
+                            onChange={(e) => { setCountryResLen(e.target.val) }}
+                        />
+                    </Box>
+                    <Box>
                         <InputLabel>{labels.countryResLongestQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '75%' }}
-                            id="country-residence-longuest"
+                        <Autocomplete style={{ maxWidth: '50ch' }}
+                            id="country-res-longest-select"
                             options={countryNames}
                             getOptionLabel={(option) => option.name}
-                            // defaultValue={}
                             onChange={(newVal) => { setCountryResLongest(newVal.name) }}
                             renderInput={(params) => (
-                                <TextField
-                                    {...params}
-                                    variant="standard"
+                                <TextField {...params} variant="standard"
                                     placeholder={labels.countryResLongestLabel}
                                 />
                             )}
                         />
-                    </Grid>
-                </Stack>
+                    </Box>
 
-                <br />
-                <Button onClick={(nav, nu) => {
-                    cc.onClickStart(props.navigate, props.nextUrl)
-                }}> Start </Button>
+                    <br />
+                </Stack>
+                <Button style={{ marginTop: '10px' }}
+                    variant="contained"
+                    disabled={disabledButton}
+                    onClick={(nav, nu) => {
+                        cc.onClickStart(props.navigate, props.nextUrl)
+                    }}> {labels.sign} </Button>
             </Grid>
 
         </Grid>
