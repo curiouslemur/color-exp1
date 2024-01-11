@@ -35,11 +35,6 @@ var demography = {
     expName: "color-exp1",
 }
 
-export const onClickStart = (navigate, nextUrl) => {
-    sessionStorage.setItem("demography", JSON.stringify(demography))
-    navigate(nextUrl)
-}
-
 const checkStart = (dem, sdb) => {
     if (dem.countryResLen === "99") { sdb(false) }
     else if (dem.countryRes.length > 0
@@ -56,4 +51,9 @@ export const onChangeField = (value, key, setDisabledButton) => {
     demography[key] = value
     sessionStorage.setItem("demography", JSON.stringify(demography))
     checkStart(demography, setDisabledButton)
+}
+
+export const onClickStart = (navigate, nextUrl) => {
+    sessionStorage.setItem("demography", JSON.stringify(demography))
+    navigate(nextUrl)
 }
