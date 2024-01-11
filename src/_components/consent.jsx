@@ -10,8 +10,7 @@ const styles = {
     button: { marginTop: 10, marginBottom: 10 },
     container: { display: 'flex', flexWrap: 'wrap', padding: '1%' },
     root: { flexGrow: 1, margin: '2%' },
-    textField: { marginLeft: 10, marginRight: 10, width: 200, }
-    , label: { margin: 0 }
+    textField: { marginLeft: 10, marginRight: 10, width: 200, }, label: { margin: 0 }
 }
 
 export const Consent = (props) => {
@@ -36,7 +35,7 @@ export const Consent = (props) => {
 
                 <Grid item >
                     <hr style={{ color: "#ea3433", backgroundColor: "#ea3433", height: 1.5 }} />
-                    <props.expPages.Consent keywordColor="#3e3a53" /> <br />
+                    <props.expPages.Consent /> <br />
                 </Grid>
 
                 <Stack marginTop={0} spacing={5} direction="row" justifyContent="flex-start">

@@ -1,9 +1,19 @@
 import React, { useEffect } from "react";
-import { Button, Grid, } from "@mui/material";
+import { Autocomplete, Box, Grid, InputLabel, Stack, TextField, Typography } from "@mui/material";
 
-import '../App.css'
 
 import * as dc from "../_controllers/displayController"
+import greyscale from '../_utils/gray-scale-donut.png'
+
+
+import '../App.css'
+const styles = {
+    button: { marginTop: 10, marginBottom: 10 },
+    container: { display: 'flex', padding: '1%' },
+    root: { flexGrow: 1, margin: '2%' },
+    textField: { marginLeft: 10, marginRight: 10, width: 200, }, label: { margin: 0 }
+}
+
 
 export const Display = (props) => {
     useEffect(() => {
@@ -11,15 +21,42 @@ export const Display = (props) => {
         document.body.classList.add('display-body');
     }, []);
 
+    const labels = props.expPages.DisplayLabels
     return (
-        <>
-            This is the main Display Page
-            <Button onClick={(nav, nu) => dc.onClickNext(props.navigate, props.nextUrl)}> Next </Button>
+        <Grid container style={styles.container} justifyContent="center">
 
-            <Grid item id="display-questionnaire" xs={12}>
+            <Grid item xl={6} xs={10}>
+                <Typography variant="h4"></Typography>
 
+                <Grid item >
+                    {/* <hr style={{ color: "#ea3433", backgroundColor: "#ea3433", height: 1.5 }} /> */}
+                    <props.expPages.Display />
+                </Grid>
+
+
+                <Grid container justifyContent="center">
+                    <div style={{ marginTop: 50 }}>
+                        <img src={greyscale} alt="Donut chart in gray-scale" width="65%" />
+                    </div>
+                </Grid>
+
+                <Box id="grayscale-select" marginTop={5}>
+                    <InputLabel>{labels.confirm}</InputLabel>
+                    <Autocomplete style={{ maxWidth: '20ch' }}
+                        openOnFocus
+                        options={["4", "5", "6", "7", "8", "9", "10", "11"]}
+                        getOptionLabel={(option) => option}
+                        onChange={(e, val, nav, nextUrl) => {
+                            if (val !== null) { dc.onChangeSelect(e, val, props.navigate, props.nextUrl) }
+                            else { }
+                        }}
+                        renderInput={(params) => (
+                            <TextField {...params} variant="standard"
+                                placeholder={labels.colorblindLabel} />
+                        )} />
+                </Box>
             </Grid>
-        </>
+        </Grid>
     )
 }
 

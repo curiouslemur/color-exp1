@@ -27,8 +27,10 @@ function App() {
       <Routes>
         <Route path={subdom} element={<navigator.Consent config={meta} navigate={navigate}
           nextUrl={subdom + "/disp"} expPages={expPages} expLang={expLang} />} />
+
         <Route path={subdom + '/disp'} element={<navigator.Display config={meta} navigate={navigate}
           nextUrl={subdom + "/intro"} expPages={expPages} />} />
+
         <Route path={subdom + "/intro"} element={<navigator.Intro config={meta} navigate={navigate}
           nextUrl={subdom + "/trial"} expPages={expPages} />} />
         <Route path={subdom + "/trial"} element={<navigator.Trial config={meta} navigate={navigate}

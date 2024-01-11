@@ -14,7 +14,6 @@ export const Intro = (props) => {
     // const labels = props.expPages.IntroLabels
     return (
         <>
-            {/* This is the main Intro Page */}
             <br />
             <Box
                 position="absolute"
