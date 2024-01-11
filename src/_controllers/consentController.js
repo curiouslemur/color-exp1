@@ -14,10 +14,8 @@ export const getUrlParams = () => {
     for (var pair of entries) {
         params[pair[0]] = pair[1]
     }
-
     return params;
 }
-
 
 var demography = {
     countryRes: "",
@@ -41,17 +39,6 @@ export const onClickStart = (navigate, nextUrl) => {
     navigate(nextUrl)
 }
 
-// export const onChangeField = (e, key, setter, setCannotStart) => {
-//     setCannotStart(false)
-//     if (setter != null) {
-//         setter(e.target.value)
-//     }
-//     demography[key] = e.target.value
-//     sessionStorage.setItem("demography", JSON.stringify(demography))
-//     // checkStart(demography, setCannotStart)
-// }
-
-
 const checkStart = (dem, sdb) => {
     console.log(dem)
     if (dem.countryRes.length > 0
@@ -65,7 +52,6 @@ const checkStart = (dem, sdb) => {
 }
 
 export const onChangeField = (value, key, setDisabledButton) => {
-    // setDisabledButton(false)
     demography[key] = value
     sessionStorage.setItem("demography", JSON.stringify(demography))
     checkStart(demography, setDisabledButton)
