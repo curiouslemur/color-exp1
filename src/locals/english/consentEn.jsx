@@ -23,6 +23,14 @@ export const ConsentLabelsEn = {
     langNativeLabel: "Mother tongue",
     langOtherQ: "What other languages do you know fluently?",
     langOtherLabel: "List all that apply",
+
+    ageQ: "How old are you?", ageLabel: "Age",
+    genderQ: "What is your gender?", genderLabel: "Gender",
+
+    professionQ: "What is your profession?", professionLabel: "Profession",
+    colorblindQ: "Do you have some form of color blindness?", colorblindLabel: "",
+    colorblindYes: "Yes", colorblindNo: "No", colorblindIdk: "I don't know",
+
     sign: "Sign"
 }
 

@@ -6,24 +6,18 @@ export const generateSessionID = () => {
     return "2024" + m + d.getDate() + "-" + d.getHours() + d.getMinutes() + "-" + d.getSeconds() + d.getMilliseconds()
 }
 
-export const getProlificId = () => {
+export const getUrlParams = () => {
     var urlParams = new URLSearchParams(window.location.search)
-    // var keys = urlParams.keys(); 
-    // for(key of keys) { ID_keys[i]=key, i++   }
-    var idKeys = [], idValues = [], j = 0
-    let tmp, prolificID
     var entries = urlParams.entries();
+
+    let params = {}
     for (var pair of entries) {
-        if (pair[0] === "PROLIFIC_PID") { tmp = pair[1] }
-        idKeys[j] = pair[0]
-        idValues[j] = pair[1]
-        j++
+        params[pair[0]] = pair[1]
     }
-    tmp != null
-        ? prolificID = tmp
-        : prolificID = ""
-    return prolificID;
+
+    return params;
 }
+
 
 var demography = {
     countryRes: "",
@@ -33,12 +27,14 @@ var demography = {
     languageOther: "",
     age: "",
     gender: "",
+    profession: "",
+    colorblind: "",
     visFamiliarity: "",
-    prolificID: getProlificId(),
+    prolificID: getUrlParams().PROLIFIC_PID,
+    expLang: getUrlParams().lang,
     sessionID: 0,
     progress: 0,
-    expName: "",
-    jobtitle: ""
+    expName: "color-exp1",
 }
 
 export const onClickStart = (navigate, nextUrl) => {
@@ -63,12 +59,13 @@ const checkStart = (dem, sdb) => {
         & dem.countryResLongest.length > 0
         & dem.languageNative.length > 0
         & dem.languageOther.length > 0
+        & dem.age.length > 0 & dem.gender.length > 0 & dem.profession.length > 0
+        & dem.colorblind.length > 0
     ) { sdb(false) } else { sdb(true) }
 }
 
 export const onChangeField = (value, key, setDisabledButton) => {
-    setDisabledButton(false)
-    console.log(value)
+    // setDisabledButton(false)
     demography[key] = value
     sessionStorage.setItem("demography", JSON.stringify(demography))
     checkStart(demography, setDisabledButton)

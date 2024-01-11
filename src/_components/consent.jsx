@@ -17,28 +17,17 @@ const styles = {
 
 export const Consent = (props) => {
     const [disabledButton, setDisabledButton] = React.useState(false);
+    const [selectedValues, setSelectedValues] = useState()
     // const [countryRes, setCountryRes] = useState("")
     // const [countryResLen, setCountryResLen] = useState("")
     // const [countryResLongest, setCountryResLongest] = useState("")
+
     useEffect(() => { document.body.classList.add('consent-body'); }, []);
 
     const labels = props.expPages.ConsentLabels
     const countryNames = loadCountries_inLang(props.expLang)
     const languageNames = loadLanguages_inLang(props.expLang)
 
-    // const selectedValues = React.useMemo(
-    //     () => languageNames.filter((v) => v.selected),
-    //     [languageNames],);
-
-    const [selectedValues, setSelectedValues] = useState()
-    const top100Films = [
-        { title: 'The Shawshank Redemption', year: 1994 },
-        { title: 'The Godfather', year: 1972 },
-        { title: 'The Godfather: Part II', year: 1974 },
-        { title: 'The Dark Knight', year: 2008 },
-        { title: '12 Angry Men', year: 1957 },
-        { title: "Schindler's List", year: 1993 },
-        { title: 'Pulp Fiction', year: 1994 }]
 
     return (
         <Grid container style={styles.container} justifyContent="center">
@@ -50,10 +39,10 @@ export const Consent = (props) => {
                     <props.expPages.Consent keywordColor="#3e3a53" /> <br />
                 </Grid>
                 <br />
-                <Stack spacing={3} id="consent-questionnaire" >
+                <Stack spacing={4} id="consent-questionnaire">
                     <Box id="country-res-select" >
                         <InputLabel>{labels.countryResQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '30ch' }}
+                        <Autocomplete style={{ maxWidth: '40ch' }}
                             // value={countryRes}
                             options={countryNames}
                             getOptionLabel={(option) => option.name || ""}
@@ -68,16 +57,17 @@ export const Consent = (props) => {
                                     placeholder={labels.countryResLabel} />)}
                         />
                     </Box>
-                    <Box id="country-res-duration-field">
+                    <Box id="country-res-length-field">
                         <InputLabel>{labels.countryResLenQ}</InputLabel>
-                        <TextField required
+                        <TextField required style={{ minWidth: '20ch' }}
+                            type="number"
                             variant="standard" placeholder=""
-                            onChange={(e) => cc.onChangeField(e.target.value, "countryResLen", setDisabledButton)}
-                        />
+                            onChange={(e) => cc.onChangeField(e.target.value, "countryResLen", setDisabledButton)} />
                     </Box>
+
                     <Box id="country-res-longest-select">
                         <InputLabel>{labels.countryResLongestQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '30ch' }}
+                        <Autocomplete style={{ maxWidth: '40ch' }}
                             options={countryNames}
                             getOptionLabel={(option) => option.name}
                             onChange={(e, val, key) => {
@@ -91,7 +81,7 @@ export const Consent = (props) => {
                     </Box>
                     <Box id="lang-native-select">
                         <InputLabel>{labels.langNativeQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '30ch' }}
+                        <Autocomplete style={{ maxWidth: '40ch' }}
                             options={languageNames}
                             getOptionLabel={(option) => option.lang}
                             onChange={(e, val, key) => {
@@ -100,12 +90,11 @@ export const Consent = (props) => {
                             }}
                             renderInput={(params) => (
                                 <TextField {...params} variant="standard"
-                                    placeholder={labels.langNativeLabel} />)}
-                        />
+                                    placeholder={labels.langNativeLabel} />)} />
                     </Box>
                     <Box id="lang-other-select">
                         <InputLabel>{labels.langOtherQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '50ch' }}
+                        <Autocomplete style={{ maxWidth: '40ch' }}
                             multiple
                             options={languageNames}
                             getOptionLabel={(option) => option.lang}
@@ -113,24 +102,56 @@ export const Consent = (props) => {
                             onChange={(e, val) => {
                                 setSelectedValues(val.alpha3)
                                 let selections = val.map(obj => obj.alpha3)
-                                console.log(selections)
+                                if (val !== null) { cc.onChangeField(selections, "languageOther", setDisabledButton) }
+                                else { cc.onChangeField([], "languageOther", setDisabledButton) }
                             }}
-                            // onChange={(e, val, key) => {
-                            //         setSelectedValues(val.alpha3)
-                            //     if (val !== null) {
-                            //         let selections = val.map(obj => obj.alpha3)
-                            //         cc.onChangeField(selections, "languageNative", setDisabledButton)
-                            //     }
-                            //     //     else { cc.onChangeField({ alpha3: "" }.alpha3, "languageNative", setDisabledButton) }
-                            // }}
                             renderInput={(params) => (
                                 <TextField {...params} variant="standard"
                                     placeholder={labels.langOtherLabel} />
-                            )}
-                        />
+                            )} />
 
                     </Box>
                 </Stack>
+                <Stack marginTop={3} spacing={4} direction="row" justifyContent="flex-start" alignItems="center">
+                    <Box id="age-field">
+                        <InputLabel>{labels.ageQ}</InputLabel>
+                        <TextField required style={{ minWidth: '18ch' }}
+                            variant="standard" placeholder={labels.ageLabel}
+                            type="number"
+                            onChange={(e) => cc.onChangeField(e.target.value, "age", setDisabledButton)} />
+                    </Box>
+                    <Box id="gender-field">
+                        <InputLabel>{labels.genderQ}</InputLabel>
+                        <TextField required style={{ minWidth: '19ch' }}
+                            variant="standard" placeholder={labels.genderLabel}
+                            onChange={(e) => cc.onChangeField(e.target.value, "gender", setDisabledButton)} />
+                    </Box>
+                </Stack>
+                <Stack marginTop={3} spacing={4}>
+                    <Box id="profession-field">
+                        <InputLabel>{labels.professionQ}</InputLabel>
+                        <TextField required style={{ minWidth: '40ch', maxWidth: '40ch' }}
+                            variant="standard" placeholder={labels.professionLabel}
+                            onChange={(e) => cc.onChangeField(e.target.value, "profession", setDisabledButton)} />
+                    </Box>
+
+                    <Box id="colorblind-select">
+                        <InputLabel>{labels.colorblindQ}</InputLabel>
+                        <Autocomplete style={{ maxWidth: '40ch' }}
+                            openOnFocus
+                            options={[labels.colorblindNo, labels.colorblindYes, labels.colorblindIdk]}
+                            getOptionLabel={(option) => option}
+                            onChange={(e, val, key) => {
+                                if (val !== null) { cc.onChangeField(val, "colorblind", setDisabledButton) }
+                                else { cc.onChangeField("", "colorblind", setDisabledButton) }
+                            }}
+                            renderInput={(params) => (
+                                <TextField {...params} variant="standard"
+                                    placeholder={labels.colorblindLabel} />
+                            )} />
+                    </Box>
+                </Stack>
+
                 <Button style={{ marginTop: '10px' }}
                     variant="contained"
                     disabled={disabledButton}
@@ -138,7 +159,6 @@ export const Consent = (props) => {
                         cc.onClickStart(props.navigate, props.nextUrl)
                     }}> {labels.sign} </Button>
             </Grid>
-
         </Grid>
     )
 }
