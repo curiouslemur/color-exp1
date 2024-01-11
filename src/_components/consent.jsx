@@ -6,7 +6,6 @@ import * as cc from "../_controllers/consentController"
 import { loadCountries_inLang, loadLanguages_inLang } from "../_utils/content-loader";
 
 import '../App.css'
-
 const styles = {
     button: { marginTop: 10, marginBottom: 10 },
     container: { display: 'flex', flexWrap: 'wrap', padding: '1%' },
@@ -31,6 +30,7 @@ export const Consent = (props) => {
 
     return (
         <Grid container style={styles.container} justifyContent="center">
+
             <Grid item xl={6} xs={10}>
                 <Typography variant="h4">{labels.consentTitle}</Typography>
 

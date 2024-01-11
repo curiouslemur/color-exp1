@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
-import { Button } from "@mui/material"
+import { Box, Button } from "@mui/material"
+
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 import * as ic from "../_controllers/introController"
 
@@ -12,8 +14,20 @@ export const Intro = (props) => {
     // const labels = props.expPages.IntroLabels
     return (
         <>
-            This is the main Intro Page
+            {/* This is the main Intro Page */}
             <br />
+            <Box
+                position="absolute"
+                top={0}
+                left={0}
+                // width={400}
+                // bgcolor="white"
+                p={0.2}
+            >
+                Can this icon <HelpOutlineIcon fontSize="medium"
+                    onClick={() => { alert('opening modal') }}
+                /> Be inline
+            </Box>
             <props.expPages.Intro />
             <Button onClick={(nav, nu) => ic.onClickStart(props.navigate, props.nextUrl)}> Next </Button>
         </>

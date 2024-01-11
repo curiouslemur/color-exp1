@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Button, Grid, } from "@mui/material";
 
+import '../App.css'
+
 import * as dc from "../_controllers/displayController"
 
 export const Display = (props) => {

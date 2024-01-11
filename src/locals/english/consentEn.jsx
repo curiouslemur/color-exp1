@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
-// import { StudyContext } from "../../_utils/contexts";
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 
 export const ConsentEn = (props) => {
@@ -11,11 +11,14 @@ export const ConsentEn = (props) => {
                 to learn the different ways people associate colors to concepts of everyday life, and vice versa.</Typography>
 
             <Typography paragraph><b style={{ color: props.keywordColor }}>Procedure: </b>
-                You will be asked to **rate how much you associate a color with a given concept**, using a continuous scale from <i>“not at all”</i> to <i>“very much”</i>. <br />
+                You will be asked to **rate how much you associate a color with a given concept**, using a continuous scale from <i>“not at all”</i> to <i>“very much”</i>.
                 Before starting, you will be asked to provide information about you and to adjust the brightness of your screen.
             </Typography>
 
-            <Typography paragraph> At all time, click the <b style={{ color: props.keywordColor }}>Help (?)</b> button to review instructions on how to complete the survey.</Typography>
+            <Grid style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', marginBottom: 10 }}>
+
+                <span paragraph> At all time, the help </span>   <HelpOutlineIcon style={{ marginLeft: 5, marginRight: 5 }} fontSize="medium" /> <span> button will be available at the top-left of the screen. Click to review instructions on how to complete the survey.</span>
+            </Grid>
 
             <Typography paragraph> <b style={{ color: props.keywordColor }}>Duration: </b> The experiment will take about 30 minutes</Typography>
 
