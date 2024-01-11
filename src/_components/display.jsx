@@ -5,7 +5,6 @@ import { Autocomplete, Box, Grid, InputLabel, Stack, TextField, Typography } fro
 import * as dc from "../_controllers/displayController"
 import greyscale from '../_utils/gray-scale-donut.png'
 
-
 import '../App.css'
 const styles = {
     button: { marginTop: 10, marginBottom: 10 },
@@ -33,7 +32,6 @@ export const Display = (props) => {
                     <props.expPages.Display />
                 </Grid>
 
-
                 <Grid container justifyContent="center">
                     <div style={{ marginTop: 50 }}>
                         <img src={greyscale} alt="Donut chart in gray-scale" width="65%" />
@@ -47,7 +45,7 @@ export const Display = (props) => {
                         options={["4", "5", "6", "7", "8", "9", "10", "11"]}
                         getOptionLabel={(option) => option}
                         onChange={(e, val, nav, nextUrl) => {
-                            if (val !== null) { dc.onChangeSelect(e, val, props.navigate, props.nextUrl) }
+                            if (val !== null) { setTimeout(dc.onChangeSelect(e, val, props.navigate, props.nextUrl), 5000) }
                             else { }
                         }}
                         renderInput={(params) => (
