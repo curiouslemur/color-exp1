@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/color-exp1/static/css/main.4e6f8b32.css",
-    "main.js": "/color-exp1/static/js/main.f788096d.js",
+    "main.js": "/color-exp1/static/js/main.62c57122.js",
     "index.html": "/color-exp1/index.html"
   },
   "entrypoints": [
     "static/css/main.4e6f8b32.css",
-    "static/js/main.f788096d.js"
+    "static/js/main.62c57122.js"
   ]
 }
