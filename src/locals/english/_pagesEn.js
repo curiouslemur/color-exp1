@@ -1,3 +1,5 @@
+// // This file exports the localized pages in generic names
+
 import { ConsentEn, ConsentLabelsEn } from "./consentEn";
 import { IntroEn, IntroLabelsEn } from "./introEn";
 // import { TrialEn, TrialLabels } from "./trialEn"

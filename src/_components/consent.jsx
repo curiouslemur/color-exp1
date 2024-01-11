@@ -16,7 +16,7 @@ const styles = {
 }
 
 export const Consent = (props) => {
-    const [disabledButton, setDisabledButton] = React.useState(false);
+    const [disabledButton, setDisabledButton] = React.useState(true);
     const [selectedValues, setSelectedValues] = useState()
     // const [countryRes, setCountryRes] = useState("")
     // const [countryResLen, setCountryResLen] = useState("")
@@ -38,11 +38,11 @@ export const Consent = (props) => {
                     <hr style={{ color: "#ea3433", backgroundColor: "#ea3433", height: 1.5 }} />
                     <props.expPages.Consent keywordColor="#3e3a53" /> <br />
                 </Grid>
-                <br />
-                <Stack spacing={4} id="consent-questionnaire">
+
+                <Stack marginTop={0} spacing={5} direction="row" justifyContent="flex-start">
                     <Box id="country-res-select" >
                         <InputLabel>{labels.countryResQ}</InputLabel>
-                        <Autocomplete style={{ maxWidth: '40ch' }}
+                        <Autocomplete style={{ minWidth: '40ch', maxWidth: '55ch' }}
                             // value={countryRes}
                             options={countryNames}
                             getOptionLabel={(option) => option.name || ""}
@@ -59,12 +59,14 @@ export const Consent = (props) => {
                     </Box>
                     <Box id="country-res-length-field">
                         <InputLabel>{labels.countryResLenQ}</InputLabel>
-                        <TextField required style={{ minWidth: '20ch' }}
+                        <TextField required style={{ minWidth: '15ch' }}
                             type="number"
                             variant="standard" placeholder=""
                             onChange={(e) => cc.onChangeField(e.target.value, "countryResLen", setDisabledButton)} />
                     </Box>
+                </Stack>
 
+                <Stack spacing={4} style={{ marginTop: '25px' }}>
                     <Box id="country-res-longest-select">
                         <InputLabel>{labels.countryResLongestQ}</InputLabel>
                         <Autocomplete style={{ maxWidth: '40ch' }}
@@ -152,7 +154,7 @@ export const Consent = (props) => {
                     </Box>
                 </Stack>
 
-                <Button style={{ marginTop: '10px' }}
+                <Button style={{ marginTop: '20px' }}
                     variant="contained"
                     disabled={disabledButton}
                     onClick={(nav, nu) => {
