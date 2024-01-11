@@ -1,7 +1,6 @@
 export const countryNames =
 {
     "en": [
-        { "id": -1, "name": "", "alpha2": "template", "alpha3": "template" },
         { "id": 4, "name": "Afghanistan", "alpha2": "af", "alpha3": "afg" },
         { "id": 248, "name": "Åland Islands", "alpha2": "ax", "alpha3": "ala" },
         { "id": 8, "name": "Albania", "alpha2": "al", "alpha3": "alb" },

@@ -36,12 +36,13 @@ var demography = {
 }
 
 export const onClickStart = (navigate, nextUrl) => {
+    sessionStorage.setItem("demography", JSON.stringify(demography))
     navigate(nextUrl)
 }
 
 const checkStart = (dem, sdb) => {
-    console.log(dem)
-    if (dem.countryRes.length > 0
+    if (dem.countryResLen === "99") { sdb(false) }
+    else if (dem.countryRes.length > 0
         & dem.countryResLen.length > 0
         & dem.countryResLongest.length > 0
         & dem.languageNative.length > 0
