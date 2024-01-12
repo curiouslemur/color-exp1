@@ -14,7 +14,7 @@ const styles = {
 }
 
 export const Consent = (props) => {
-    const [disabledButton, setDisabledButton] = React.useState(true);
+    const [disabledButton, setDisabledButton] = React.useState(false);
     const [selectedValues, setSelectedValues] = useState()
     // const [countryRes, setCountryRes] = useState("")
     // const [countryResLen, setCountryResLen] = useState("")

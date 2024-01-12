@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box, Button, Grid } from "@mui/material"
+import { Box, Button, Grid, Typography } from "@mui/material"
 
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
@@ -19,17 +19,25 @@ export const Intro = (props) => {
     }, []);
 
     const labels = props.expPages.IntroLabels
-
+    console.log(labels)
     return (
         <Grid container style={styles.container} justifyContent="center">
-            <Grid item >
-                {/* <hr style={{ color: "#ea3433", backgroundColor: "#ea3433", height: 1.5 }} /> */}
-                <props.expPages.Intro />
-            </Grid>
-            <Grid container justifyContent="center">
 
+            <Grid item xl={6} xs={9}>
+                <Typography variant="h4">{labels.introTitle}</Typography>
+
+                <hr style={{ color: "#ffffff00", backgroundColor: "#ffffff00", height: 1.5 }} />
+
+                <Grid item >
+                    <props.expPages.Intro />
+                </Grid>
+
+
+                <Button variant='outlined' color='secondary' style={{ marginTop: '5ch' }}
+                    onClick={(nav, nu) => {
+                        ic.onClickStart(props.navigate, props.nextUrl)
+                    }}> Next </Button>
             </Grid>
-            <Button variant='outlined' color='secondary' onClick={(nav, nu) => ic.onClickStart(props.navigate, props.nextUrl)}> Next </Button>
         </Grid>
     )
 

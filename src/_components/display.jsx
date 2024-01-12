@@ -24,7 +24,7 @@ export const Display = (props) => {
     return (
         <Grid container style={styles.container} justifyContent="center">
 
-            <Grid item xl={6} xs={10}>
+            <Grid item xl={6} xs={9}>
                 <Typography variant="h4"></Typography>
 
                 <Grid item >
