@@ -7,9 +7,9 @@ export const IntroEn = (props) => {
 
             <Typography paragraph>During this experiment you’ll be presented with each of the colored squares from the set below, one at a time.
             </Typography>
+            <Grid id="grid-color-patches"></Grid>
             <Typography>
                 You will be asked to rate <b>how much you associate each color with each of the following <i>concepts</i></b>:</Typography>
-
             <Grid container justifyContent="center">
                 <i style={{ marginTop: 0 }} justifyContent='center'>
                     {IntroLabelsEn.cptFood}<br />
