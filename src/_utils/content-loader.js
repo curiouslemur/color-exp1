@@ -2,6 +2,7 @@
 import * as pages_inEn from "../locals/english/_pagesEn"
 import * as pages_inFr from "../locals/french/_pagesFr"
 import * as options from "./selectOptions"
+import { concepts } from '../stimuli/concepts'
 
 export const loadPages_inLang = (lang) => {
     switch (lang) {
@@ -34,4 +35,8 @@ export const loadLanguages_inLang = (lang) => {
     //     return "Language unknown -- language names not found"
     // }
     // return options.languageNames
+}
+
+export const loadConcepts_inLang = (lang) => {
+    return Object.values(concepts[lang]).flat()
 }

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { Box, Button, Grid, Typography } from "@mui/material"
-
+import React, { useEffect, useState } from "react";
+import { Box, Chip, Button, Grid, Typography } from "@mui/material"
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 import * as ic from "../_controllers/introController"
+
 
 const styles = {
     button: { marginTop: 10, marginBottom: 10 },
@@ -13,14 +13,15 @@ const styles = {
 }
 
 export const Intro = (props) => {
-    useEffect(() => {
-        document.body.classList.remove('display-body');
-        document.body.classList.add('intro-body');
+    const [bodyClass, setBodyClass] = useState(1)
 
-    }, []);
+    useEffect(() => {
+        // document.body.classList.remove('display-body');
+        document.body.classList.add('intro-body');
+        ic.addGridColorPatches()
+    }, [bodyClass]);
 
     const labels = props.expPages.IntroLabels
-    console.log(labels)
     return (
         <Grid container style={styles.container} justifyContent="center">
 
@@ -33,7 +34,19 @@ export const Intro = (props) => {
                     <props.expPages.Intro />
                 </Grid>
 
+                <Grid item xs={12} sm={12} style={{ marginTop: 0 }} id="chips">
+                    {/* {props.conceptList.map(c =>
+                        <ConceptChip key={c} value={c} id={c}
+                            variant={this.state.chipVariant}
+                            color={this.state.chipColor}
+                            handleParent={(count) => this.handleParent(count)}
+                            selectedWep={this.state.selectedWep}
+                            wepList={this.state.wepList}
+                        />
+                    )} */}
+                </Grid>
 
+                <ConceptChip />
                 <Button variant='outlined' color='secondary' style={{ marginTop: '5ch' }}
                     onClick={(nav, nu) => {
                         ic.onClickStart(props.navigate, props.nextUrl)
@@ -42,6 +55,13 @@ export const Intro = (props) => {
         </Grid>
     )
 
+}
+
+export const ConceptChip = (props) => {
+    return (<>
+        <Chip label="Clickable" variant="outlined"
+            onClick={() => alert('clicked Chip')} />
+    </>)
 }
 
 export default Intro;
