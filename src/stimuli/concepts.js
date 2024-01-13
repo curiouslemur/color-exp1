@@ -1,18 +1,18 @@
-// export const concepts = ['paper', 'plastic', 'glass', 'metal', 'compost', 'trash',
-//     'justice', 'peace', 'comfort', 'efficiency', 'reliability', 'safety', 'speed']
+// export const concepts = ['Paper', 'Plastic', 'glass', 'Metal', 'Compost', 'Trash',
+//     'Justice', 'Peace', 'Comfort', 'Efficiency', 'reliability', 'Safety', 'Speed']
 
 export const concepts = {
     "en": {
-        cptFood: ['mango', 'peach', 'banana', 'carrot'],
-        cptAbstract: ['safety', 'justice', 'peace', 'comfort'],
-        cptEmotion: ['sad', 'love', 'happy', 'angry'],
-        cptWeather: ['drought', 'lightning', 'sandstorm', 'hurricane']
+        cptFood: ['Mango', 'Peach', 'Banana', 'Carrot'],
+        cptAbstract: ['Safety', 'Justice', 'Peace', 'Comfort'],
+        cptEmotion: ['Sad', 'Love', 'Happy', 'Angry'],
+        cptWeather: ['Drought', 'Lightning', 'Sandstorm', 'Hurricane']
     },
     "fr": {
-        cptFood: ['mangue', 'pêche', 'banane', 'carotte'],
-        cptAbstract: ['sureté', 'justice', 'paix', 'confort'],
-        cptEmotion: ['triste', 'amour', 'heureux', 'en colère'],
-        cptWeather: ['sécheresse', 'foudre', 'tempête de sable', 'ouragan']
+        cptFood: ['Mangue', 'Pêche', 'Banane', 'Carotte'],
+        cptAbstract: ['Sureté', 'Justice', 'Paix', 'Confort'],
+        cptEmotion: ['Triste', 'Amour', 'Heureux', 'En colère'],
+        cptWeather: ['Sécheresse', 'Foudre', 'Tempête de sable', 'Ouragan']
     }
 }
 

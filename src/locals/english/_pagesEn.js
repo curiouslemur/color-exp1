@@ -2,7 +2,7 @@
 
 import { ConsentEn, ConsentLabelsEn } from "./consentEn";
 import { DisplayEn, DisplayLabelsEn } from "./displayEn";
-import { IntroEn, IntroLabelsEn } from "./introEn";
+import { IntroEn, FooterEn, IntroLabelsEn } from "./introEn";
 // import { TrialEn, TrialLabels } from "./trialEn"
 // import { OutroEn, OutroLabels } from "./outroEn";
 
@@ -12,7 +12,9 @@ export {
     DisplayEn as Display,
     DisplayLabelsEn as DisplayLabels,
     IntroEn as Intro,
+    FooterEn as Footer,
     IntroLabelsEn as IntroLabels,
+
     // TrialEn as Trial,
     // TrialLabels,
     // OutroEn as Outro,

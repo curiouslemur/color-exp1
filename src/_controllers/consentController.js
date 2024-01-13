@@ -55,5 +55,6 @@ export const onChangeField = (value, key, setDisabledButton) => {
 
 export const onClickStart = (navigate, nextUrl) => {
     sessionStorage.setItem("demography", JSON.stringify(demography))
+    document.body.classList.remove('consent-body');
     navigate(nextUrl)
 }

@@ -16,7 +16,6 @@ const styles = {
 
 export const Display = (props) => {
     useEffect(() => {
-        document.body.classList.remove('consent-body');
         document.body.classList.add('display-body');
     }, []);
 
