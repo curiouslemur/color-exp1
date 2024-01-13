@@ -2,15 +2,15 @@
 import * as d3 from 'd3'
 import { colorCoord } from '../stimuli/colors'
 
-export const addGridColorPatches = () => {
+export const addGridColorPatches = (divId) => {
 
-    d3.select("#grid-color-patches").selectAll("*").remove()
+    d3.select(divId).selectAll("*").remove()
     let colors = colorCoord.slice(0, -1) // remove the last entry which is the coordinates for the background color
 
-    let patchW = 50, patchH = patchW
+    let patchW = 35, patchH = patchW
     let nrow = 4, spacing = 10
 
-    var svg = d3.select("#grid-color-patches").append('svg')
+    var svg = d3.select(divId).append('svg')
         .attr('width', '100%')
         .attr('height', (patchH + spacing) * nrow + 2 * spacing)
 

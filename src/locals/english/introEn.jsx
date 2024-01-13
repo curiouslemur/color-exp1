@@ -46,6 +46,7 @@ export const IntroLabelsEn = {
     cptEmotion: ' sad, love, happy, angry',
     cptWeather: ' drought, lightning, sandstorm, hurricane',
     start: "Start",
-    tutoTitle: "Which color do you associate most with "
+    tutoTitle: "Which color do you associate most with ",
+    closeDialog: "Close"
 }
 export default IntroEn;

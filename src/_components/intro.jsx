@@ -22,15 +22,22 @@ const styles = {
 
 export const Intro = (props) => {
     const [dialogOpen, setDialogOpen] = useState(false)
-    const handleOpenDialog = () => { setDialogOpen(true); };
+    const [chipLabel, setChipLabel] = useState("")
+
+    const handleOpenDialog = (cl) => {
+        setChipLabel(cl)
+        setDialogOpen(true);
+    };
     const handleCloseDialog = () => { setDialogOpen(false); };
 
     useEffect(() => {
         document.body.classList.add('intro-body');
-        ic.addGridColorPatches()
+        ic.addGridColorPatches("#grid-color-patches")
+        ic.addGridColorPatches("#tuto-color-patches")
     }, []);
 
     const labels = props.expPages.IntroLabels
+
 
     return (
         <Grid container style={styles.container} justifyContent="center">
@@ -48,7 +55,7 @@ export const Intro = (props) => {
                             label={c}
                             variant={"outlined"}
                             selected={false}
-                            handleClick={handleOpenDialog}
+                            handleClick={(cl) => handleOpenDialog(c)}
                         />
                     )}
                 </Grid>
@@ -57,12 +64,14 @@ export const Intro = (props) => {
                     onClick={(nav, nu) => {
                         ic.onClickStart(props.navigate, props.nextUrl)
                     }}> {labels.start} </Button>
+                <Grid item><props.expPages.Footer /></Grid>
             </Grid>
-            <Grid item><props.expPages.Footer /></Grid>
 
             <TutoDialog dialogOpen={dialogOpen}
                 handleClose={handleCloseDialog}
-                labels={labels} />
+                labels={labels}
+                chipLabel={chipLabel}
+            />
         </Grid>
     )
 }
@@ -74,18 +83,25 @@ export const ConceptChip = (props) => {
             disabled={disabled}
             label={props.label}
             style={{ marginTop: 10, marginRight: 10 }}
-            onClick={() => { props.handleClick(true); setDisabled(true) }} />
+            onClick={(cl) => {
+                setDisabled(true) // set the Chip as disabled
+                console.log(props.label)
+                props.handleClick(true); // set the dialogOpen boolean as True -> modal opens
+            }} />
     </>)
 }
 
 export const TutoDialog = (props) => {
+    const [open, setOpen] = useState(props.dialogOpen)
     const labels = props.labels
+
     return (
         <React.Fragment>
             <Dialog open={props.dialogOpen} //onClose={handleCloseDialog}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"            >
-                <DialogTitle id="alert-dialog-title">                    {labels.tutoTitle}                </DialogTitle>
+                <DialogTitle id="alert-dialog-title">  {labels.tutoTitle}  {props.chipLabel}?</DialogTitle>
+                <Grid id="tuto-color-patches"> </Grid>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         Let Google help apps determine location. This means sending anonymous
@@ -93,7 +109,7 @@ export const TutoDialog = (props) => {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={props.handleClose}>Disagree</Button>
+                    <Button onClick={props.handleClose}>{labels.closeDialog}</Button>
                 </DialogActions>
             </Dialog>
         </React.Fragment>
