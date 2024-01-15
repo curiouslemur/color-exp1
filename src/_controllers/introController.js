@@ -3,7 +3,7 @@ import * as d3 from 'd3'
 import { colorCoord } from '../stimuli/colors'
 
 export const addGridColorPatches = (divId) => {
-
+    console.log('adding grid')
     d3.select(divId).selectAll("*").remove()
     let colors = colorCoord.slice(0, -1) // remove the last entry which is the coordinates for the background color
 
