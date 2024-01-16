@@ -5,11 +5,6 @@ import sliderEn from '../../_utils/slider-en.gif'
 export const IntroEn = (props) => {
     return (
         <Grid>
-            <Typography paragraph>During this experiment you’ll be presented with each of the colored squares from the set below, one at a time.
-            </Typography>
-
-            <Grid id="grid-color-patches"></Grid>
-
             <Typography > You will be asked to rate <b>how much you associate each color with each of the following concepts</b>:</Typography>
             <Grid container justifyContent="">
                 <i style={{ marginTop: 0 }}>
@@ -23,7 +18,7 @@ export const IntroEn = (props) => {
 
             <Typography paragraph>You will enter your rating by sliding a cursor along a continuous scale ranging from <i>"Not at all"</i> to <i>"Very much"</i>, as shown below</Typography>
             <div style={{ marginTop: 5 }}>
-                <img src={sliderEn} alt="Donut chart in gray-scale" width="55%" />
+                <img src={sliderEn} alt={IntroLabelsEn.sliderAltText} width="55%" />
             </div>
 
             <Typography paragraph style={{ marginTop: '3ch' }}>There will be <b>16 blocks</b> of trials, one for each concept. You will be asked to rate all of the colors for each concept before going on to the next block.</Typography>
@@ -41,12 +36,14 @@ export const FooterEn = (props) => {
 
 export const IntroLabelsEn = {
     introTitle: "Instructions",
+    introOpening: "During this experiment you’ll be presented with each of the colored squares from the set below, one at a time.",
+    sliderAltText: "Example slider for enter assocaition rating",
     cptFood: ' mango, peach, banana, carrot', // cpt is short for concept
     cptAbstract: ' safety, justice, peace, comfort',
     cptEmotion: ' sad, love, happy, angry',
     cptWeather: ' drought, lightning, sandstorm, hurricane',
     start: "Start",
     tutoTitle: "Which color do you associate most with ",
-    closeDialog: "Close"
+    closeDialog: "Close",
 }
 export default IntroEn;

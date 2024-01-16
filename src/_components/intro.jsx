@@ -7,15 +7,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-
-import * as d3 from 'd3'
-
 import * as ic from "../_controllers/introController"
 
 const styles = {
     button: { marginTop: 10, marginBottom: 10 },
-    container: { padding: '1%' },
-    root: { flexGrow: 1, margin: '2%' },
+    root: { flexGrow: 1, margin: '0%' },
     textField: { marginLeft: 10, marginRight: 10, width: 200, }, label: { margin: 0 }
 }
 
@@ -31,18 +27,20 @@ export const Intro = (props) => {
 
     useEffect(() => {
         document.body.classList.add('intro-body');
-        ic.addGridColorPatches("#grid-color-patches");
+        ic.addGridColorPatches("#grid-color-patches", 35, 10);
     }, []);
 
     const labels = props.expPages.IntroLabels
 
     return (
-        <Grid container style={styles.container} justifyContent="center"
-        >
+        <Grid container justifyContent="center"        >
             <Grid item xl={6} xs={9}>
                 <Typography variant="h4">{labels.introTitle}</Typography>
 
                 <hr style={{ color: "#ffffff00", backgroundColor: "#ffffff00", height: 1.5 }} />
+                <Typography paragraph>{labels.introOpening}</Typography>
+
+                <Grid id="grid-color-patches" style={{ marginTop: 10 }}></Grid>
 
                 <Grid item ><props.expPages.Intro /> </Grid>
 
@@ -93,34 +91,20 @@ export const ConceptChip = (props) => {
 
 export const TutoSection = (props) => {
 
-    useEffect(() => {
-        d3.select('#tuto').selectAll("*").remove()
-        const svg = d3.select('#tuto')
-            .append('svg')
-            .attr('width', 400)
-            .attr('height', 200);
-
-        svg.append('circle')
-            .attr('cx', 200)
-            .attr('cy', 50)
-            .attr('r', 30)
-            .attr('fill', 'red');
-    }, []);
+    useEffect(() => { ic.addGridColorPatchesTuto("#tuto", 30, 10); }, []);
 
     const labels = props.labels
     return (
         <Grid container style={styles.container} //justifyContent="center"
             direction="column"
-            justifyContent="center"
             alignItems="center"
+            rowSpacing={10}
         >
-            <Grid item style={{ marginTop: 20 }}>
+            <Grid item style={{ marginTop: 20 }} xs={12} sm={6}>
                 <Typography variant="h7">{labels.tutoTitle} <b> {props.chipLabel}</b>?</Typography>
             </Grid>
-            <Grid item id="tuto">
-            </Grid>
-            test
-            {/* <Grid id="#tuto-color-patches"></Grid> */}
+
+            <Grid id="tuto" style={{ marginTop: 20 }}></Grid>
         </Grid>
     )
 }
