@@ -13,8 +13,6 @@ export const addGridColorPatches = (divId, pW, spacing) => {
         .attr('width', (pW + spacing) * 10)
         .attr('height', (patchH + spacing) * nrow + 2 * spacing)
 
-    // console.log(colors)
-
     const rect = svg.selectAll('rect').data(colors)
         .enter()
         .append('rect')
@@ -24,21 +22,21 @@ export const addGridColorPatches = (divId, pW, spacing) => {
         .attr('x', (d, i) => Math.floor(i / nrow) * (patchW + spacing))
         .attr('y', (d, i) => (i % nrow) * (patchH + spacing) + 10)
         .attr('fill', (d) => d3.lab(d.L, d.a, d.b))
-    // .on('click', (d) => console.log(d))
 
     return rect
 }
 
-export const addGridColorPatchesTuto = (divId, pW, spacing) => {
+export const addGridColorPatchesTuto = (divId, pW, spacing, handleOpenModal) => {
     const rect = addGridColorPatches(divId, pW, spacing)
     rect.on('mouseover', function () {
         let strokeColor = d3.select(this).attr('fill')
         d3.select(this).attr("stroke", strokeColor)
-            .attr("stroke-width", 5)
+            .attr("stroke-width", 6)
     }).on('mouseout', function () {
-        let strokeColor = d3.select(this).attr('fill')
         d3.select(this).attr("stroke-width", 0)
-    }).on('click', () => { alert('clicked a patch') })
+    }).on('click', function () {
+        handleOpenModal(d3.select(this).attr('id'))
+    })
 }
 
 
