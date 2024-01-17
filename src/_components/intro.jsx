@@ -163,7 +163,6 @@ const TutoModal = (props) => {
         }
     });
 
-    // const onChangeSlider = (e) => { console.log(e.target.value) }
     const onChangeSlider = (e) => { setSliderValue(e.target.value) }
 
     return (
@@ -172,63 +171,41 @@ const TutoModal = (props) => {
                 open={props.open}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description">
-                <Grid container//justifyContent="center"
-                    direction="column"
+                <Box sx={sliderStyle}
+                    xs={12} sm={6}
+                    width={400}
                     alignItems="center"
-                    rowSpacing={5}
+                    maxHeight={'100%'}
                 >
-                    <Grid item
-                        sx={sliderStyle}
-                        xs={12} sm={6}
-                        width={400}
+                    <Grid
+                        container
+                        spacing={0}
+                        direction="column"
                         alignItems="center"
-                        rowSpacing={10}
+                        justifyContent="center"
                     >
 
-                        <Typography id="modal-modal-title" component="h2">When you see that color for <b>{chipLabel}</b>, you would rate it near ‘Very much.’</Typography>
+                        <Typography id="modal-modal-title" >
+                            When you see that color with the concept of</Typography>
+                        <Typography><b>{chipLabel.toUpperCase()}</b></Typography>
+                        <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/" + props.modalColorCode + ".png"} alt="color-patches" width="100px" />
 
-                        <img style={{ marginTop: 30 }} src={"./png/" + props.modalColorCode + ".png"} alt="color-patches" width="100px" />
-
-                        <div style={{ marginTop: 30 }}>
+                        <Typography> you would move the slider ⚫️ near <i>'Very much.’</i></Typography>
+                        <div style={{ marginTop: 20 }}>
                             <Slider
                                 track={false}
                                 marks={marks}
                                 sx={{ width: 400, boxShadow: 0, }}
                                 value={sliderValue}
                                 onChange={onChangeSlider}
-                            // onChangeCommitted={(e) => { setCanproceed(true) }}
                             />
                         </div>
-                        <Typography style={{ marginTop: 30 }}>Hello</Typography>
-                        <Button style={{ marginTop: 10 }} onClick={props.close}>Close</Button>
+
+                        <Button variant="outlined" style={{ marginTop: 10 }} onClick={props.close}>Next</Button>
                     </Grid>
-                </Grid>
+                </Box>
             </Modal>
         </ThemeProvider>)
 }
-// export const TutoDialog = (props) => {
-//     const labels = props.labels
-
-//     return (
-//         <React.Fragment>
-//             <Dialog open={props.dialogIsOpen} //onClose={handleCloseDialog}
-//                 aria-labelledby="alert-dialog-title"
-//                 aria-describedby="alert-dialog-description"            >
-//                 {/* <DialogTitle id="alert-dialog-title">  {labels.tutoTitle}  {props.chipLabel} ?</DialogTitle> */}
-
-//                 <Grid id="tuto-slider"> </Grid>
-//                 <DialogContent>
-//                     <div>
-//                         Let Google help apps determine location. This means sending anonymous
-//                         location data to Google, even when no apps are running.
-//                     </div>
-//                 </DialogContent>
-//                 <DialogActions>
-//                     <Button onClick={props.handleClose}>{labels.closeDialog}</Button>
-//                 </DialogActions>
-//             </Dialog>
-//         </React.Fragment>
-//     );
-// }
 
 export default Intro;
