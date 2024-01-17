@@ -185,7 +185,6 @@ const TutoModal = (props) => {
                         rowSpacing={10}
                     >
 
-                        {/* <Grid item sx={sliderStyle} style={{ marginTop: 30 }} xs={12} sm={6}> */}
                         <Typography id="modal-modal-title" component="h2">When you see that color for <b>{chipLabel}</b>, you would rate it near ‘Very much.’</Typography>
 
                         <img style={{ marginTop: 30 }} src={"./png/" + props.modalColorCode + ".png"} alt="color-patches" width="100px" />
