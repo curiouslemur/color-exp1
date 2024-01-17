@@ -18,9 +18,13 @@ const styles = {
 export const Intro = (props) => {
     const [tutoIsopen, setTutoOpen] = useState(false)
     const [chipLabel, setChipLabel] = useState("")
+    const [tryOut, setTryOut] = useState(0)
+    const [cannotStart, setCannotStart] = useState(true)
 
     const handleOpenTutoSection = (chipLabel) => {
         setChipLabel(chipLabel);
+        // Math.floor(tryOut) === 1 ? setTryOut(0) : setTryOut(1)
+        setTryOut(tryOut + 1)
         setTutoOpen(true);
     };
 
@@ -32,8 +36,8 @@ export const Intro = (props) => {
     const labels = props.expPages.IntroLabels
 
     return (
-        <IntroContext.Provider value={{ chipLabel }}>
-            <Grid container justifyContent="center"        >
+        <IntroContext.Provider value={{ chipLabel, tryOut, setCannotStart }}>
+            <Grid container justifyContent="center">
                 <Grid item xl={6} xs={9}>
                     <Typography variant="h4">{labels.introTitle}</Typography>
 
@@ -50,28 +54,21 @@ export const Intro = (props) => {
                                 label={c}
                                 variant={"outlined"}
                                 selected={false}
-                                handleClick={(chipLabel) => handleOpenTutoSection(c)}
+                                handleClick={(chipLabel) => handleOpenTutoSection(c, tryOut)}
                             />
                         )}
                     </Grid>
 
-                    {tutoIsopen && <TutoSection
-                        labels={labels} chipLabel={chipLabel}
-                    />}
+                    {tutoIsopen && <TutoSection labels={labels} chipLabel={chipLabel} />}
 
-                    <Button variant='contained' style={{ marginTop: '5ch' }}
+                    <Button variant='contained' style={{ marginTop: '0ch' }}
+                        disabled={cannotStart}
                         onClick={(nav, nu) => {
                             ic.onClickStart(props.navigate, props.nextUrl)
                         }}> {labels.start} </Button>
 
                     <Grid item><props.expPages.Footer /></Grid>
                 </Grid>
-
-                {/* <TutoDialog dialogIsOpen={dialogIsOpen}
-                handleClose={handleCloseDialog}
-                setDialogOpen={setDialogOpen}
-                labels={labels}
-                chipLabel={chipLabel} /> */}
             </Grid>
         </IntroContext.Provider>
     )
@@ -92,18 +89,21 @@ export const ConceptChip = (props) => {
 }
 
 export const TutoSection = (props) => {
-
+    const { tryOut, setCannotStart } = useContext(IntroContext);
     const [modalIsOpen, setModalOpen] = useState(false)
     const [modalColorCode, setModalColorCode] = useState('')
 
-    const handleCloseModal = () => setModalOpen(false)
+    const labels = props.labels
+    const handleCloseModal = () => {
+        setModalOpen(false)
+        tryOut < 2 ? alert(labels.alert) : setCannotStart(false)
+    }
     const handleOpenModal = (colorCode) => {
         setModalOpen(true)
         setModalColorCode(colorCode)
     }
     useEffect(() => { ic.addGridColorPatchesTuto("#tuto-section", 30, 10, handleOpenModal); }, []);
 
-    const labels = props.labels
     return (
         <Grid container//justifyContent="center"
             direction="column"
@@ -111,9 +111,9 @@ export const TutoSection = (props) => {
             rowSpacing={10}
         >
             <Grid item style={{ marginTop: 30 }} xs={12} sm={6}>
-                <Typography variant="h7"
-                    style={{ backgroundColor: 'white', padding: 7 }}
-                >{labels.tutoTitle} <b> {props.chipLabel}</b>?</Typography>
+                <Typography variant="h7" style={{ backgroundColor: 'white', padding: 7 }}>
+                    {Math.floor(tryOut / 2) === 1 ? labels.tutoQMost : labels.tutoQLeast}  <b> {props.chipLabel}</b>?
+                </Typography>
             </Grid>
 
             <Grid id="tuto-section" style={{ marginTop: 20 }}></Grid>
