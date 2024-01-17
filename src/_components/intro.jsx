@@ -61,7 +61,7 @@ export const Intro = (props) => {
 
                     {tutoIsopen && <TutoSection labels={labels} chipLabel={chipLabel} />}
 
-                    <Button variant='contained' style={{ marginTop: '0ch' }}
+                    <Button variant='contained' style={{ marginTop: '5ch' }}
                         disabled={cannotStart}
                         onClick={(nav, nu) => {
                             ic.onClickStart(props.navigate, props.nextUrl)
