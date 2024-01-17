@@ -1,3 +1,5 @@
+import * as dao from '../_utils/firebase-config'
+
 export const shuffle = (a) => { //Fisher-Yates shuffle
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -27,7 +29,9 @@ export const onClickNext = (
         setProgressBlock(progressBlock + 1)
         setProgressColor(0)
         setColorCodeList(shuffle(colorCodeList))
+        // log values
     } else {
+        // log values
         navigate(nextUrl)
     }
 
