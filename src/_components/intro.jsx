@@ -179,7 +179,7 @@ const TutoModal = (props) => {
                         <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/" + props.modalColorCode + ".png"} alt="color-patches" width="100px" />
 
                         <Typography> {labels.modalMove} <i>
-                            {Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast}  <b> {props.chipLabel}</b>?
+                            {Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast}  <b> {props.chipLabel}</b>
 
                         </i></Typography>
                         <div style={{ marginTop: 20 }}>

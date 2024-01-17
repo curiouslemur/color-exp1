@@ -6,7 +6,7 @@ export const IntroEn = (props) => {
     return (
         <Grid>
             <Typography > You will be asked to rate <b>how much you associate each color with each of the following concepts</b>:</Typography>
-            <Grid container justifyContent="">
+            <Grid container justifyContent="" marginTop={2}>
                 <i style={{ marginTop: 0 }}>
                     {IntroLabelsEn.cptFood},
                     {IntroLabelsEn.cptAbstract},
