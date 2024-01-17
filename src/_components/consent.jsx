@@ -30,7 +30,7 @@ export const Consent = (props) => {
     return (
         <Grid container style={styles.container} justifyContent="center">
 
-            <Grid item xl={6} xs={10}>
+            <Grid item xl={6} xs={10} marginTop={2}>
                 <Typography variant="h4">{labels.consentTitle}</Typography>
 
                 <Grid item >
