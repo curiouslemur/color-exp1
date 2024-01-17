@@ -5,25 +5,17 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 import * as ic from "../_controllers/introController"
-// import * as colorCode from '../stimuli/png/'
 
 const IntroContext = createContext()
-
-const styles = {
-    button: { marginTop: 10, marginBottom: 10 },
-    root: { flexGrow: 1, margin: '0%' },
-    textField: { marginLeft: 10, marginRight: 10, width: 200, }, label: { margin: 0 }
-}
 
 export const Intro = (props) => {
     const [tutoIsopen, setTutoOpen] = useState(false)
     const [chipLabel, setChipLabel] = useState("")
-    const [tryOut, setTryOut] = useState(0)
+    const [tryOut, setTryOut] = useState(Math.floor(Math.random() * (1 - 0 + 1)) + 0) // Math.floor(Math.random() * (max - min + 1)) + min;
     const [cannotStart, setCannotStart] = useState(true)
 
     const handleOpenTutoSection = (chipLabel) => {
         setChipLabel(chipLabel);
-        // Math.floor(tryOut) === 1 ? setTryOut(0) : setTryOut(1)
         setTryOut(tryOut + 1)
         setTutoOpen(true);
     };
@@ -36,7 +28,7 @@ export const Intro = (props) => {
     const labels = props.expPages.IntroLabels
 
     return (
-        <IntroContext.Provider value={{ chipLabel, tryOut, setCannotStart }}>
+        <IntroContext.Provider value={{ labels, chipLabel, tryOut, setCannotStart }}>
             <Grid container justifyContent="center">
                 <Grid item xl={6} xs={9}>
                     <Typography variant="h4">{labels.introTitle}</Typography>
@@ -67,7 +59,9 @@ export const Intro = (props) => {
                             ic.onClickStart(props.navigate, props.nextUrl)
                         }}> {labels.start} </Button>
 
-                    <Grid item><props.expPages.Footer /></Grid>
+                    <Grid item style={{ margin: '15px' }}>
+                        {!cannotStart && <Typography>{labels.noteHelp} <HelpOutlineIcon style={{ marginLeft: 5, marginRight: 5 }} fontSize="medium" /> </Typography>}
+                    </Grid>
                 </Grid>
             </Grid>
         </IntroContext.Provider>
@@ -96,7 +90,9 @@ export const TutoSection = (props) => {
     const labels = props.labels
     const handleCloseModal = () => {
         setModalOpen(false)
-        tryOut < 2 ? alert(labels.alert) : setCannotStart(false)
+        if (tryOut < 2) { alert(labels.alertAgain) }
+        else { setCannotStart(false); alert(labels.alertStart) }
+
     }
     const handleOpenModal = (colorCode) => {
         setModalOpen(true)
@@ -120,20 +116,25 @@ export const TutoSection = (props) => {
 
             <TutoModal open={modalIsOpen}
                 close={handleCloseModal}
-                modalColorCode={modalColorCode}>
+                modalColorCode={modalColorCode}
+                labels={props.labels}>
             </TutoModal>
         </Grid>
     )
 }
 
 const TutoModal = (props) => {
-    const { chipLabel } = useContext(IntroContext);
+    const { chipLabel, labels, tryOut } = useContext(IntroContext);
+
     const [sliderValue, setSliderValue] = useState(50)
+    const [cannotCloseModal, setcannotCloseModal] = useState(true)
+
     const marks = [
         { value: -0, label: "Not at all", },
         { value: 50, },
         { value: 100, label: "Very much", },
     ];
+
     const sliderStyle = {
         position: 'absolute',
         top: '50%',
@@ -163,7 +164,16 @@ const TutoModal = (props) => {
         }
     });
 
-    const onChangeSlider = (e) => { setSliderValue(e.target.value) }
+    const onChangeSlider = (e) => {
+        setcannotCloseModal(false)
+        setSliderValue(e.target.value)
+    }
+
+    const closeModal = () => {
+        setSliderValue(50)
+        setcannotCloseModal(true)
+        props.close()
+    }
 
     return (
         <ThemeProvider theme={sliderTheme}>
@@ -185,12 +195,14 @@ const TutoModal = (props) => {
                         justifyContent="center"
                     >
 
-                        <Typography id="modal-modal-title" >
-                            When you see that color with the concept of</Typography>
+                        <Typography id="modal-modal-title" >{labels.modalWhen}</Typography>
                         <Typography><b>{chipLabel.toUpperCase()}</b></Typography>
                         <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/" + props.modalColorCode + ".png"} alt="color-patches" width="100px" />
 
-                        <Typography> you would move the slider ⚫️ near <i>'Very much.’</i></Typography>
+                        <Typography> {labels.modalMove} <i>
+                            {Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast}  <b> {props.chipLabel}</b>?
+
+                        </i></Typography>
                         <div style={{ marginTop: 20 }}>
                             <Slider
                                 track={false}
@@ -201,7 +213,9 @@ const TutoModal = (props) => {
                             />
                         </div>
 
-                        <Button variant="outlined" style={{ marginTop: 10 }} onClick={props.close}>Next</Button>
+                        <Button variant="outlined" style={{ marginTop: 10 }}
+                            disabled={cannotCloseModal}
+                            onClick={closeModal}>{labels.modalNext}</Button>
                     </Grid>
                 </Box>
             </Modal>

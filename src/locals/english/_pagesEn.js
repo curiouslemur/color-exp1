@@ -12,7 +12,6 @@ export {
     DisplayEn as Display,
     DisplayLabelsEn as DisplayLabels,
     IntroEn as Intro,
-    FooterEn as Footer,
     IntroLabelsEn as IntroLabels,
 
     // TrialEn as Trial,

@@ -27,13 +27,6 @@ export const IntroEn = (props) => {
     )
 }
 
-export const FooterEn = (props) => {
-    return (<Grid>
-        <Typography paragraph style={{ marginTop: 5 }}> Note that the help is always available...</Typography>
-
-    </Grid>)
-}
-
 export const IntroLabelsEn = {
     introTitle: "Instructions",
     introOpening: "During this experiment you’ll be presented with each of the colored squares from the set below, one at a time.",
@@ -45,8 +38,16 @@ export const IntroLabelsEn = {
     start: "Start",
     tutoQMost: "Which color do you associate MOST with ",
     tutoQLeast: "Which color do you associate LEAST with ",
-    closeDialog: "Close",
-    tryOutOdd: "",
-    alert: "Try selecting another concept from the list"
+
+    modalWhen: "When you see that color with the concept of ",
+    modalMove: "you would move the slider ⚫️ near ",
+    modalMarkerMost: "Very much",
+    modalMarkerLeast: "Not at all",
+    modalNext: "Next",
+
+    alertAgain: "Try selecting another concept from the list",
+    alertStart: "You can try another color or concept or start the experiment.",
+
+    noteHelp: "Note that you can review these instructions by clicking on the help icon at the top left of the page."
 }
 export default IntroEn;
