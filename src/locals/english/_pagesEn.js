@@ -2,9 +2,9 @@
 
 import { ConsentEn, ConsentLabelsEn } from "./consentEn";
 import { DisplayEn, DisplayLabelsEn } from "./displayEn";
-import { IntroEn, FooterEn, IntroLabelsEn } from "./introEn";
-// import { TrialEn, TrialLabels } from "./trialEn"
-// import { OutroEn, OutroLabels } from "./outroEn";
+import { IntroEn, IntroLabelsEn } from "./introEn";
+import { TrialEn, TrialLabelsEn } from "./trialEn"
+// import { OutroEn, OutroLabelsEn } from "./outroEn";
 
 export {
     ConsentEn as Consent,
@@ -13,9 +13,8 @@ export {
     DisplayLabelsEn as DisplayLabels,
     IntroEn as Intro,
     IntroLabelsEn as IntroLabels,
-
-    // TrialEn as Trial,
-    // TrialLabels,
+    TrialEn as Trial,
+    TrialLabelsEn as TrialLabels,
     // OutroEn as Outro,
-    // OutroLabels
+    // OutroLabelsEn as OutroLabels
 }

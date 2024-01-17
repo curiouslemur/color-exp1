@@ -1,4 +1,4 @@
-export const colorNames = [
+export const colorCodes = [
     "SR", "LR", "MR", "DR", "SO", "LO", "MO", "DO",
     "SY", "LY", "MY", "DY", "SH", "LH", "MH", "DH",
     "SG", "LG", "MG", "DG", "SC", "LC", "MC", "DC",

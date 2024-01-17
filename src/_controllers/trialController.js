@@ -1,3 +1,30 @@
-export const onClickNext = (navigate, nextUrl) => {
-    navigate(nextUrl)
+export const shuffle = (a) => { //Fisher-Yates shuffle
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i]; a[i] = a[j]; a[j] = x;
+    } return a;
+}
+
+export const onClickNext = (
+    setColorCodeList, colorCodeList, conceptList,
+    setProgressColor, progressColor,
+    setSliderValue, setCannotNext,
+    setProgressBlock, progressBlock,
+    navigate, nextUrl) => {
+
+    if (progressColor < colorCodeList.length - 1) { // colorCodeLength = 37
+        setProgressColor(progressColor + 1)
+        setSliderValue(50)
+        setCannotNext(false)
+        console.log("showing block: ", progressBlock + 1)
+        // log values and color code
+    } else if (progressBlock < conceptList.length - 1) {
+        setProgressBlock(progressBlock + 1)
+        setProgressColor(0)
+        setColorCodeList(shuffle(colorCodeList))
+    } else {
+        navigate(nextUrl)
+    }
+
 }

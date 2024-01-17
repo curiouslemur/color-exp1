@@ -49,6 +49,7 @@ export const getConceptList = (lang) => {
 }
 
 export const onClickStart = (navigate, nextUrl) => {
+    document.body.classList.remove('intro-body');
     navigate(nextUrl)
 }
 

@@ -4,6 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 // import ConsentEn from './locals/english/consentEn';
 import * as navigator from './_components/_route'
+import { colorCodes } from './stimuli/colors'
 
 import './App.css';
 
@@ -36,7 +37,8 @@ function App() {
           nextUrl={subdom + "/trial"} expPages={expPages} conceptList={concepts} />} />
 
         <Route path={subdom + "/trial"} element={<navigator.Trial config={meta} navigate={navigate}
-          nextUrl={subdom + "/outro"} expPages={expPages} />} />
+          nextUrl={subdom + "/outro"} expPages={expPages}
+          conceptList={shuffle(concepts)} colorCodes={shuffle(colorCodes)} />} />
 
         <Route path={subdom + "/outro"} element={<navigator.Outro config={meta} navigate={navigate}
           expPages={expPages} />} />
@@ -63,6 +65,14 @@ const PageMeta = (props) => {
       </HelmetProvider>
     )
   }
+}
+
+export const shuffle = (a) => { //Fisher-Yates shuffle
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i]; a[i] = a[j]; a[j] = x;
+  } return a;
 }
 
 export default App;

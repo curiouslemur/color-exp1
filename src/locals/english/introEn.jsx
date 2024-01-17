@@ -45,6 +45,9 @@ export const IntroLabelsEn = {
     modalMarkerLeast: "Not at all",
     modalNext: "Next",
 
+    markMost: "Very much",
+    markLeast: "Not at All",
+
     alertAgain: "Try selecting another concept from the list",
     alertStart: "You can try another color or concept or start the experiment.",
 

@@ -1,14 +1,105 @@
-import React from "react";
-import { Button } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Button, Grid, Slider, Typography } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+
+import '../App.css'
 import * as tc from "../_controllers/trialController"
+import { sliderStyle, sliderTheme } from "../stimuli/slider";
+
+const styles = {
+    button: { marginTop: 10, marginBottom: 10 },
+    container: { display: 'flex', flexWrap: 'wrap', padding: '5%' },
+    gridItem: { display: 'flex', justifyContent: 'center', alignItems: 'center' },
+    root: { flexGrow: 1, margin: '2%' },
+    textField: { marginLeft: 10, marginRight: 10, width: 200, }, label: { margin: 0 }
+}
+
 export const Trial = (props) => {
+    const labels = props.expPages.TrialLabels
+    const [progressBlock, setProgressBlock] = useState(0)
+    const [progressColor, setProgressColor] = useState(0)
+
+    const [colorCodeList, setColorCodeList] = useState(props.colorCodes) // list of color codes
+    console.log("showing index: ", progressColor)
+
+    const [sliderValue, setSliderValue] = useState(50)
+    const [cannotNext, setCannotNext] = useState(true)
+
+    const conceptList = props.conceptList
+    const nBlock = conceptList.length
+
+    const marks = [
+        { value: -0, label: labels.markMost, },
+        { value: 50, },
+        { value: 100, label: "Very much", },
+    ];
+
+    const onChangeSlider = (e) => {
+        setCannotNext(false)
+        setSliderValue(e.target.value)
+    }
+    useEffect(() => { document.body.classList.add('trial-body'); }, []);
+
     return (
-        <>
-            This is the main trial page
-            <Button onClick={(nav, nu) => tc.onClickNext(props.navigate, props.nextUrl)}>Next</Button>
-        </>
+        <ThemeProvider theme={sliderTheme}>
+
+            <Grid container style={styles.container} justifyContent="center"
+            // spacing={5}
+            >
+
+                <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={0}>
+                    <Typography>{labels.block} {progressBlock + 1} / {nBlock}</Typography>
+                </Grid>
+
+                <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
+                    <Typography style={{ fontSize: '1.25rem' }}><b>{conceptList[progressBlock].toUpperCase()}</b></Typography>
+                </Grid>
+
+                <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
+                    <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/" + colorCodeList[progressColor] + ".png"} alt={"color-patch-" + colorCodeList[progressColor]} width="100px" />
+                </Grid>
+
+                <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
+                    <div style={{ marginTop: 20 }}>
+                        <Slider
+                            track={false}
+                            marks={marks}
+                            sx={{ width: 400, boxShadow: 0, }}
+                            value={sliderValue}
+                            onChange={onChangeSlider}
+                        />
+                    </div>
+                </Grid>
+
+                <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={3}>
+                    <Button variant="contained"
+                        disabled={cannotNext}
+                        onClick={(sccL, ccL, cL,
+                            spC, pC,
+                            ssV, scN,
+                            spB, pB,
+                            nav, nu) => tc.onClickNext(
+                                setColorCodeList, colorCodeList, conceptList,
+                                setProgressColor, progressColor,
+                                setSliderValue, setCannotNext,
+                                setProgressBlock, progressBlock,
+                                props.navigate, props.nextUrl)}
+                    >{labels.nextButton}</Button>
+                </Grid>
+                <Help />
+            </Grid>
+        </ThemeProvider>
     )
 }
 
+const Help = (props) => {
+    return (
+        <div style={{ position: 'absolute', top: 10, left: 10, padding: '10px' }}>
+            <HelpOutlineIcon
+                onClick={() => alert('show instruction here - will fix later')} />
+        </div>
+    )
+}
 export default Trial;
