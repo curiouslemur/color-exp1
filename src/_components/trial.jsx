@@ -31,6 +31,8 @@ export const Trial = (props) => {
     const conceptList = props.conceptList
     const nBlock = conceptList.length
 
+    // console.log(progressColor, colorCodeList)
+
     const marks = [
         { value: -0, label: labels.markMost, },
         { value: 50, },
@@ -73,6 +75,17 @@ export const Trial = (props) => {
                 <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
                     <div style={{ marginTop: 20 }}>
                         <Slider
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    tc.onClickNext(
+                                        setColorCodeList, colorCodeList, conceptList,
+                                        setProgressColor, progressColor,
+                                        setSliderValue, setShowComponent,
+                                        setCannotNext,
+                                        setProgressBlock, progressBlock,
+                                        props.navigate, props.nextUrl)
+                                }
+                            }}
                             track={false}
                             marks={marks}
                             sx={{ width: 400, boxShadow: 0, }}

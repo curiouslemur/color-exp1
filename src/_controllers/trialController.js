@@ -13,11 +13,13 @@ export const onClickNext = (
     setCannotNext,
     setProgressBlock, progressBlock,
     navigate, nextUrl) => {
-
+    if (progressColor === 0 & progressBlock === 0) {
+        alert("You can also press Enter to progress to the next trial")
+    }
     if (progressColor < colorCodeList.length - 1) { // colorCodeLength = 37
         setProgressColor(progressColor + 1)
         setSliderValue(50)
-        setCannotNext(false)
+        setCannotNext(true)
         // console.log("showing block: ", progressBlock + 1)
         // log values and color code
         setShowComponent(false)
