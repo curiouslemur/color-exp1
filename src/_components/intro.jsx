@@ -60,7 +60,12 @@ export const Intro = (props) => {
                         }}> {labels.start} </Button>
 
                     <Grid item style={{ margin: '15px' }}>
-                        {!cannotStart && <Typography>{labels.noteHelp} <HelpOutlineIcon style={{ marginLeft: 5, marginRight: 5 }} fontSize="medium" /> </Typography>}
+                        {!cannotStart && <div>
+                            <Typography>{labels.noteHelp} <HelpOutlineIcon style={{ marginLeft: 5, marginRight: 5 }} fontSize="medium" /> </Typography>
+                            <div style={{ position: 'absolute', top: 0, left: 0, padding: '10px' }}>
+                                <HelpOutlineIcon />
+                            </div>
+                        </div>}
                     </Grid>
                 </Grid>
             </Grid>
