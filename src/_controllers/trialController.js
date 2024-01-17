@@ -9,7 +9,8 @@ export const shuffle = (a) => { //Fisher-Yates shuffle
 export const onClickNext = (
     setColorCodeList, colorCodeList, conceptList,
     setProgressColor, progressColor,
-    setSliderValue, setCannotNext,
+    setSliderValue, setShowComponent,
+    setCannotNext,
     setProgressBlock, progressBlock,
     navigate, nextUrl) => {
 
@@ -17,8 +18,9 @@ export const onClickNext = (
         setProgressColor(progressColor + 1)
         setSliderValue(50)
         setCannotNext(false)
-        console.log("showing block: ", progressBlock + 1)
+        // console.log("showing block: ", progressBlock + 1)
         // log values and color code
+        setShowComponent(false)
     } else if (progressBlock < conceptList.length - 1) {
         setProgressBlock(progressBlock + 1)
         setProgressColor(0)

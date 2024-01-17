@@ -22,7 +22,8 @@ export const Trial = (props) => {
     const [progressColor, setProgressColor] = useState(0)
 
     const [colorCodeList, setColorCodeList] = useState(props.colorCodes) // list of color codes
-    console.log("showing index: ", progressColor)
+    // console.log("showing index: ", progressColor)
+    const [showComponent, setShowComponent] = useState(false);
 
     const [sliderValue, setSliderValue] = useState(50)
     const [cannotNext, setCannotNext] = useState(true)
@@ -40,7 +41,13 @@ export const Trial = (props) => {
         setCannotNext(false)
         setSliderValue(e.target.value)
     }
-    useEffect(() => { document.body.classList.add('trial-body'); }, []);
+    useEffect(() => {
+        document.body.classList.add('trial-body');
+        const timeoutId = setTimeout(() => {
+            setShowComponent(true);
+        }, 250)
+        return () => clearTimeout(timeoutId);
+    }, [showComponent]);
 
     return (
         <ThemeProvider theme={sliderTheme}>
@@ -58,7 +65,9 @@ export const Trial = (props) => {
                 </Grid>
 
                 <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
-                    <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/" + colorCodeList[progressColor] + ".png"} alt={"color-patch-" + colorCodeList[progressColor]} width="100px" />
+                    {!showComponent ?
+                        <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/background.png"} alt={""} width="100px" />
+                        : <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/" + colorCodeList[progressColor] + ".png"} alt={"color-patch-" + colorCodeList[progressColor]} width="100px" />}
                 </Grid>
 
                 <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
@@ -78,12 +87,14 @@ export const Trial = (props) => {
                         disabled={cannotNext}
                         onClick={(sccL, ccL, cL,
                             spC, pC,
-                            ssV, scN,
+                            ssV, sshowC,
+                            scN,
                             spB, pB,
                             nav, nu) => tc.onClickNext(
                                 setColorCodeList, colorCodeList, conceptList,
                                 setProgressColor, progressColor,
-                                setSliderValue, setCannotNext,
+                                setSliderValue, setShowComponent,
+                                setCannotNext,
                                 setProgressBlock, progressBlock,
                                 props.navigate, props.nextUrl)}
                     >{labels.nextButton}</Button>
