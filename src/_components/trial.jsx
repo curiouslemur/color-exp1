@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Button, Grid, Slider, Typography } from "@mui/material";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 import '../App.css'
 import * as tc from "../_controllers/trialController"
-import { sliderStyle, sliderTheme } from "../stimuli/slider";
+import { sliderTheme } from "../stimuli/slider";
 
 const styles = {
     button: { marginTop: 10, marginBottom: 10 },
