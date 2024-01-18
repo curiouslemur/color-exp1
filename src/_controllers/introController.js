@@ -49,6 +49,7 @@ export const getConceptList = (lang) => {
 }
 
 export const onClickStart = (navigate, nextUrl) => {
+    // add tuto answers info from sessionStrorage to gemography: tuto: "[array here]"26
     document.body.classList.remove('intro-body');
     navigate(nextUrl)
 }

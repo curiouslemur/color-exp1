@@ -149,6 +149,7 @@ const TutoModal = (props) => {
     }
 
     const closeModal = () => {
+        // save to sessionStorage: array of {tryOut: 1, q: most/least, ans: , color: colorCode}
         setSliderValue(50)
         setcannotCloseModal(true)
         props.close()

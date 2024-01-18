@@ -23,6 +23,7 @@ export const Consent = (props) => {
     useEffect(() => { document.body.classList.add('consent-body'); }, []);
 
     const labels = props.expPages.ConsentLabels
+    const sessionID = props.config.sessionID
     const countryNames = loadCountries_inLang(props.expLang)
     const languageNames = loadLanguages_inLang(props.expLang)
 
@@ -156,8 +157,8 @@ export const Consent = (props) => {
                 <Button style={{ marginTop: '20px' }}
                     variant="contained"
                     disabled={disabledButton}
-                    onClick={(nav, nu) => {
-                        cc.onClickStart(props.navigate, props.nextUrl)
+                    onClick={(sid, nav, nu) => {
+                        cc.onClickStart(sessionID, props.navigate, props.nextUrl)
                     }}> {labels.sign} </Button>
             </Grid>
         </Grid>

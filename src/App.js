@@ -19,7 +19,7 @@ function App() {
   const expPages = loadPages_inLang(expLang) // these are the pages to be used depending on the language of the exp
   const concepts = loadConcepts_inLang(expLang)
 
-  const meta = { language: expLang, expName: expLang + 'exp1', title: "color-exp1" }
+  const meta = { language: expLang, expName: expLang + 'exp1', title: "color-exp1", sessionID: generateSessionID() }
   const navigate = useNavigate()
   const subdom = "/color-exp1"
 
@@ -65,6 +65,14 @@ const PageMeta = (props) => {
       </HelmetProvider>
     )
   }
+}
+
+const generateSessionID = () => {
+  const d = new Date();
+  // const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  // return month[d.getMonth()] + d.getDate() + "-" + d.getHours() + d.getMinutes() + "-" + d.getSeconds() + d.getMilliseconds()
+  let m = d.getMonth() + 1
+  return "2024" + m + d.getDate() + "-" + d.getHours() + d.getMinutes() + "-" + d.getSeconds() + d.getMilliseconds()
 }
 
 export const shuffle = (a) => { //Fisher-Yates shuffle
