@@ -25,13 +25,15 @@ export const onClickNext = (
         // console.log("showing block: ", progressBlock + 1)
         // log values and color code
         setShowComponent(false)
-    } else if (progressBlock < conceptList.length - 1) {
+        // } else if (progressBlock < conceptList.length - 1) {
+    } else if (progressBlock < conceptList.length - 16) {
         setProgressBlock(progressBlock + 1)
         setProgressColor(0)
         setColorCodeList(shuffle(colorCodeList))
         // log values
     } else {
         // log values
+        document.body.classList.remove('trial-body');
         navigate(nextUrl)
     }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 
 export const OutroEn = (props) => {
     return (
@@ -11,7 +11,7 @@ export const OutroEn = (props) => {
 export const OutroLabelsEn = {
     outroTitle: "Thank you for your participation.",
     closeBrowser: "You may now close this window.",
-    prolificUser1: "Prolific user, click below to collect your reward before closing this window",
+    prolificUserYes: "Prolific user, click below to collect your reward before closing this window",
     prolificUserButton: "Collect"
 }
 

@@ -20,3 +20,11 @@ export const logFs = async (id, record, expLang, expName) => {
     const path = `${expName}/${id}`
     return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
 }
+
+export const logDem = () => { // log demography 
+
+}
+
+export const logData = () => {
+
+}

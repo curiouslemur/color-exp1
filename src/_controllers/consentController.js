@@ -28,7 +28,7 @@ var demography = {
     profession: "",
     colorblind: "",
     visFamiliarity: "",
-    prolificID: getUrlParams().PROLIFIC_PID,
+    prolificID: getUrlParams().PROLIFIC_PID ? getUrlParams().PROLIFIC_PID : "",
     expLang: getUrlParams().lang,
     sessionID: 0,
     progress: 0,
