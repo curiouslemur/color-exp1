@@ -44,7 +44,6 @@ export const getConceptList = (lang) => {
     switch (lang) {
         case "en":
         default:
-
     }
 }
 
