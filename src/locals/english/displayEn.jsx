@@ -1,8 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 
-const b = { color: '#3e3a53' }
-
 export const DisplayEn = (props) => {
     return (
         <Grid container alignContent='justify'

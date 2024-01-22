@@ -4,7 +4,7 @@ import { ConsentEn, ConsentLabelsEn } from "./consentEn";
 import { DisplayEn, DisplayLabelsEn } from "./displayEn";
 import { IntroEn, IntroLabelsEn } from "./introEn";
 import { TrialEn, TrialLabelsEn } from "./trialEn"
-// import { OutroEn, OutroLabelsEn } from "./outroEn";
+import { OutroEn, OutroLabelsEn } from "./outroEn";
 
 export {
     ConsentEn as Consent,
@@ -15,6 +15,6 @@ export {
     IntroLabelsEn as IntroLabels,
     TrialEn as Trial,
     TrialLabelsEn as TrialLabels,
-    // OutroEn as Outro,
-    // OutroLabelsEn as OutroLabels
+    OutroEn as Outro,
+    OutroLabelsEn as OutroLabels
 }
