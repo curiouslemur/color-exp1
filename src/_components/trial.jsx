@@ -83,7 +83,8 @@ export const Trial = (props) => {
                                         tc.onClickNext(
                                             setColorCodeList, colorCodeList, conceptList,
                                             setProgressColor, progressColor,
-                                            setSliderValue, setShowComponent,
+                                            setSliderValue, sliderValue,
+                                            setShowComponent,
                                             setCannotNext, setCanPressEnter,
                                             setProgressBlock, progressBlock,
                                             props.navigate, props.nextUrl)
@@ -104,13 +105,15 @@ export const Trial = (props) => {
                         disabled={cannotNext}
                         onClick={(sccL, ccL, cL,
                             spC, pC,
-                            ssV, sshowC,
+                            ssV, sV,
+                            sshowC,
                             scN, scpE,
                             spB, pB,
                             nav, nu) => tc.onClickNext(
                                 setColorCodeList, colorCodeList, conceptList,
                                 setProgressColor, progressColor,
-                                setSliderValue, setShowComponent,
+                                setSliderValue, sliderValue,
+                                setShowComponent,
                                 setCannotNext, setCanPressEnter,
                                 setProgressBlock, progressBlock,
                                 props.navigate, props.nextUrl)}

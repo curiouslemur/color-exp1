@@ -11,11 +11,32 @@ export const shuffle = (a) => { //Fisher-Yates shuffle
 export const onClickNext = (
     setColorCodeList, colorCodeList, conceptList,
     setProgressColor, progressColor,
-    setSliderValue, setShowComponent,
+    setSliderValue, sliderValue,
+    setShowComponent,
     setCannotNext, setCanPressEnter,
     setProgressBlock, progressBlock,
     navigate, nextUrl) => {
+
     setCanPressEnter(false)
+
+    let dem = JSON.parse(sessionStorage.getItem('demography'))
+    dem.progressBlock = progressBlock
+    dem.progressColor = progressColor
+
+    const record = {}
+
+    const recordData = {
+        ID: dem.sessionID,
+        ans: sliderValue,
+        color: colorCodeList[progressColor],
+        concept: conceptList[progressBlock],
+        progressBlock: progressBlock + 1,
+        progressColor: progressColor + 1
+    }
+    record[(progressBlock + 1) * progressColor] = recordData
+
+    dao.logData(dem.sessionID, record, dem.expLang, dem.expName)
+
     if (progressColor === 0 & progressBlock === 0) {
         alert("You can also press Enter to progress to the next trial")
     }

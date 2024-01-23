@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { addDoc, collection, doc, getFirestore, setDoc } from 'firebase/firestore'
+import { doc, getFirestore, setDoc } from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_APIKEY,
@@ -21,11 +21,14 @@ export const logFs = async (id, record, expLang, expName) => {
     return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
 }
 
-export const logDem = async (id, record, expLang, expName) => { // log demography 
-    const path = `${expName}/${id}`
-    return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
+export const logDem = async (id, record, expLang, expName) => { // log demography under en-color1-dem/sessionID
+    // const path = `${expName + '-dem'}/${id}`
+    // return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
+    return await setDoc(doc(fsdb, expLang + "-" + expName + "-dem", id), record, { merge: true })
+
 }
 
-export const logData = () => {
-
+export const logData = async (id, record, expLang, expName) => { // log data under en-color1/sessionID/
+    const path = `${expName}/${id}`
+    return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
 }
