@@ -87,6 +87,8 @@ export const ConceptChip = (props) => {
     </>)
 }
 
+// The tuto section of the intro page comprises the Question w/ qualifier, the color patches,
+// clicking on one color patch opens the modal
 export const TutoSection = (props) => {
     const { tryOut, setCannotStart } = useContext(IntroContext);
     const [modalIsOpen, setModalOpen] = useState(false)
@@ -111,6 +113,7 @@ export const TutoSection = (props) => {
             alignItems="center"
             rowSpacing={10}
         >
+            {/* Here comes the question  */}
             <Grid item style={{ marginTop: 30 }} xs={12} sm={6}>
                 <Typography variant="h7" style={{ backgroundColor: 'white', padding: 7 }}>
                     {Math.floor(tryOut / 2) === 1 ? labels.tutoQMost : labels.tutoQLeast}  <b> {props.chipLabel}</b>?
@@ -133,6 +136,7 @@ const TutoModal = (props) => {
 
     const [sliderValue, setSliderValue] = useState(50)
     const [cannotCloseModal, setcannotCloseModal] = useState(true)
+    const [tutoValues, setTutoValues] = useState([])
 
     const marks = [
         { value: -0, label: labels.markLeast, },
@@ -140,8 +144,7 @@ const TutoModal = (props) => {
         { value: 100, label: labels.markMost },
     ];
 
-    //     }
-    // });
+
 
     const onChangeSlider = (e) => {
         setcannotCloseModal(false)
@@ -149,7 +152,17 @@ const TutoModal = (props) => {
     }
 
     const closeModal = () => {
-        // save to sessionStorage: array of {tryOut: 1, q: most/least, ans: , color: colorCode}
+        let tmp = tutoValues
+        tmp.push({
+            tryOut: tryOut,
+            qualifier: Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast,
+            color: props.modalColorCode,
+            ans: sliderValue,
+            concept: chipLabel
+        })
+        // save to sessionStorage: array of {tryOut: 1, qualifier: most/least, ans: , color: colorCode, concept}
+        setTutoValues(tmp)
+        sessionStorage.setItem('tutoValues', JSON.stringify(tutoValues))
         setSliderValue(50)
         setcannotCloseModal(true)
         props.close()
@@ -167,6 +180,12 @@ const TutoModal = (props) => {
                     alignItems="center"
                     maxHeight={'100%'}
                 >
+
+                    <Typography id="modal-modal-title" >{labels.modalWhen} "{chipLabel}"</Typography>
+                    <Typography> {labels.modalMove} <i>
+                        {Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast}
+                    </i></Typography>
+
                     <Grid
                         container
                         spacing={0}
@@ -175,14 +194,10 @@ const TutoModal = (props) => {
                         justifyContent="center"
                     >
 
-                        <Typography id="modal-modal-title" >{labels.modalWhen}</Typography>
-                        <Typography><b>{chipLabel.toUpperCase()}</b></Typography>
+
+                        <Typography marginTop={2}><b>{chipLabel.toUpperCase()}</b></Typography>
                         <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/" + props.modalColorCode + ".png"} alt="color-patches" width="100px" />
 
-                        <Typography> {labels.modalMove} <i>
-                            {Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast}  <b> {props.chipLabel}</b>
-
-                        </i></Typography>
                         <div style={{ marginTop: 20 }}>
                             <Slider
                                 track={false}

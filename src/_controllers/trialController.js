@@ -12,9 +12,10 @@ export const onClickNext = (
     setColorCodeList, colorCodeList, conceptList,
     setProgressColor, progressColor,
     setSliderValue, setShowComponent,
-    setCannotNext,
+    setCannotNext, setCanPressEnter,
     setProgressBlock, progressBlock,
     navigate, nextUrl) => {
+    setCanPressEnter(false)
     if (progressColor === 0 & progressBlock === 0) {
         alert("You can also press Enter to progress to the next trial")
     }
@@ -26,7 +27,7 @@ export const onClickNext = (
         // log values and color code
         setShowComponent(false)
         // } else if (progressBlock < conceptList.length - 1) {
-    } else if (progressBlock < conceptList.length - 16) {
+    } else if (progressBlock < conceptList.length - 15) { // The - 15 here is only for testing purposes: to get to the outro page faster
         setProgressBlock(progressBlock + 1)
         setProgressColor(0)
         setColorCodeList(shuffle(colorCodeList))

@@ -27,24 +27,27 @@ var demography = {
     gender: "",
     profession: "",
     colorblind: "",
-    visFamiliarity: "",
+    // visFamiliarity: "",
     prolificID: getUrlParams().PROLIFIC_PID ? getUrlParams().PROLIFIC_PID : "",
     expLang: getUrlParams().lang,
     sessionID: 0,
-    progress: 0,
-    expName: "color-exp1",
+    // progress: 0,
+    expName: "color1",
+    progressBlock: 0,
+    progressColor: 0
 }
 
-const checkStart = (dem, sdb) => {
-    if (dem.countryResLen === "99") { sdb(false) }
+// // Params: demography, setDisableButton: dis/enable button to move to next experiment page
+const checkStart = (dem, setDisableButton) => {
+    if (dem.countryResLen === "99") { setDisableButton(false) }
     else if (dem.countryRes.length > 0
         & dem.countryResLen.length > 0
         & dem.countryResLongest.length > 0
         & dem.languageNative.length > 0
-        & dem.languageOther.length > 0
+        // & dem.languageOther.length > 0
         & dem.age.length > 0 & dem.gender.length > 0 & dem.profession.length > 0
         & dem.colorblind.length > 0
-    ) { sdb(false) } else { sdb(true) }
+    ) { setDisableButton(false) } else { setDisableButton(true) }
 }
 
 export const onChangeField = (value, key, setDisabledButton) => {

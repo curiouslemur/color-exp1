@@ -2,6 +2,8 @@
 import * as d3 from 'd3'
 import { colorCoord } from '../stimuli/colors'
 
+import * as dao from '../_utils/firebase-config'
+
 export const addGridColorPatches = (divId, pW, spacing) => {
     d3.select(divId).selectAll("*").remove()
     let colors = colorCoord.slice(0, -1) // remove the last entry which is the coordinates for the background color
@@ -48,7 +50,15 @@ export const getConceptList = (lang) => {
 }
 
 export const onClickStart = (navigate, nextUrl) => {
-    // add tuto answers info from sessionStrorage to gemography: tuto: "[array here]"26
+    // add tuto answers info from sessionStrorage to gemography: tuto: "[array here]" 
+    let dem = JSON.parse(sessionStorage.getItem('demography'))
+    let tut = sessionStorage.getItem('tutoValues') // record the tutoValues as string in the demography data
+
+    dem.tutoValues = tut
+
+    sessionStorage.setItem('demography', JSON.stringify(dem))
+    dao.logDem(dem.sessionID, dem, dem.expLang, dem.expName)
+
     document.body.classList.remove('intro-body');
     navigate(nextUrl)
 }

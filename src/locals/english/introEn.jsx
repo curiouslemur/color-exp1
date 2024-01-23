@@ -31,7 +31,7 @@ export const IntroLabelsEn = {
     introTitle: "Instructions",
     introOpening: "During this experiment you’ll be presented with each of the colored squares from the set below, one at a time.",
     sliderAltText: "Example slider for enter assocaition rating",
-    cptFood: ' mango, peach, banana, carrot', // cpt is short for concept
+    cptFood: ' mango, peach, banana, carrot', // cpt is short for concept. !! KEEP the space at the beginning of the list
     cptAbstract: ' safety, justice, peace, comfort',
     cptEmotion: ' sad, love, happy, angry',
     cptWeather: ' drought, lightning, sandstorm, hurricane',

@@ -27,6 +27,7 @@ export const Trial = (props) => {
 
     const [sliderValue, setSliderValue] = useState(50)
     const [cannotNext, setCannotNext] = useState(true)
+    const [canPressEnter, setCanPressEnter] = useState(false)
 
     const conceptList = props.conceptList
     const nBlock = conceptList.length
@@ -42,7 +43,9 @@ export const Trial = (props) => {
     const onChangeSlider = (e) => {
         setCannotNext(false)
         setSliderValue(e.target.value)
+        setCanPressEnter(true)
     }
+
     useEffect(() => {
         document.body.classList.add('trial-body');
         const timeoutId = setTimeout(() => {
@@ -50,7 +53,6 @@ export const Trial = (props) => {
         }, 250)
         return () => clearTimeout(timeoutId);
     }, [showComponent]);
-
     return (
         <ThemeProvider theme={sliderTheme}>
 
@@ -77,13 +79,15 @@ export const Trial = (props) => {
                         <Slider
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
-                                    tc.onClickNext(
-                                        setColorCodeList, colorCodeList, conceptList,
-                                        setProgressColor, progressColor,
-                                        setSliderValue, setShowComponent,
-                                        setCannotNext,
-                                        setProgressBlock, progressBlock,
-                                        props.navigate, props.nextUrl)
+                                    if (canPressEnter) {
+                                        tc.onClickNext(
+                                            setColorCodeList, colorCodeList, conceptList,
+                                            setProgressColor, progressColor,
+                                            setSliderValue, setShowComponent,
+                                            setCannotNext, setCanPressEnter,
+                                            setProgressBlock, progressBlock,
+                                            props.navigate, props.nextUrl)
+                                    }
                                 }
                             }}
                             track={false}
@@ -101,13 +105,13 @@ export const Trial = (props) => {
                         onClick={(sccL, ccL, cL,
                             spC, pC,
                             ssV, sshowC,
-                            scN,
+                            scN, scpE,
                             spB, pB,
                             nav, nu) => tc.onClickNext(
                                 setColorCodeList, colorCodeList, conceptList,
                                 setProgressColor, progressColor,
                                 setSliderValue, setShowComponent,
-                                setCannotNext,
+                                setCannotNext, setCanPressEnter,
                                 setProgressBlock, progressBlock,
                                 props.navigate, props.nextUrl)}
                     >{labels.nextButton}</Button>

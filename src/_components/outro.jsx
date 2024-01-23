@@ -18,7 +18,6 @@ export const Outro = (props) => {
         document.body.classList.add('outro-body');
     }, []);
 
-    console.log(oc.isProlificUser())
     return (
         <Grid container style={styles.container} justifyContent='center'>
             <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
@@ -38,12 +37,6 @@ export const Outro = (props) => {
                     {labels.closeBrowser}
                 </Grid>
             }
-            {/* <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
-                <Typography> {oc.isProlificUser ? labels.prolificUserYes : labels.closeBrowser} </Typography>
-            </Grid>
-            <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
-                {oc.isProlificUser ? <Button target="_blank" href="https://www.youtube.com">{labels.prolificUserButton}</Button> : <></>}
-            </Grid> */}
         </Grid >
     )
 }
