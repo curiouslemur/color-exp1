@@ -129,7 +129,7 @@ const Help = (props) => {
     return (
         <div style={{ position: 'absolute', top: 10, left: 10, padding: '10px' }}>
             <HelpOutlineIcon
-                onClick={() => alert('show instruction here - will fix later')} />
+                onClick={() => alert('Under construction')} />
         </div>
     )
 }
