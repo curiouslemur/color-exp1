@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/color-exp1/static/css/main.b39c46ab.css",
-    "main.js": "/color-exp1/static/js/main.70bfed25.js",
+    "main.js": "/color-exp1/static/js/main.ac5ee684.js",
     "static/media/slider-en.gif": "/color-exp1/static/media/slider-en.541a72d1449c026ac0d8.gif",
     "static/media/gray-scale-donut.png": "/color-exp1/static/media/gray-scale-donut.95e8c609a26d16413e38.png",
     "index.html": "/color-exp1/index.html"
   },
   "entrypoints": [
     "static/css/main.b39c46ab.css",
-    "static/js/main.70bfed25.js"
+    "static/js/main.ac5ee684.js"
   ]
 }
