@@ -5,7 +5,8 @@ import sliderFr from '../../_utils/slider-en.gif' // TODO: add sliderFr gif
 export const IntroFr = (props) => {
     return (
         <Grid>
-            <Typography > You will be asked to rate <b>how much you associate each color with each of the following concepts</b>:</Typography>
+            <Typography > Il vous est demandé d'indiquer <b>
+                l'intensité à laquelle vous associer chaque couleur avec chacun des concepts suivants</b>:</Typography>
             <Grid container justifyContent="" marginTop={2}>
                 <i style={{ marginTop: 0 }}>
                     {IntroLabelsFr.cptFood},
@@ -16,41 +17,45 @@ export const IntroFr = (props) => {
             </Grid>
             <br />
 
-            <Typography paragraph>You will enter your rating by sliding a cursor along a continuous scale ranging from <i>"Not at all"</i> to <i>"Very much"</i>, as shown below</Typography>
+            <Typography paragraph>
+                Vous indiquerez votre réponse en faisant glisser un curseur le long d'une échelle continue allant de <i> "Pas du tout" </i> à <i>"Très fortement"</i>, comme indiqué ci-dessous.</Typography>
             <div style={{ marginTop: 5 }}>
                 <img src={sliderFr} alt={IntroLabelsFr.sliderAltText} width="55%" />
             </div>
 
-            <Typography paragraph style={{ marginTop: '3ch' }}>There will be <b>16 blocks</b> of trials, one for each concept. You will be asked to rate all of the colors for each concept before going on to the next block.</Typography>
-            <Typography paragraph> <b>Let's try it!</b> Click on one of the concepts below</Typography>
+            <Typography paragraph style={{ marginTop: '3ch' }}>
+                Il y aura <b>16 Blocs</b> de questions, un pour chaque concept.
+                Vous évaluerez chaque couleur pour chacun des concepts (blocs) avant d'avancer vers le prochain bloc.</Typography>
+            <Typography paragraph> <b>Faison un essai!</b>
+                Cliquez sur un des concepts listés ci-dessous.</Typography>
         </Grid >
     )
 }
 
 export const IntroLabelsFr = {
     introTitle: "Instructions",
-    introOpening: "During this experiment you’ll be presented with each of the colored squares from the set below, one at a time.",
-    sliderAltText: "Example slider for enter assocaition rating",
-    cptFood: ' mango, peach, banana, carrot', // cpt is short for concept. !! KEEP the space at the beginning of the list
-    cptAbstract: ' safety, justice, peace, comfort',
-    cptEmotion: ' sad, love, happy, angry',
-    cptWeather: ' drought, lightning, sandstorm, hurricane',
-    start: "Start",
-    tutoQMost: "Which color do you associate MOST with ",
-    tutoQLeast: "Which color do you associate LEAST with ",
+    introOpening: "Durant cette étude, vous verrez chacune des couleurs ci-dessous, une à la fois.",
+    sliderAltText: "Example de glissière pour indiquer votre réponse",
+    cptFood: ' mangue, pêche, banane, carotte', // cpt is short for concept. !! KEEP the space at the beginning of the list
+    cptAbstract: ' sécurité, justice, paix, confort',
+    cptEmotion: ' triste, amour, heureux, en colère',
+    cptWeather: ' sécheresse, foudre, tempête de sable, ouragan',
+    start: "Commencer",
+    tutoQMost: "Quelle couleur associez-vous LE PLUS avec ",
+    tutoQLeast: "Quelle couleur associez-vous LE MOINS avec ",
 
-    modalWhen: "When you see that color with the concept of ",
-    modalMove: "you would move the slider ⚫️ near ",
-    modalMarkerMost: "Very much",
-    modalMarkerLeast: "Not at all",
-    modalNext: "Next",
+    modalWhen: "Alors quand vous voyez cette couleur et le concept de ",
+    modalMove: "vous glisseriez le curseur ⚫️ vers ",
+    modalMarkerMost: "Très fortement",
+    modalMarkerLeast: "Pas du tout",
+    modalNext: "Suivant",
 
-    markMost: "Very much",
-    markLeast: "Not at All",
+    markMost: "Très fortement",
+    markLeast: "Pas du tout",
 
-    alertAgain: "Try selecting another concept from the list",
-    alertStart: "You can try another color or concept or start the experiment.",
+    alertAgain: "Selectionnez un autre concept depuis la liste.",
+    alertStart: "Vous pouvez essayer une autre couleur ou un autre concept ou commencer l'étude.",
 
-    noteHelp: "Note that you can review these instructions by clicking on the help icon at the top left of the page."
+    noteHelp: "Notez que vous pouvez à tout moment cliquer sur l'icône en haut à gauche pour afficher les instructions."
 }
 export default IntroFr;

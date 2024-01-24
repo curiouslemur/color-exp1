@@ -10,7 +10,7 @@ export const concepts = {
     },
     "fr": {
         cptFood: ['Mangue', 'Pêche', 'Banane', 'Carotte'],
-        cptAbstract: ['Sureté', 'Justice', 'Paix', 'Confort'],
+        cptAbstract: ['Sécurité', 'Justice', 'Paix', 'Confort'],
         cptEmotion: ['Triste', 'Amour', 'Heureux', 'En colère'],
         cptWeather: ['Sécheresse', 'Foudre', 'Tempête de sable', 'Ouragan']
     }
