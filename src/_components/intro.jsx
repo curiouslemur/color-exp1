@@ -100,7 +100,7 @@ export const TutoSection = (props) => {
 
     const handleCloseModal = () => {
         setModalOpen(false)
-        if (tryOut < 2) { alert(labels.alertAgain) }
+        if (tryOut <= 2) { alert(labels.alertAgain) }
         else { setCannotStart(false); alert(labels.alertStart) }
     }
     const handleOpenModal = (colorCode) => {

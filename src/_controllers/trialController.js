@@ -36,7 +36,11 @@ export const onClickNext = (
     const idx = (progressBlock * colorCodeList.length) + progressColor + 1
     record[idx] = recordData
 
-    dao.logData(dem.sessionID, record, dem.expLang, dem.expName)
+    if (dem.countryResLen === '999') {
+        dao.logData(dem.sessionID, record, dem.expLang, dem.expName, 1) // test == 1 : this is a test data
+    } else {
+        dao.logData(dem.sessionID, record, dem.expLang, dem.expName, 0) // test == 1 : this is NOT a test data
+    }
     dao.logDem(dem.sessionID, dem, dem.expLang, dem.expName)
 
     sessionStorage.setItem("demography", JSON.stringify(dem))

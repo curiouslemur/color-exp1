@@ -40,7 +40,7 @@ var demography = {
 
 // // Params: demography, setDisableButton: dis/enable button to move to next experiment page
 const checkStart = (dem, setDisableButton) => {
-    if (dem.countryResLen === "99") { setDisableButton(false) }
+    if (dem.countryResLen === "999") { setDisableButton(false) }
     else if (dem.countryRes.length > 0
         & dem.countryResLen.length > 0
         & dem.countryResLongest.length > 0

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Grid, Typography } from "@mui/material";
 import * as oc from '../_controllers/outroController'
 
@@ -12,8 +12,13 @@ const styles = {
 }
 
 export const Outro = (props) => {
+    const [cannotCollect, setCannotCollect] = useState(false)
+
     const labels = props.expPages.OutroLabels
 
+    const handleClick = () => {
+        setCannotCollect(true)
+    }
     useEffect(() => {
         document.body.classList.add('outro-body');
     }, []);
@@ -30,7 +35,12 @@ export const Outro = (props) => {
                         {labels.prolificUserYes}
                     </Grid>
                     <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
-                        <Button target="_blank" href="https://www.youtube.com">{labels.prolificUserButton}</Button>
+                        <Button
+                            target="_blank" href="https://www.youtube.com"
+                            variant="outlined"
+                            disabled={cannotCollect}
+                            onClick={handleClick}
+                        >{labels.prolificUserButton}</Button>
                     </Grid>
                 </> :
                 <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>

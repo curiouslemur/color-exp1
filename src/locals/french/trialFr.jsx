@@ -2,22 +2,22 @@ import React from "react";
 
 export const TrialFr = (props) => {
     return (
-        <>This is the english trial</>
+        <>This is the French trial</>
     )
 }
 
 export const TrialLabelsFr = {
-    block: "Block: ",
-    markMost: "Very much",
-    markLeast: "Not at All",
-    nextButton: "Next",
+    block: "Bloc: ",
+    markMost: "Très fortement",
+    markLeast: "Pas du tout",
+    nextButton: "Suivant",
     helpModalLabels: {
         title: "Instructions",
-        instruction1: "Rate how much you associate the color with the given concept.",
-        instruction2: "Indicate your rating by moving the slider ⚫️ along the continuous scale from \" Not at all \" to \"Very much\".",
-        close: "Close",
-        break2: "Take a quick break from time to time. \n Look away from the screen and blink your eyes for a few seconds."
+        instruction1: "Indiquez combien vous associez la couleur avec le concept donné.",
+        instruction2: "Indiquez votre réponse en déplaçant le curseur ⚫️ le long de l'échelle continue allant de \"Pas du tout\" à \"Très fortement\".",
+        close: "Fermer",
+        break2: "Faites une petite pause de temps en temps. \n Détournez le regard de l'écran et clignez des yeux pendant quelques secondes."
     },
 
-    break1: "Take a short break!",
+    break1: "Prenez une courte pause!",
 }

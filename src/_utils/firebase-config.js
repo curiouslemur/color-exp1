@@ -21,14 +21,28 @@ export const logFs = async (id, record, expLang, expName) => {
     return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
 }
 
-export const logDem = async (id, record, expLang, expName) => { // log demography under en-color1-dem/sessionID
-    // const path = `${expName + '-dem'}/${id}`
-    // return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
-    return await setDoc(doc(fsdb, expLang + "-" + expName + "-dem", id), record, { merge: true })
-
+// // Params: id: sessionID, demData: data in JSON format
+export const logDem = async (id, demData, expLang, expName) => { // log demography under en-color1-dem/sessionID
+    if (demData.countryResLen === '999') {
+        return await setDoc(doc(fsdb, "test-" + expLang + "-" + expName + "-dem", id), demData, { merge: true })
+    } else {
+        return await setDoc(doc(fsdb, expLang + "-" + expName + "-dem", id), demData, { merge: true })
+    }
 }
 
-export const logData = async (id, record, expLang, expName) => { // log data under en-color1/sessionID/
+/*
+ * @param {*} id 
+ * @param {*} record 
+ * @param {*} expLang 
+ * @param {*} expName 
+ * @param {*} test (bool): 1 this is a test data, 0 thsi is a real data
+ * @returns 
+ */
+export const logData = async (id, record, expLang, expName, test) => { // log data under en-color1/sessionID/
     const path = `${expName}/${id}`
-    return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
+    if (test) {
+        return await setDoc(doc(fsdb, "test-" + expLang + "-" + path), record, { merge: true })
+    } else {
+        return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
+    }
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 export const TrialEn = (props) => {
     return (
-        <>This is the english trial</>
+        <>This is the English trial</>
     )
 }
 
