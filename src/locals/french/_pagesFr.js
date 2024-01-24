@@ -1,15 +1,20 @@
-import { ConsentFr } from "./consentFr";
-// import { IntroFr, IntroLabels } from "./introFr";
-// import { TrialFr, TrialLabels } from "./trialFr"
-// import { OutroFr, OutroLabels } from "./outroFr";
+// // This file exports the localized pages in generic names
+
+import { ConsentFr, ConsentLabelsFr } from "./consentFr";
+import { DisplayFr, DisplayLabelsFr } from "./displayFr";
+import { IntroFr, IntroLabelsFr } from "./introFr";
+import { TrialFr, TrialLabelsFr } from "./trialFr"
+import { OutroFr, OutroLabelsFr } from "./outroFr";
 
 export {
     ConsentFr as Consent,
-    // ConsentLabels,
-    // IntroFr as Intro,
-    // IntroLabels,
-    // TrialFr as Trial,
-    // TrialLabels,
-    // OutroFr as Outro,
-    // OutroLabels
+    ConsentLabelsFr as ConsentLabels,
+    DisplayFr as Display,
+    DisplayLabelsFr as DisplayLabels,
+    IntroFr as Intro,
+    IntroLabelsFr as IntroLabels,
+    TrialFr as Trial,
+    TrialLabelsFr as TrialLabels,
+    OutroFr as Outro,
+    OutroLabelsFr as OutroLabels
 }

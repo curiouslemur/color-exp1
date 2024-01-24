@@ -37,9 +37,9 @@ export const Trial = (props) => {
     // console.log(progressColor, colorCodeList)
 
     const marks = [
-        { value: -0, label: labels.markMost, },
+        { value: -0, label: labels.markLeast, },
         { value: 50, },
-        { value: 100, label: "Very much", },
+        { value: 100, label: labels.markMost, },
     ];
 
     const onChangeSlider = (e) => {
