@@ -10,16 +10,17 @@ export const DisplayFr = (props) => {
         // alignItems="center"
         >
 
-            <Typography>Please <b>adjust the brightness </b> of your display until you can clearly see the differences between all 11 steps of the greyscale test image below.</Typography>
+            <Typography> <b>Ajuster la luminosité </b>
+                de votre écran de sorte à voir distinctivement chaque tranches des niveaux de gris sur l'image ci-dessous.
+            </Typography>
 
-            <Typography ><b>Disable Night shift mode </b> or blue light filters if applicable.</Typography>
-
+            <Typography ><b>Désactivez le "Mode Nuit" </b> ou filtre pour lumière bleue le cas échéant.</Typography>
         </Grid >
     )
 }
 
 export const DisplayLabelsFr = {
-    confirm: 'Confirm how many steps you can see: '
+    confirm: 'Confirmez combien de tranches vous voyez: '
 }
 
 export default DisplayFr;

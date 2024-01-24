@@ -10,7 +10,7 @@ export const DisplayEn = (props) => {
         // alignItems="center"
         >
 
-            <Typography>Please <b>adjust the brightness </b> of your display until you can clearly see the differences between all 11 steps of the greyscale test image below.</Typography>
+            <Typography>Please <b>adjust the brightness </b> of your display until you can clearly see the differences between all 11 steps of the grayscale test image below.</Typography>
 
             <Typography ><b>Disable Night shift mode </b> or blue light filters if applicable.</Typography>
 

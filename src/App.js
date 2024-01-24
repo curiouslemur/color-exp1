@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Routes, Route, useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -14,10 +14,14 @@ import { loadPages_inLang, loadConcepts_inLang } from './_utils/content-loader'
 function App() {
   // Uncomment the two lines below to collect experiment language from the experiment link ?lang=en
   const [searchParams, setSearchParams] = useSearchParams();
-  const expLang = searchParams.get("lang")
+  // const [expLang, setExplang] = useState('en')
+  const [expLang, setExplang] = useState(searchParams.get("lang"))
+
+  // const expLang = searchParams.get("lang")
 
   // const expLang = "en"
   const expPages = loadPages_inLang(expLang) // these are the pages to be used depending on the language of the exp
+  console.log(expLang)
   const concepts = loadConcepts_inLang(expLang)
 
   const meta = { language: expLang, expName: expLang + 'exp1', title: "color-exp1", sessionID: generateSessionID() }
