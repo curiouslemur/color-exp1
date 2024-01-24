@@ -11,10 +11,11 @@ const IntroContext = createContext()
 export const Intro = (props) => {
     const [tutoIsopen, setTutoOpen] = useState(false)
     const [chipLabel, setChipLabel] = useState("")
-    const [tryOut, setTryOut] = useState(Math.floor(Math.random() * (1 - 0 + 1)) + 0) // Math.floor(Math.random() * (max - min + 1)) + min;
+    // const [tryOut, setTryOut] = useState(Math.floor(Math.random() * (1 - 0 + 1)) + 0) // Math.floor(Math.random() * (max - min + 1)) + min;
+    const [tryOut, setTryOut] = useState(1)
     const [cannotStart, setCannotStart] = useState(true)
 
-    const handleOpenTutoSection = (chipLabel) => {
+    const handleOpenTutoSection = (chipLabel) => { // clicking chip
         setChipLabel(chipLabel);
         setTryOut(tryOut + 1)
         setTutoOpen(true);
@@ -46,12 +47,12 @@ export const Intro = (props) => {
                                 label={c}
                                 variant={"outlined"}
                                 selected={false}
-                                handleClick={(chipLabel) => handleOpenTutoSection(c, tryOut)}
+                                handleChipClick={(chipLabel) => handleOpenTutoSection(c, tryOut)}
                             />
                         )}
                     </Grid>
 
-                    {tutoIsopen && <TutoSection labels={labels} chipLabel={chipLabel} />}
+                    {tutoIsopen && <TutoSection labels={labels} chipLabel={chipLabel} tryOut={tryOut} />}
 
                     <Button variant='contained' style={{ marginTop: '5ch' }}
                         disabled={cannotStart}
@@ -82,7 +83,7 @@ export const ConceptChip = (props) => {
             style={{ marginTop: 10, marginRight: 10 }}
             onClick={(cl) => {
                 setDisabled(true) // set the Chip as disabled
-                props.handleClick(true);
+                props.handleChipClick(true);
             }} />
     </>)
 }
@@ -90,16 +91,17 @@ export const ConceptChip = (props) => {
 // The tuto section of the intro page comprises the Question w/ qualifier, the color patches,
 // clicking on one color patch opens the modal
 export const TutoSection = (props) => {
-    const { tryOut, setCannotStart } = useContext(IntroContext);
+    const { setCannotStart } = useContext(IntroContext);
+    const tryOut = props.tryOut
     const [modalIsOpen, setModalOpen] = useState(false)
     const [modalColorCode, setModalColorCode] = useState('')
 
     const labels = props.labels
+
     const handleCloseModal = () => {
         setModalOpen(false)
         if (tryOut < 2) { alert(labels.alertAgain) }
         else { setCannotStart(false); alert(labels.alertStart) }
-
     }
     const handleOpenModal = (colorCode) => {
         setModalOpen(true)
@@ -116,7 +118,7 @@ export const TutoSection = (props) => {
             {/* Here comes the question  */}
             <Grid item style={{ marginTop: 30 }} xs={12} sm={6}>
                 <Typography variant="h7" style={{ backgroundColor: 'white', padding: 7 }}>
-                    {Math.floor(tryOut / 2) === 1 ? labels.tutoQMost : labels.tutoQLeast}  <b> {props.chipLabel}</b>?
+                    {Math.floor(tryOut % 2) === 1 ? labels.tutoQMost : labels.tutoQLeast}  <b> {props.chipLabel}</b>?
                 </Typography>
             </Grid>
 
