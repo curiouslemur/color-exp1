@@ -38,6 +38,5 @@ export const loadLanguages_inLang = (lang) => {
 }
 
 export const loadConcepts_inLang = (lang) => {
-    console.log(lang)
     return Object.values(concepts[lang]).flat()
 }

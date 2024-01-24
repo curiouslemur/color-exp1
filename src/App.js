@@ -15,13 +15,13 @@ function App() {
   // Uncomment the two lines below to collect experiment language from the experiment link ?lang=en
   const [searchParams, setSearchParams] = useSearchParams();
   // const [expLang, setExplang] = useState('en')
-  const [expLang, setExplang] = useState(searchParams.get("lang"))
+  const [expLang, setExplang] = useState(searchParams.get('lang') || sessionStorage.getItem('expLang'))// searchParams.get('lang'))
 
+  sessionStorage.setItem('expLang', expLang)
+  // const expLang = "en"
   // const expLang = searchParams.get("lang")
 
-  // const expLang = "en"
   const expPages = loadPages_inLang(expLang) // these are the pages to be used depending on the language of the exp
-  console.log(expLang)
   const concepts = loadConcepts_inLang(expLang)
 
   const meta = { language: expLang, expName: expLang + 'exp1', title: "color-exp1", sessionID: generateSessionID() }
