@@ -8,36 +8,43 @@ const b = { color: '#3e3a53' }
 export const ConsentFr = (props) => {
     return (
         <Grid container alignContent={'justify'}>
-            <Typography paragraph> Before you begin, please read this page carefully.</Typography>
-            <Typography paragraph><b style={b}>The goal of this study is </b>
-                to learn the different ways people associate colors to concepts of everyday life, and vice versa.</Typography>
+            <Typography paragraph> Avant de commencer, lisez cette page attentivement.</Typography>
+            <Typography paragraph><b style={b}>Le but de cette étude est de </b>
+                comprendre comment les gens associent différentes couleurs aux différents concepts dans la vie de tous les jours.
+            </Typography>
 
-            <Typography paragraph><b style={b}>Procedure: </b>
-                You will be asked to **rate how much you associate a color with a given concept**, using a continuous scale from <i>“not at all”</i> to <i>“very much”</i>.
-                Before starting, you will be asked to provide information about you and to adjust the brightness of your screen.
+            <Typography paragraph><b style={b}>Démarche: </b>
+                Il vous est demandé d'indiquer combien vous pensez qu'une coleur représente un concept donné et vice versa, en utilisant une échelle allant de <i>"Pas du tou"</i>
+                à <i> très fortement</i>.
+                Avant de commencer, on vous posera quelques questions à propos de vous et vous demandera d'ajuster la luminosité de votre écran.
             </Typography>
 
             <Grid style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', marginBottom: 10 }}>
-                <Typography><HelpOutlineIcon style={{ marginLeft: 5, marginRight: 5 }} fontSize="medium" /> At all times, the help button will be available at the top-left of the screen. Click to review instructions on how to complete the survey.</Typography>
+                <Typography><HelpOutlineIcon style={{ marginLeft: 5, marginRight: 5 }} fontSize="medium" />
+                    À tout moment vous pouvez cliquer sur le symbole d'aide pour revoir les instructions.
+                </Typography>
             </Grid>
 
-            <Typography paragraph> <b style={b}>Duration: </b> The experiment will take about 30 minutes.</Typography>
+            <Typography paragraph> <b style={b}>Durée: </b> L'étude durera approximativement 30 minutes. </Typography>
 
-            <Typography paragraph> <b style={b}>Risks to study participants: </b>
-                There are no expected risks to you beyond using a computer in a way similar to everyday activity.
+            <Typography paragraph> <b style={b}>Risques: </b>
+                Il n'y a pas de risques liées à votre participation à cette étude au-delà de celles liées à l'utilisation normales d'une ordinateur.
             </Typography>
 
-            <Typography paragraph> <b style={b}>Privacy: </b>Your participation is anonymous and your responses cannot be used to identify you.</Typography>
+            <Typography paragraph> <b style={b}>Données privées: </b> Votre participation est anonyme et votre réponse ne permettra pas de vous identifier.</Typography>
 
-            <Typography paragraph> <b style={b}>Record keeping: </b> Records of your participation will be held confidential so far as permitted by law.
-                However, the study investigators and, under certain circumstances, the Worcester Polytechnic Institute Institutional Review Board (WPI IRB) will be able to inspect and have access to this data.
-                Any publication or presentation of the data will <b>not</b> identify you.</Typography>
+            <Typography paragraph> <b style={b}>Sauvegarde des données: </b> Vos réponses seront tenues confidentielles dans la mesure permise par la loi.
+                Les membres de l'équipe de recherche et, dans certains cas, le WPI Institutional Review Board auront accès aux données collectées.
+                Toute publication ou présentation des résultats ne permettra <b>pas</b> de vous identifier.
+            </Typography>
 
-            <Typography paragraph> <b style={b}> Your participation in this research is voluntary.  </b> Your refusal to participate will not result in any penalty to you or any loss of benefits to which you may otherwise be entitled.
-                You may decide to stop participating in the research at any time without penalty or loss of other benefits. </Typography>
+            <Typography paragraph> <b style={b}> Votre participation à ce questionnaire est volontaire </b>
+                Votre refus de participer ne vous causera aucune perte de bénéfices auxquelles vous aviez déjà droit.
+                Vous pouvez quitter le questionnaire à tout moment et votre récomponse sera ajusté.
+            </Typography>
 
-            <Typography paragraph> <b style={b}>For more information </b> about this research or your rights as a study participant, please contact Dr.Lane Harrison, Email: ltharrison(at)wpi(dot)edu </Typography>
-            <Typography paragraph> <b style={b}>If you agree to participate, </b> please provide the following information and then click * Sign *</Typography>
+            <Typography paragraph> <b style={b}>Pour plus d'information</b> sur ce recherche ou quesions concernant vos droits en tant que participant(e), veuillez contacter Dr. Lane Harrison, Email: ltharrison(at)wpi(dot)edu </Typography>
+            <Typography paragraph> <b style={b}>Si vous acceptez de participer, </b> veuillez remplir les informations suivantes puis cliquer sur * Signer *</Typography>
             {/* <Typography> <b style={b}></b> </Typography> */}
         </Grid>
     )
@@ -45,27 +52,29 @@ export const ConsentFr = (props) => {
 
 
 export const ConsentLabelsFr = {
-    consentTitle: "Welcome",
-    countryResQ: "From which country are you taking this survey? *",
-    countryResLabel: "Country of residence",
-    countryResLenQ: "How many years have you lived there? *",
+    consentTitle: "Bienvenue",
+    countryResQ: "Quel est votre pays de résidence ? *",
+    countryResLabel: "Pays de résidence",
+    countryResLenQ: "Depuis combien d'années y vivez-vous ? *",
     countryResLenLabel: "",
-    countryResLongestQ: "In which country have you lived the longest? *",
-    countryResLongestLabel: "Longest country of residence",
+    countryResLongestQ: "Dans quel pays avez-vous vécu le plus longtemps ? *",
+    countryResLongestLabel: "Pays de plus longue résidence",
 
-    langNativeQ: "What is your native language? *",
-    langNativeLabel: "Mother tongue",
-    langOtherQ: "What other languages do you know fluently?",
-    langOtherLabel: "List all that apply",
+    langNativeQ: "Quelle est votre langue maternelle ? *",
+    langNativeLabel: "Langue maternelle",
+    langOtherQ: "Quelles autres langues connaissez-vous couramment ?",
+    langOtherLabel: "",
 
-    ageQ: "How old are you? *", ageLabel: "Age",
-    genderQ: "What is your gender? *", genderLabel: "Gender",
+    ageQ: "Quel est votre âge ? *", ageLabel: "Âge",
+    genderQ: "Quel est votre genre ? *", genderLabel: "Genre",
 
-    professionQ: "What is your profession? *", professionLabel: "Profession",
-    colorblindQ: "Do you have some form of color blindness? *", colorblindLabel: "",
-    colorblindYes: "Yes", colorblindNo: "No", colorblindIdk: "I don't know",
+    professionQ: "Quelle est votre profession ? *", professionLabel: "Profession",
+    colorblindQ: "Avez-vous une quelconque forme de daltonisme ? *", colorblindLabel: "",
+    colorblindDefinition: "( Définition daltonisme )",
+    colorblindLink: "https://fr.wikipedia.org/wiki/Daltonisme",
+    colorblindYes: "Oui", colorblindNo: "Non", colorblindIdk: "Je ne sais pas",
 
-    sign: "Sign"
+    sign: "Signer"
 }
 
 export default ConsentFr;

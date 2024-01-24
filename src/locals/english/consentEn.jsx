@@ -13,7 +13,7 @@ export const ConsentEn = (props) => {
                 to learn the different ways people associate colors to concepts of everyday life, and vice versa.</Typography>
 
             <Typography paragraph><b style={b}>Procedure: </b>
-                You will be asked to **rate how much you associate a color with a given concept**, using a continuous scale from <i>“not at all”</i> to <i>“very much”</i>.
+                You will be asked to ** rate how much you associate a color with a given concept **, using a continuous scale from <i>“not at all”</i> to <i>“very much”</i>.
                 Before starting, you will be asked to provide information about you and to adjust the brightness of your screen.
             </Typography>
 
@@ -62,7 +62,10 @@ export const ConsentLabelsEn = {
     genderQ: "What is your gender? *", genderLabel: "Gender",
 
     professionQ: "What is your profession? *", professionLabel: "Profession",
+
     colorblindQ: "Do you have some form of color blindness? *", colorblindLabel: "",
+    olorblindDefinition: "(What is Color blindness?)",
+    colorblindLink: "https://en.wikipedia.org/wiki/Color_blindness",
     colorblindYes: "Yes", colorblindNo: "No", colorblindIdk: "I don't know",
 
     sign: "Sign"

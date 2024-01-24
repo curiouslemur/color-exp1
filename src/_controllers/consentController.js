@@ -30,6 +30,7 @@ var demography = {
     // visFamiliarity: "",
     prolificID: getUrlParams().PROLIFIC_PID ? getUrlParams().PROLIFIC_PID : "",
     expLang: getUrlParams().lang ? getUrlParams().lang : "en",
+    expCountry: getUrlParams().count ? getUrlParams().count : "",
     sessionID: 0,
     // progress: 0,
     expName: "color1",
