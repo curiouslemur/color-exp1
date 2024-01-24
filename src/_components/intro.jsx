@@ -144,8 +144,6 @@ const TutoModal = (props) => {
         { value: 100, label: labels.markMost },
     ];
 
-
-
     const onChangeSlider = (e) => {
         setcannotCloseModal(false)
         setSliderValue(e.target.value)

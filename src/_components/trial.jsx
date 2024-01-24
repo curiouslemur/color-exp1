@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Grid, Slider, Typography } from "@mui/material";
+import { Box, Button, Grid, Modal, Slider, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
@@ -29,6 +29,8 @@ export const Trial = (props) => {
     const [cannotNext, setCannotNext] = useState(true)
     const [canPressEnter, setCanPressEnter] = useState(false)
 
+    const [helpIsOpen, setHelpIsOpen] = useState(false)
+
     const conceptList = props.conceptList
     const nBlock = conceptList.length
 
@@ -46,6 +48,10 @@ export const Trial = (props) => {
         setCanPressEnter(true)
     }
 
+    const closeHelpModal = () => {
+        setHelpIsOpen(false)
+    }
+
     useEffect(() => {
         document.body.classList.add('trial-body');
         const timeoutId = setTimeout(() => {
@@ -53,6 +59,7 @@ export const Trial = (props) => {
         }, 250)
         return () => clearTimeout(timeoutId);
     }, [showComponent]);
+
     return (
         <ThemeProvider theme={sliderTheme}>
 
@@ -119,18 +126,58 @@ export const Trial = (props) => {
                                 props.navigate, props.nextUrl)}
                     >{labels.nextButton}</Button>
                 </Grid>
-                <Help />
+                <div style={{ position: 'absolute', top: 10, left: 10, padding: '10px' }}>
+                    <HelpOutlineIcon
+                        onClick={() => setHelpIsOpen(true)} />
+                </div>
+                <HelpModal
+                    open={helpIsOpen}
+                    close={closeHelpModal}
+                    helpModalLabels={labels.helpModalLabels} />
             </Grid>
         </ThemeProvider>
     )
 }
 
-const Help = (props) => {
+const HelpModal = (props) => {
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+    };
+
+    const labels = props.helpModalLabels
+
     return (
-        <div style={{ position: 'absolute', top: 10, left: 10, padding: '10px' }}>
-            <HelpOutlineIcon
-                onClick={() => alert('Under construction')} />
-        </div>
+        <Modal
+            open={props.open}
+            onClose={props.close}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+        >
+            <Box sx={style}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    {labels.title}
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    {labels.instruction1}
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }} marginBottom={2}>
+                    {labels.instruction2}
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }} marginTop={1} marginBottom={2}>
+                    {labels.break2}
+                </Typography>
+                <Button onClick={props.close}>{labels.close}</Button>
+            </Box>
+        </Modal>
     )
 }
+
 export default Trial;
