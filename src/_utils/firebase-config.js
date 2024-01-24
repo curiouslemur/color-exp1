@@ -22,11 +22,14 @@ export const logFs = async (id, record, expLang, expName) => {
 }
 
 // // Params: id: sessionID, demData: data in JSON format
-export const logDem = async (id, demData, expLang, expName) => { // log demography under en-color1-dem/sessionID
-    if (demData.countryResLen === '999') {
-        return await setDoc(doc(fsdb, "test-" + expLang + "-" + expName + "-dem", id), demData, { merge: true })
+export const logDem = async (dem) => {
+    console.log(dem)
+    if (dem.countryResLen === '999') {
+        return await setDoc(doc(fsdb, "test-" + dem.expLang + "-" + dem.expName + "-dem", dem.sessionID), dem, { merge: true })
+    } else if (dem.expCountry === 'revisit') {
+        return await setDoc(doc(fsdb, "revisit-" + dem.expLang + "-" + dem.expName + "-dem", dem.sessionID), dem, { merge: true })
     } else {
-        return await setDoc(doc(fsdb, expLang + "-" + expName + "-dem", id), demData, { merge: true })
+        return await setDoc(doc(fsdb, dem.expLang + "-" + dem.expName + "-dem", dem.sessionID), dem, { merge: true })
     }
 }
 
@@ -38,11 +41,22 @@ export const logDem = async (id, demData, expLang, expName) => { // log demograp
  * @param {*} test (bool): 1 this is a test data, 0 thsi is a real data
  * @returns 
  */
-export const logData = async (id, record, expLang, expName, test) => { // log data under en-color1/sessionID/
+export const logData_ = async (id, record, expLang, expName, test) => { // log data under en-color1/sessionID/
     const path = `${expName}/${id}`
     if (test) {
         return await setDoc(doc(fsdb, "test-" + expLang + "-" + path), record, { merge: true })
     } else {
         return await setDoc(doc(fsdb, expLang + "-" + path), record, { merge: true })
+    }
+}
+
+export const logData = async (dem, record) => {
+    const path = dem.expName + '/' + dem.sessionID
+    if (dem.countryResLen === '999') {
+        return await setDoc(doc(fsdb, "test-" + dem.expLang + "-" + path), record, { merge: true })
+    } else if (dem.expCountry === 'revisit') {
+        return await setDoc(doc(fsdb, "revisit-" + dem.expLang + "-" + path), record, { merge: true })
+    } else {
+        return await setDoc(doc(fsdb, dem.expLang + "-" + path), record, { merge: true })
     }
 }

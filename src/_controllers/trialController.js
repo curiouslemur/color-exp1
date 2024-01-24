@@ -36,12 +36,19 @@ export const onClickNext = (
     const idx = (progressBlock * colorCodeList.length) + progressColor + 1
     record[idx] = recordData
 
-    if (dem.countryResLen === '999') {
-        dao.logData(dem.sessionID, record, dem.expLang, dem.expName, 1) // test == 1 : this is a test data
-    } else {
-        dao.logData(dem.sessionID, record, dem.expLang, dem.expName, 0) // test == 1 : this is NOT a test data
-    }
-    dao.logDem(dem.sessionID, dem, dem.expLang, dem.expName)
+
+    dao.logData(dem, record)
+
+    // if (dem.countryResLen === '999') {
+    //     dao.logData(dem.sessionID, record, dem.expLang, dem.expName, 1) // test == 1 : this is a test data
+    // } else if (dem.expCountry === 'revisit') {
+    //     dao.logData(dem.sessionID, record, dem.expLang, dem.expName, -1) // test == 1 : this is a revisit data
+    // } else {
+    //     dao.logData(dem.sessionID, record, dem.expLang, dem.expName, 0) // test == 1 : this is NOT a test data
+    // }
+
+    dao.logDem(dem)
+    // dao.logDem(dem.sessionID, dem, dem.expLang, dem.expName)
 
     sessionStorage.setItem("demography", JSON.stringify(dem))
 

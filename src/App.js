@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Routes, Route, useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -27,6 +27,9 @@ function App() {
   const meta = { language: expLang, expName: expLang + 'exp1', title: "color-exp1", sessionID: generateSessionID() }
   const navigate = useNavigate()
   const subdom = "/color-exp1"
+
+  useEffect(() => {
+  }, []);
 
   return (
     <StudyContext.Provider value={{ expLang, concepts }}>

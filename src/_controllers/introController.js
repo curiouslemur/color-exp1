@@ -57,8 +57,8 @@ export const onClickStart = (navigate, nextUrl) => {
     dem.tutoValues = tut
 
     sessionStorage.setItem('demography', JSON.stringify(dem))
-    dao.logDem(dem.sessionID, dem, dem.expLang, dem.expName)
-
+    // dao.logDem(dem.sessionID, dem, dem.expLang, dem.expName)
+    dao.logDem(dem)
     document.body.classList.remove('intro-body');
     navigate(nextUrl)
 }
