@@ -25,7 +25,7 @@ export const ConsentFr = (props) => {
                 </Typography>
             </Grid>
 
-            <Typography paragraph> <b style={b}>Durée: </b> L'étude durera approximativement 30 minutes. </Typography>
+            <Typography paragraph> <b style={b}>Durée: </b> L'étude durera approximativement 40 minutes. </Typography>
 
             <Typography paragraph> <b style={b}>Risques: </b>
                 Il n'y a pas de risques liées à votre participation à cette étude au-delà de celles liées à l'utilisation normales d'une ordinateur.
