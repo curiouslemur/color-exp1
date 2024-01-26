@@ -12,7 +12,7 @@ export const Intro = (props) => {
     const [tutoIsopen, setTutoOpen] = useState(false)
     const [chipLabel, setChipLabel] = useState("")
     // const [tryOut, setTryOut] = useState(Math.floor(Math.random() * (1 - 0 + 1)) + 0) // Math.floor(Math.random() * (max - min + 1)) + min;
-    const [tryOut, setTryOut] = useState(1)
+    const [tryOut, setTryOut] = useState(0)
     const [cannotStart, setCannotStart] = useState(true)
 
     const handleOpenTutoSection = (chipLabel) => { // clicking chip
@@ -91,12 +91,14 @@ export const ConceptChip = (props) => {
 // The tuto section of the intro page comprises the Question w/ qualifier, the color patches,
 // clicking on one color patch opens the modal
 export const TutoSection = (props) => {
-    const { setCannotStart } = useContext(IntroContext);
-    const tryOut = props.tryOut
+    const { setCannotStart, tryOut } = useContext(IntroContext);
+    // const tryOut = props.tryOut
     const [modalIsOpen, setModalOpen] = useState(false)
     const [modalColorCode, setModalColorCode] = useState('')
 
     const labels = props.labels
+
+    const qualifier = tryOut % 2 === 1 ? "most" : "least"
 
     const handleCloseModal = () => {
         setModalOpen(false)
@@ -110,7 +112,7 @@ export const TutoSection = (props) => {
     useEffect(() => { ic.addGridColorPatchesTuto("#tuto-section", 30, 10, handleOpenModal); }, []);
 
     return (
-        <Grid container//justifyContent="center"
+        <Grid container //justifyContent="center"
             direction="column"
             alignItems="center"
             rowSpacing={10}
@@ -118,7 +120,8 @@ export const TutoSection = (props) => {
             {/* Here comes the question  */}
             <Grid item style={{ marginTop: 30 }} xs={12} sm={6}>
                 <Typography variant="h7" style={{ backgroundColor: 'white', padding: 7 }}>
-                    {Math.floor(tryOut % 2) === 1 ? labels.tutoQMost : labels.tutoQLeast}  <b> {props.chipLabel}</b>?
+                    {qualifier === "most" ? labels.tutoQMost : labels.tutoQLeast} <b> {props.chipLabel}</b>?
+                    {/* {Math.floor(tryOut % 2) === 1 ? labels.tutoQMost : labels.tutoQLeast}  <b> {props.chipLabel}</b>? */}
                 </Typography>
             </Grid>
 
@@ -127,7 +130,8 @@ export const TutoSection = (props) => {
             <TutoModal open={modalIsOpen}
                 close={handleCloseModal}
                 modalColorCode={modalColorCode}
-                labels={props.labels}>
+                labels={props.labels}
+                qualifier={qualifier}>
             </TutoModal>
         </Grid>
     )
@@ -155,7 +159,8 @@ const TutoModal = (props) => {
         let tmp = tutoValues
         tmp.push({
             tryOut: tryOut,
-            qualifier: Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast,
+            // qualifier: Math.floor(tryOut % 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast,
+            qualifier: props.qualifier,
             color: props.modalColorCode,
             ans: sliderValue,
             concept: chipLabel
@@ -183,7 +188,9 @@ const TutoModal = (props) => {
 
                     <Typography id="modal-modal-title" >{labels.modalWhen} "{chipLabel}"</Typography>
                     <Typography> {labels.modalMove} <i>
-                        {Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast}
+                        {/* {Math.floor(tryOut / 2) === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast} */}
+                        {/* {tryOut % 2 === 1 ? labels.modalMarkerMost : labels.modalMarkerLeast} */}
+                        {props.qualifier === "most" ? labels.modalMarkerMost : labels.modalMarkerLeast}
                     </i></Typography>
 
                     <Grid
@@ -193,7 +200,6 @@ const TutoModal = (props) => {
                         alignItems="center"
                         justifyContent="center"
                     >
-
 
                         <Typography marginTop={2}><b>{chipLabel.toUpperCase()}</b></Typography>
                         <img style={{ marginTop: 15, marginBottom: 25 }} src={"./png/" + props.modalColorCode + ".png"} alt="color-patches" width="100px" />

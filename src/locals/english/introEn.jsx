@@ -31,10 +31,10 @@ export const IntroLabelsEn = {
     introTitle: "Instructions",
     introOpening: "During this experiment you’ll be presented with each of the colored squares from the set below, one at a time.",
     sliderAltText: "Example slider for enter assocaition rating",
-    cptFood: ' mango, peach, banana, carrot', // cpt is short for concept. !! KEEP the space at the beginning of the list
-    cptAbstract: ' safety, justice, peace, comfort',
-    cptEmotion: ' sad, love, happy, angry',
-    cptWeather: ' drought, lightning, sandstorm, hurricane',
+    cptFood: " mango, peach, banana, carrot ", // cpt is short for concept. !! KEEP the space at the beginning of the list
+    cptAbstract: " safety, justice, peace, comfort",
+    cptEmotion: " sad, love, happy, angry",
+    cptWeather: " drought, lightning, sandstorm, hurricane",
     start: "Start",
     tutoQMost: "Which color do you associate MOST with ",
     tutoQLeast: "Which color do you associate LEAST with ",
@@ -48,7 +48,7 @@ export const IntroLabelsEn = {
     markMost: "Very much",
     markLeast: "Not at All",
 
-    alertAgain: "Select another concept from the list",
+    alertAgain: "Select another concept from the list.",
     alertStart: "You can try another color or concept or start the experiment.",
 
     noteHelp: "Note that you can review these instructions by clicking on the help icon at the top left of the page."
