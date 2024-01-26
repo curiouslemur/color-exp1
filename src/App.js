@@ -15,7 +15,6 @@ import { loadPages_inLang, loadConcepts_inLang } from './_utils/content-loader'
 function App() {
   // Uncomment the two lines below to collect experiment language from the experiment link ?lang=en
   const [searchParams, setSearchParams] = useSearchParams();
-  const [isMobile, setIsMobile] = useState(false)
   // const [expLang, setExplang] = useState('en')
   const [expLang, setExplang] = useState(searchParams.get('lang') || sessionStorage.getItem('expLang'))// searchParams.get('lang'))
 
@@ -28,8 +27,7 @@ function App() {
   const navigate = useNavigate()
   const subdom = "/color-exp1"
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => { }, []);
 
   return (
     <StudyContext.Provider value={{ expLang, concepts }}>

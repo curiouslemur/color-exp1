@@ -18,6 +18,6 @@ export const TrialLabelsEn = {
         close: "Close",
         break2: "Take a quick break from time to time. \n Look away from the screen and blink your eyes for a few seconds."
     },
-
+    nextBlockAlertMessage: "Next up, rate your association of the different colors to the concept of ",
     break1: "Take a short break!",
 }

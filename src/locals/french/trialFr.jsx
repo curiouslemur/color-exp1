@@ -18,6 +18,6 @@ export const TrialLabelsFr = {
         close: "Fermer",
         break2: "Faites une petite pause de temps en temps. \n Détournez le regard de l'écran et clignez des yeux pendant quelques secondes."
     },
-
+    nextBlockAlertMessage: "Dans le bloc suivant, vous evaluerez les couleurs contre le concept de ",
     break1: "Prenez une courte pause!",
 }

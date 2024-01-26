@@ -94,6 +94,7 @@ export const Trial = (props) => {
                                             setShowComponent,
                                             setCannotNext, setCanPressEnter,
                                             setProgressBlock, progressBlock,
+                                            labels.nextBlockAlertMessage,
                                             props.navigate, props.nextUrl)
                                     }
                                 }
@@ -116,6 +117,7 @@ export const Trial = (props) => {
                             sshowC,
                             scN, scpE,
                             spB, pB,
+                            nbaM,
                             nav, nu) => tc.onClickNext(
                                 setColorCodeList, colorCodeList, conceptList,
                                 setProgressColor, progressColor,
@@ -123,6 +125,7 @@ export const Trial = (props) => {
                                 setShowComponent,
                                 setCannotNext, setCanPressEnter,
                                 setProgressBlock, progressBlock,
+                                labels.nextBlockAlertMessage,
                                 props.navigate, props.nextUrl)}
                     >{labels.nextButton}</Button>
                 </Grid>

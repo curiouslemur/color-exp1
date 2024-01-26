@@ -12,7 +12,7 @@ export const Intro = (props) => {
     const [tutoIsopen, setTutoOpen] = useState(false)
     const [chipLabel, setChipLabel] = useState("")
     // const [tryOut, setTryOut] = useState(Math.floor(Math.random() * (1 - 0 + 1)) + 0) // Math.floor(Math.random() * (max - min + 1)) + min;
-    const [tryOut, setTryOut] = useState(0)
+    const [tryOut, setTryOut] = useState(1)
     const [cannotStart, setCannotStart] = useState(true)
 
     const handleOpenTutoSection = (chipLabel) => { // clicking chip

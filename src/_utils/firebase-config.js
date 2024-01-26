@@ -23,7 +23,6 @@ export const logFs = async (id, record, expLang, expName) => {
 
 // // Params: id: sessionID, demData: data in JSON format
 export const logDem = async (dem) => {
-    console.log(dem)
     if (dem.countryResLen === '999') {
         return await setDoc(doc(fsdb, "test-" + dem.expLang + "-" + dem.expName + "-dem", dem.sessionID), dem, { merge: true })
     } else if (dem.expCountry === 'revisit') {
