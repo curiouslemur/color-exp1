@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Routes, Route, useNavigate, useSearchParams } from 'react-router-dom';
 
+import { Grid } from '@mui/material';
 // import ConsentEn from './locals/english/consentEn';
 import * as navigator from './_components/_route'
 import { colorCodes } from './stimuli/colors'
@@ -14,12 +15,11 @@ import { loadPages_inLang, loadConcepts_inLang } from './_utils/content-loader'
 function App() {
   // Uncomment the two lines below to collect experiment language from the experiment link ?lang=en
   const [searchParams, setSearchParams] = useSearchParams();
+  const [isMobile, setIsMobile] = useState(false)
   // const [expLang, setExplang] = useState('en')
   const [expLang, setExplang] = useState(searchParams.get('lang') || sessionStorage.getItem('expLang'))// searchParams.get('lang'))
 
   sessionStorage.setItem('expLang', expLang)
-  // const expLang = "en"
-  // const expLang = searchParams.get("lang")
 
   const expPages = loadPages_inLang(expLang) // these are the pages to be used depending on the language of the exp
   const concepts = loadConcepts_inLang(expLang)
@@ -83,7 +83,7 @@ const generateSessionID = () => {
   return "2024" + m + d.getDate() + "-" + d.getHours() + d.getMinutes() + "-" + d.getSeconds() + d.getMilliseconds()
 }
 
-export const shuffle = (a) => { //Fisher-Yates shuffle
+const shuffle = (a) => { //Fisher-Yates shuffle
   var j, x, i;
   for (i = a.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));

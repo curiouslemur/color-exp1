@@ -16,17 +16,34 @@ const styles = {
 export const Consent = (props) => {
     const [disabledButton, setDisabledButton] = React.useState(true);
     const [selectedValues, setSelectedValues] = useState()
-    // const [countryRes, setCountryRes] = useState("")
-    // const [countryResLen, setCountryResLen] = useState("")
-    // const [countryResLongest, setCountryResLongest] = useState("")
+    const [isMobile, setIsMobile] = useState(false)
 
-    useEffect(() => { document.body.classList.add('consent-body'); }, []);
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 1094)
+    }
+
+    useEffect(
+        () => {
+            document.body.classList.add('consent-body');
+            handleResize()
+            window.addEventListener('resize', handleResize)
+            return () => {
+                window.removeEventListener('resize', handleResize)
+            }
+        }, []);
 
     const labels = props.expPages.ConsentLabels
     const sessionID = props.config.sessionID
     const countryNames = loadCountries_inLang(props.expLang)
     const languageNames = loadLanguages_inLang(props.expLang)
 
+    if (isMobile) {
+        return (
+            <Grid container style={styles.container} justifyContent="center">
+                <Typography> {labels.mobileWarning}</Typography>
+            </Grid>
+        )
+    }
 
     return (
         <Grid container style={styles.container} justifyContent="center">
@@ -166,5 +183,9 @@ export const Consent = (props) => {
 }
 
 
+const MobileWarning = (props) => {
+    switch (props.expLang) {
+    }
+}
 
 export default Consent

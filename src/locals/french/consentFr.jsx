@@ -74,6 +74,7 @@ export const ConsentLabelsFr = {
     colorblindLink: "https://fr.wikipedia.org/wiki/Daltonisme",
     colorblindYes: "Oui", colorblindNo: "Non", colorblindIdk: "Je ne sais pas",
 
+    mobileWarning: " Veuillez utiliser un appareil avec un écran plus large.",
     sign: "Signer"
 }
 

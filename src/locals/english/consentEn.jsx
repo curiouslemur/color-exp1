@@ -68,6 +68,7 @@ export const ConsentLabelsEn = {
     colorblindLink: "https://en.wikipedia.org/wiki/Color_blindness",
     colorblindYes: "Yes", colorblindNo: "No", colorblindIdk: "I don't know",
 
+    mobileWarning: "Please use a device or a computer with wider screen.",
     sign: "Sign"
 }
 
