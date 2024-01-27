@@ -36,7 +36,7 @@ export const Outro = (props) => {
                     </Grid>
                     <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={2}>
                         <Button
-                            target="_blank" href="https://www.youtube.com"
+                            target="_blank" href="https://app.prolific.com/submissions/complete?cc=C4SQTHN5"
                             variant="outlined"
                             disabled={cannotCollect}
                             onClick={handleClick}
