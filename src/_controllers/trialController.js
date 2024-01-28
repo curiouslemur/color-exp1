@@ -29,7 +29,7 @@ export const onClickNext = (
         ID: dem.sessionID,
         ans: sliderValue,
         color: colorCodeList[progressColor],
-        concept: conceptList[progressBlock],
+        concept: conceptList[progressBlock].toLowerCase(),
         progressBlock: progressBlock + 1,
         progressColor: progressColor + 1
     }
