@@ -31,7 +31,8 @@ export const onClickNext = (
         color: colorCodeList[progressColor],
         concept: conceptList[progressBlock].toLowerCase(),
         progressBlock: progressBlock + 1,
-        progressColor: progressColor + 1
+        progressColor: progressColor + 1,
+        expCountry: dem.expCountry
     }
 
     const idx = (progressBlock * colorCodeList.length) + progressColor + 1
