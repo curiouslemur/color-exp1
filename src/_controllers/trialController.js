@@ -59,6 +59,7 @@ export const onClickNext = (
         setProgressColor(0)
         setColorCodeList(shuffle(colorCodeList))
         // TODO: here alert the next block
+        setSliderValue(50)
         alert(nextBlockAlertMessage + conceptList[progressBlock + 1].toUpperCase())
     } else {
         document.body.classList.remove('trial-body');
