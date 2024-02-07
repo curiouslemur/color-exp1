@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Routes, Route, useNavigate, useSearchParams } from 'react-router-dom';
 
-import { Grid } from '@mui/material';
 // import ConsentEn from './locals/english/consentEn';
 import * as navigator from './_components/_route'
 import { colorCodes } from './stimuli/colors'
@@ -16,7 +15,7 @@ function App() {
   // Uncomment the two lines below to collect experiment language from the experiment link ?lang=en
   const [searchParams, setSearchParams] = useSearchParams();
   // const [expLang, setExplang] = useState('en')
-  const [expLang, setExplang] = useState(searchParams.get('lang') || sessionStorage.getItem('expLang'))// searchParams.get('lang'))
+  const [expLang, setExpLang] = useState(searchParams.get('lang') || sessionStorage.getItem('expLang'))// searchParams.get('lang'))
 
   sessionStorage.setItem('expLang', expLang)
 

@@ -16,25 +16,11 @@ export const loadPages_inLang = (lang) => {
 }
 
 export const loadCountries_inLang = (lang) => {
-    // switch (lang) {
-    //     case "en":
     return options.countryNames[lang]
-    // case "fr":
-    //     return options.countryNames["fr"]
-    // default:
-    //     return "Language unknown -- country names not found"
-    // }
 }
 
 export const loadLanguages_inLang = (lang) => {
-    // switch (lang) {
-    //     case "en":
     return options.languageNames.map(obj => ({ lang: obj[lang], "alpha3": obj.alpha3 }))
-    //     return
-    // default:
-    //     return "Language unknown -- language names not found"
-    // }
-    // return options.languageNames
 }
 
 export const loadConcepts_inLang = (lang) => {
