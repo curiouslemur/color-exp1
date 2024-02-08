@@ -30,8 +30,7 @@ var demography = {
     // visFamiliarity: "",
     prolificID: getUrlParams().PROLIFIC_PID ? getUrlParams().PROLIFIC_PID : "",
     expLang: getUrlParams().lang ? getUrlParams().lang : "en",
-    expCountry: getUrlParams().ct ? getUrlParams().ct : "",
-    expVersion: getUrlParams().v ? getUrlParams().v : "", // This is the version of the experiment. E.g.: pilot 2, pilot 2
+    expCountry: getUrlParams().ct ? getUrlParams().ct : "", // mdg2 == pilot #2 for mdg participants
     sessionID: 0,
     // progress: 0,
     expName: "color1",
