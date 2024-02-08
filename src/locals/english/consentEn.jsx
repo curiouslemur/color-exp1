@@ -21,7 +21,7 @@ export const ConsentEn = (props) => {
                 <Typography><HelpOutlineIcon style={{ marginLeft: 5, marginRight: 5 }} fontSize="medium" /> At all times, the help button will be available at the top-left of the screen. Click to review instructions on how to complete the survey.</Typography>
             </Grid>
 
-            <Typography paragraph> <b style={b}>Duration: </b> The experiment will take about 40 minutes.</Typography>
+            <Typography paragraph> <b style={b}>Duration: </b> The experiment will take about 30 minutes.</Typography>
 
             <Typography paragraph> <b style={b}>Risks to study participants: </b>
                 There are no expected risks to you beyond using a computer in a way similar to everyday activity.
