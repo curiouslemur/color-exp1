@@ -30,10 +30,10 @@ export const concepts = {
         cptWeather: ['Drought', 'Tree', 'Healthy', 'Sick']
     },
     "fr": {
-        cptFood: ['Banane', 'Carotte', 'Mangue', 'Pêche'],
-        cptAbstract: ['Confort', 'Justice', 'Paix', 'Sécurité',],
+        cptFood: ['Banane', 'Épices', 'Mangue', 'Pêche'],
+        cptAbstract: ['Vie', 'Justice', 'Paix', 'Mort',],
         cptEmotion: ['En colère', 'Heureux', 'Amour', 'Triste'],
-        cptWeather: ['Sécheresse', 'Arbre', 'Foudre', 'Tempête de sable']
+        cptWeather: ['Sécheresse', 'Arbre', 'En bonne santé', 'Malade']
     }
 }
 
