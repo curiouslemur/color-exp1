@@ -1,18 +1,39 @@
 // export const concepts = ['Paper', 'Plastic', 'glass', 'Metal', 'Compost', 'Trash',
 //     'Justice', 'Peace', 'Comfort', 'Efficiency', 'reliability', 'Safety', 'Speed']
 
+// // The list below was used for Pilot #1
+// export const concepts = {
+//     "en": {
+//         cptFood: ['Banana', 'Carrot', 'Mango', 'Peach'],
+//         cptAbstract: ['Comfort', 'Justice', 'Peace', 'Safety'],
+//         cptEmotion: ['Angry', 'Happy', 'Love', 'Sad'],
+//         cptWeather: ['Drought', 'Hurricane', 'Lightning', 'Sandstorm']
+//     },
+//     "fr": {
+//         cptFood: ['Banane', 'Carotte', 'Mangue', 'Pêche'],
+//         cptAbstract: ['Confort', 'Justice', 'Paix', 'Sécurité',],
+//         cptEmotion: ['En colère', 'Heureux', 'Amour', 'Triste'],
+//         cptWeather: ['Sécheresse', 'Ouragan', 'Foudre', 'Tempête de sable' ]
+//     }
+// }
+
+// // List of concepts for Pilot #2
+// // Concepts that did not have / have fewer colors w/ significant differences (from the combined dataset) are replaced 
+// // w/ carrot -> Spices, comfort -> Life, safety -> Death, 
+// // hurricane -> Tree, lightning -> Healthy, sandstorm --> Sick
+
 export const concepts = {
     "en": {
-        cptFood: ['Mango', 'Peach', 'Banana', 'Carrot'],
-        cptAbstract: ['Safety', 'Justice', 'Peace', 'Comfort'],
-        cptEmotion: ['Sad', 'Love', 'Happy', 'Angry'],
-        cptWeather: ['Drought', 'Lightning', 'Sandstorm', 'Hurricane']
+        cptFood: ['Banana', 'Spices', 'Mango', 'Peach'],
+        cptAbstract: ['Life', 'Justice', 'Peace', 'Death'],
+        cptEmotion: ['Angry', 'Happy', 'Love', 'Sad'],
+        cptWeather: ['Drought', 'Tree', 'Healthy', 'Sick']
     },
     "fr": {
-        cptFood: ['Mangue', 'Pêche', 'Banane', 'Carotte'],
-        cptAbstract: ['Sécurité', 'Justice', 'Paix', 'Confort'],
-        cptEmotion: ['Triste', 'Amour', 'Heureux', 'En colère'],
-        cptWeather: ['Sécheresse', 'Foudre', 'Tempête de sable', 'Ouragan']
+        cptFood: ['Banane', 'Carotte', 'Mangue', 'Pêche'],
+        cptAbstract: ['Confort', 'Justice', 'Paix', 'Sécurité',],
+        cptEmotion: ['En colère', 'Heureux', 'Amour', 'Triste'],
+        cptWeather: ['Sécheresse', 'Arbre', 'Foudre', 'Tempête de sable']
     }
 }
 
