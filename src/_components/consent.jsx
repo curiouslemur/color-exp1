@@ -14,7 +14,7 @@ const styles = {
 }
 
 export const Consent = (props) => {
-    const [disabledButton, setDisabledButton] = React.useState(true);
+    const [disabledButton, setDisabledButton] = useState(true);
     const [selectedValues, setSelectedValues] = useState()
     const [isMobile, setIsMobile] = useState(false)
 

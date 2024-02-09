@@ -38,7 +38,6 @@ export const ConsentEn = (props) => {
 
             <Typography paragraph> <b style={b}>For more information </b> about this research or your rights as a study participant, please contact Dr.Lane Harrison, Email: ltharrison(at)wpi(dot)edu </Typography>
             <Typography paragraph> <b style={b}>If you agree to participate, </b> please provide the following information and then click * Sign *</Typography>
-            {/* <Typography> <b style={b}></b> </Typography> */}
         </Grid>
     )
 }
