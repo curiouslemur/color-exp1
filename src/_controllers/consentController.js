@@ -1,9 +1,10 @@
 export const generateSessionID = () => {
-    const d = new Date();
-    // const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    // return month[d.getMonth()] + d.getDate() + "-" + d.getHours() + d.getMinutes() + "-" + d.getSeconds() + d.getMilliseconds()
-    let m = d.getMonth() + 1
-    return "2024" + m + d.getDate() + "-" + d.getHours() + d.getMinutes() + "-" + d.getSeconds() + d.getMilliseconds()
+    const D = new Date();
+    let m = D.getMonth() + 1
+    let month = m < 10 ? "0" + m : m // if month is Jan --> 01 instead of just 1
+    let d = D.getDate()
+    let day = d < 10 ? "0" + d : d
+    return "2024" + month + day + "-" + D.getHours() + D.getMinutes() + "-" + D.getSeconds() + D.getMilliseconds()
 }
 
 export const getUrlParams = () => {

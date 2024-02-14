@@ -18,9 +18,7 @@ export const Consent = (props) => {
     const [selectedValues, setSelectedValues] = useState()
     const [isMobile, setIsMobile] = useState(false)
 
-    const handleResize = () => {
-        setIsMobile(window.innerWidth < 1094)
-    }
+    const handleResize = () => { setIsMobile(window.innerWidth < 1094) }
 
     useEffect(
         () => {
@@ -41,6 +39,12 @@ export const Consent = (props) => {
         return (
             <Grid container style={styles.container} justifyContent="center">
                 <Typography> {labels.mobileWarning}</Typography>
+            </Grid>
+        )
+    } else if (!props.expLang) {
+        return (
+            <Grid container style={styles.container} justifyContent="center">
+                <Typography variant="h4"> Language undefined</Typography>
             </Grid>
         )
     }

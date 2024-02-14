@@ -10,25 +10,25 @@ export const ConsentFr = (props) => {
         <Grid container alignContent={'justify'}>
             <Typography paragraph> Avant de commencer, lisez cette page attentivement.</Typography>
             <Typography paragraph><b style={b}>Le but de cette étude est de </b>
-                comprendre comment les gens associent différentes couleurs aux différents concepts dans la vie de tous les jours.
+                comprendre comment vous associez différentes couleurs à différents concepts de la vie de tous les jours.
             </Typography>
 
             <Typography paragraph><b style={b}>Démarche: </b>
-                Il vous est demandé d'indiquer combien vous pensez qu'une coleur représente un concept donné et vice versa, en utilisant une échelle allant de <i>"Pas du tou"</i>
-                à <i> très fortement</i>.
+                Il vous est demandé d'indiquer combien vous pensez qu'une couleur représente un concept donné et vice versa, en utilisant une échelle allant de <i>"Pas du tout"</i>
+                à <i> "Très fortement"</i>.
                 Avant de commencer, on vous posera quelques questions à propos de vous et vous demandera d'ajuster la luminosité de votre écran.
             </Typography>
 
             <Grid style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', marginBottom: 10 }}>
                 <Typography><HelpOutlineIcon style={{ marginLeft: 5, marginRight: 5 }} fontSize="medium" />
-                    À tout moment vous pouvez cliquer sur le symbole d'aide pour revoir les instructions.
+                    À tout moment, vous pouvez cliquer sur le symbole d'aide pour revoir les instructions.
                 </Typography>
             </Grid>
 
             <Typography paragraph> <b style={b}>Durée: </b> L'étude durera approximativement 40 minutes. </Typography>
 
             <Typography paragraph> <b style={b}>Risques: </b>
-                Il n'y a pas de risques liées à votre participation à cette étude au-delà de celles liées à l'utilisation normales d'une ordinateur.
+                Il n'y a pas de risque liée à votre participation à cette étude au-delà de celle liée à l'utilisation normale d'un ordinateur.
             </Typography>
 
             <Typography paragraph> <b style={b}>Données privées: </b> Votre participation est anonyme et votre réponse ne permettra pas de vous identifier.</Typography>
@@ -39,11 +39,11 @@ export const ConsentFr = (props) => {
             </Typography>
 
             <Typography paragraph> <b style={b}> Votre participation à ce questionnaire est volontaire </b>
-                Votre refus de participer ne vous causera aucune perte de bénéfices auxquelles vous aviez déjà droit.
+                Votre refus de participer ne vous causera aucune perte de bénéfices auxquelles vous avez déjà droit.
                 Vous pouvez quitter le questionnaire à tout moment et votre récomponse sera ajusté.
             </Typography>
 
-            <Typography paragraph> <b style={b}>Pour plus d'information</b> sur ce recherche ou quesions concernant vos droits en tant que participant(e), veuillez contacter Dr. Lane Harrison, Email: ltharrison(at)wpi(dot)edu </Typography>
+            <Typography paragraph> <b style={b}>Pour plus d'information</b> sur cette recherche ou questions concernant vos droits en tant que participant(e), veuillez contacter Dr. Lane Harrison, Email: ltharrison(at)wpi(dot)edu </Typography>
             <Typography paragraph> <b style={b}>Si vous acceptez de participer, </b> veuillez remplir les informations suivantes puis cliquer sur * Signer *</Typography>
             {/* <Typography> <b style={b}></b> </Typography> */}
         </Grid>
