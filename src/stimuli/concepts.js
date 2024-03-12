@@ -22,20 +22,39 @@
 // // w/ carrot -> Spices, comfort -> Life, safety -> Death, 
 // // hurricane -> Tree, lightning -> Healthy, sandstorm --> Sick
 
+// export const concepts = {
+//     "en": {
+//         cptFood: ['Banana', 'Spices', 'Mango', 'Peach'],
+//         cptAbstract: ['Life', 'Justice', 'Peace', 'Death'],
+//         cptEmotion: ['Angry', 'Happy', 'Love', 'Sad'],
+//         cptWeather: ['Drought', 'Tree', 'Healthy', 'Sick']
+//     },
+//     "fr": {
+//         cptFood: ['Banane', 'Épices', 'Mangue', 'Pêche'],
+//         cptAbstract: ['Vie', 'Justice', 'Paix', 'Mort',],
+//         cptEmotion: ['En colère', 'Heureux', 'Amour', 'Triste'],
+//         cptWeather: ['Sécheresse', 'Arbre', 'En bonne santé', 'Malade']
+//     }
+// }
+
+// // List of concepts for Pilot #3
+// // We selected concepts as follows  3 fruits, 3 concrete (weather), 5 abstract (highly studied), 3 emotions (often hard to translate)
+
 export const concepts = {
     "en": {
-        cptFood: ['Banana', 'Spices', 'Mango', 'Peach'],
-        cptAbstract: ['Life', 'Justice', 'Peace', 'Death'],
-        cptEmotion: ['Angry', 'Happy', 'Love', 'Sad'],
-        cptWeather: ['Drought', 'Tree', 'Healthy', 'Sick']
+        cptFood: ['banana', 'mango', 'peach'],
+        cptAbstract: ['death', 'justice', 'peace', 'safety'],
+        cptEmotion: ['angry', 'happy', 'sad', 'sick'],
+        cptConcrete: ['lightning', 'sandstorm', 'tree']
     },
     "fr": {
-        cptFood: ['Banane', 'Épices', 'Mangue', 'Pêche'],
-        cptAbstract: ['Vie', 'Justice', 'Paix', 'Mort',],
-        cptEmotion: ['En colère', 'Heureux', 'Amour', 'Triste'],
-        cptWeather: ['Sécheresse', 'Arbre', 'En bonne santé', 'Malade']
+        cptFood: ['banane', 'mangue', 'pêche'],
+        cptAbstract: ['mort', 'justice', 'peace', 'sécurité'],
+        cptEmotion: ['en colère', 'heureux', 'triste', 'malade'],
+        cptConcrete: ['foudre', 'tempête de sable', 'arbre']
     }
 }
+
 
 export const getConcepts = (lang) => {
     const con = concepts[lang]

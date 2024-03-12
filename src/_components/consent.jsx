@@ -186,10 +186,4 @@ export const Consent = (props) => {
     )
 }
 
-
-const MobileWarning = (props) => {
-    switch (props.expLang) {
-    }
-}
-
 export default Consent

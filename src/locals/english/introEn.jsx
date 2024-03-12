@@ -49,7 +49,7 @@ export const IntroLabelsEn = {
     markLeast: "Not at All",
 
     alertAgain: "Select another concept from the list.",
-    alertStart: "You can try another color or concept or start the experiment.",
+    alertStart: "You can try another color or concept or scroll down and start the experiment.",
 
     noteHelp: "Note that you can review these instructions by clicking on the help icon at the top left of the page."
 }
