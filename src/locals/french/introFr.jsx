@@ -54,7 +54,7 @@ export const IntroLabelsFr = {
     markLeast: "Pas du tout",
 
     alertAgain: "Selectionnez un autre concept depuis la liste.",
-    alertStart: "Vous pouvez essayer une autre couleur ou un autre concept ou commencer l'étude.",
+    alertStart: "Vous pouvez essayer une autre couleur, un autre concept, ou défiler vers le bas pour commencer l'étude.",
 
     noteHelp: "Notez que vous pouvez à tout moment cliquer sur l'icône en haut à gauche pour afficher les instructions."
 }
