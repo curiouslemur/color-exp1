@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
-import sliderFr from '../../_utils/slider-en.gif' // TODO: add sliderFr gif
+import sliderFr from '../../_utils/slider-fr.gif' // TODO: add sliderFr gif
 
 export const IntroFr = (props) => {
     return (
@@ -20,7 +20,7 @@ export const IntroFr = (props) => {
             <Typography paragraph>
                 Vous indiquerez votre réponse en faisant glisser un curseur le long d'une échelle continue allant de <i> "Pas du tout" </i> à <i>"Très fortement"</i>, comme indiqué ci-dessous.</Typography>
             <div style={{ marginTop: 5 }}>
-                <img src={sliderFr} alt={IntroLabelsFr.sliderAltText} width="55%" />
+                <img src={sliderFr} alt={IntroLabelsFr.sliderAltText} width="600px" />
             </div>
 
             <Typography paragraph style={{ marginTop: '3ch' }}>
