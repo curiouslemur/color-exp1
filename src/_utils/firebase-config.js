@@ -65,7 +65,6 @@ export const logData = async (dem, record) => {
     } else if (dem.expCountry === 'revisit') {
         return await setDoc(doc(fsdb, "revisit-" + dem.expLang + "-" + path), record, { merge: true })
     } else {
-        console.log("dfsfasdfasdf")
         return await setDoc(doc(fsdb, dem.expLang + "-" + path), record, { merge: true })
     }
 }
