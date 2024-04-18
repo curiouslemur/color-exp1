@@ -21,7 +21,7 @@ export const IntroEn = (props) => {
                 <img src={sliderEn} alt={IntroLabelsEn.sliderAltText} width="55%" />
             </div>
 
-            <Typography paragraph style={{ marginTop: '3ch' }}>There will be <b>16 blocks</b> of trials, one for each concept. You will be asked to rate all of the colors for each concept before going on to the next block.</Typography>
+            <Typography paragraph style={{ marginTop: '3ch' }}>There will be <b>14 blocks</b> of trials, one for each concept. You will be asked to rate all of the colors for each concept before going on to the next block.</Typography>
             <Typography paragraph> <b>Let's try it!</b> Click on one of the concepts below</Typography>
         </Grid >
     )
@@ -36,8 +36,8 @@ export const IntroLabelsEn = {
     cptEmotion: " sad, love, happy, angry",
     cptWeather: " drought, lightning, sandstorm, hurricane",
     start: "Start",
-    tutoQMost: "Which color do you associate MOST with ",
-    tutoQLeast: "Which color do you associate LEAST with ",
+    tutoQMost: "Which color do you associate the MOST with ",
+    tutoQLeast: "Which color do you associate the LEAST with ",
 
     modalWhen: "When you see that color with the concept of ",
     modalMove: "you would move the slider ⚫️ near ",
