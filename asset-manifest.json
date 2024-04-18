@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/color-exp1/static/css/main.b39c46ab.css",
-    "main.js": "/color-exp1/static/js/main.af0073a7.js",
+    "main.js": "/color-exp1/static/js/main.be1920c0.js",
     "static/media/slider-en.gif": "/color-exp1/static/media/slider-en.541a72d1449c026ac0d8.gif",
     "static/media/slider-fr.gif": "/color-exp1/static/media/slider-fr.4aa70279bf07067b8b8f.gif",
     "static/media/gray-scale-donut.png": "/color-exp1/static/media/gray-scale-donut.95e8c609a26d16413e38.png",
@@ -9,6 +9,6 @@
   },
   "entrypoints": [
     "static/css/main.b39c46ab.css",
-    "static/js/main.af0073a7.js"
+    "static/js/main.be1920c0.js"
   ]
 }
