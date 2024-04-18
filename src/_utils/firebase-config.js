@@ -20,7 +20,7 @@ const firebaseConfigAlt = {
 }
 
 // initialize firebase
-const app = initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfigAlt)
 
 // initialize cloud Firestore 
 const fsdb = getFirestore(app)
