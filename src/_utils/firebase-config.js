@@ -10,7 +10,7 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_APPID
 }
 
-const firebaseConfigAlt = {
+const firebaseConfig_ALT = {
     apiKey: process.env.REACT_APP_APIKEY_ALT,
     authDomain: process.env.REACT_APP_AUTHDOMAIN_ALT,
     projectId: process.env.REACT_APP_PROJECTID_ALT,
