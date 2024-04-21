@@ -10,14 +10,14 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_APPID
 }
 
-// const firebaseConfig_ALT = {
-//     apiKey: process.env.REACT_APP_APIKEY_ALT,
-//     authDomain: process.env.REACT_APP_AUTHDOMAIN_ALT,
-//     projectId: process.env.REACT_APP_PROJECTID_ALT,
-//     storageBucket: process.env.REACT_APP_STORAGE_BUCKET_ALT,
-//     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDERID_ALT,
-//     appId: process.env.REACT_APP_APPID_ALT
-// }
+const firebaseConfig_ALT = {
+    apiKey: process.env.REACT_APP_APIKEY_ALT,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN_ALT,
+    projectId: process.env.REACT_APP_PROJECTID_ALT,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET_ALT,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDERID_ALT,
+    appId: process.env.REACT_APP_APPID_ALT
+}
 
 // const firebaseConfig_ALT_2 = {
 //     apiKey: process.env.REACT_APP_APIKEY_ALT_2,
@@ -29,7 +29,7 @@ const firebaseConfig = {
 // }
 
 // initialize firebase
-const app = initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig_ALT)
 
 // initialize cloud Firestore 
 const fsdb = getFirestore(app)

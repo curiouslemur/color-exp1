@@ -79,7 +79,10 @@ const generateSessionID = () => {
   let month = m < 10 ? "0" + m : m // if month is Jan --> 01 instead of just 1
   let d = D.getDate()
   let day = d < 10 ? "0" + d : d
-  return "2024" + month + day + "-" + D.getHours() + D.getMinutes() + "-" + D.getSeconds() + D.getMilliseconds()
+  let hour = D.getHours() < 10 ? "0" + D.getHours() : D.getHours()
+  let min = D.getMinutes() < 10 ? "0" + D.getMinutes() : D.getMinutes()
+  // return "2024" + month + day + "-" + D.getHours() + D.getMinutes() + "-" + D.getSeconds() + D.getMilliseconds()
+  return "2024" + month + day + "-" + hour + min + "-" + D.getSeconds() + D.getMilliseconds()
 }
 
 const shuffle = (a) => { //Fisher-Yates shuffle
