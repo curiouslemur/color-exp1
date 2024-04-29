@@ -111,22 +111,23 @@ export const Trial = (props) => {
                 <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={3}>
                     <Button variant="contained"
                         disabled={cannotNext}
-                        onClick={(sccL, ccL, cL,
-                            spC, pC,
-                            ssV, sV,
-                            sshowC,
-                            scN, scpE,
-                            spB, pB,
-                            nbaM,
-                            nav, nu) => tc.onClickNext(
-                                setColorCodeList, colorCodeList, conceptList,
-                                setProgressColor, progressColor,
-                                setSliderValue, sliderValue,
-                                setShowComponent,
-                                setCannotNext, setCanPressEnter,
-                                setProgressBlock, progressBlock,
-                                labels.nextBlockAlertMessage,
-                                props.navigate, props.nextUrl)}
+                        // onClick={(sccL, ccL, cL,
+                        //     spC, pC,
+                        //     ssV, sV,
+                        //     sshowC,
+                        //     scN, scpE,
+                        //     spB, pB,
+                        //     nbaM,
+                        //     nav, nu) => tc.onClickNext(
+                        onClick={(...params) => tc.onClickNext(
+                            setColorCodeList, colorCodeList, conceptList,
+                            setProgressColor, progressColor,
+                            setSliderValue, sliderValue,
+                            setShowComponent,
+                            setCannotNext, setCanPressEnter,
+                            setProgressBlock, progressBlock,
+                            labels.nextBlockAlertMessage,
+                            props.navigate, props.nextUrl)}
                     >{labels.nextButton}</Button>
                 </Grid>
                 <div style={{ position: 'absolute', top: 10, left: 10, padding: '10px' }}>
