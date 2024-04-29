@@ -111,14 +111,7 @@ export const Trial = (props) => {
                 <Grid item xs={10} sm={8} xl={8} style={styles.gridItem} marginTop={3}>
                     <Button variant="contained"
                         disabled={cannotNext}
-                        // onClick={(sccL, ccL, cL,
-                        //     spC, pC,
-                        //     ssV, sV,
-                        //     sshowC,
-                        //     scN, scpE,
-                        //     spB, pB,
-                        //     nbaM,
-                        //     nav, nu) => tc.onClickNext(
+                        // onClick={(sccL, ccL, cL, spC, pC, ssV, sV, sshowC, scN, scpE, spB, pB, nbaM, nav, nu) => tc.onClickNext(
                         onClick={(...params) => tc.onClickNext(
                             setColorCodeList, colorCodeList, conceptList,
                             setProgressColor, progressColor,
