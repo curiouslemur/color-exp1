@@ -38,7 +38,6 @@ export const onClickNext = (
     const idx = (progressBlock * colorCodeList.length) + progressColor + 1
     record[idx] = recordData
 
-
     dao.logData(dem, record)
     dao.logDem(dem)
 
